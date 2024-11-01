@@ -1,0 +1,188 @@
+
+{{#partial "page"}}
+<style>
+    .login-form{
+        padding-left: 0;
+        padding-right: 0;
+        width:100%;
+        float:left;
+        margin-top:0;
+    }
+    .alertBox{
+            align-items: flex-start;
+        display: flex;
+    }
+    .alertBox p{
+            font-size: 13px;
+    margin-bottom: 0;
+    }
+</style>
+<section class="section-login section--bg">
+            <div class="container">
+                <div class="section-login__head">
+                     {{#if forms.login.error}}
+                        {{> components/common/alert-error forms.login.error}}
+                        <br>
+                    {{/if}}
+                    {{#if forms.login.success}}
+                        {{> components/common/alert-success forms.login.success}}
+                          <br>
+                    {{/if}}
+                    <h2>Login to your account</h2>
+                </div>
+                <div class="section-login__forms">
+                    <div class="row">
+                        <div class="col col--half">
+                            <div class="practitioners-box practitioners-box--form">
+                                <h4 class="practitioners-box__name">Sign in to your account</h4>
+                               
+                                <form class="login-form" action="{{urls.auth.check_login}}" method="post">
+                                
+                                     {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
+                            {{inject 'enterPass' (lang 'forms.validate.common.password')}}
+                            
+                                    <div><input type="text" placeholder="Email" name="login_email"></div>
+                                    <div><input type="password" placeholder="Password" name="login_pass"></div>
+                               
+                                        <input type="hidden" id="redirect_to" name="redirect_to" value="/personal-account-dashboard/">
+                            
+                                    <div><button class="login-form__submit" type="submit">Login</button></div>
+                                </form>
+                                  <a class="forgot-password" href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a>
+                                
+                            </div>
+                        </div>
+                        <div class="col col--half">
+                            <div class="practitioners-box practitioners-box--form">
+                                <h4 class="practitioners-box__name">Create an account</h4>
+                                <p>By creating an account you can  receive further educational material, offers and our seasonal newsletter. </p>
+                                <form action="" class="create-account-form" >
+                                    <div>
+                                        <select name="" id="" class="select-account-type">
+                                            <option hidden value="">Choose an account type</option>
+                                            <option value="personal">Personal</option>
+                                            <option value="practitioner">Practitioner</option>
+                                            <!--<option value="">Practitioner - Uncertified</option>
+                                            <option value="">Practitioner - Enrolled</option>
+                                            <option value="">Practitioner - Certified</option>-->
+                                            
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <button class="login-form__submit" type="submit">Create account</button>
+                                        <!--<a href="" class="btn btn--primary">Create Account</a>-->
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript">
+            $(document).ready(function($){
+             
+                $('.create-account-form').submit(function(){
+                    console.log('submit');
+                    var account_type = $('.select-account-type').val();
+                    if(account_type == 'personal'){
+                        window.location.replace("/create-personal-account");
+                    }
+                    else{
+                        window.location.replace("/register-practitioner-account/");
+                    }
+                    return false;
+                });
+            });
+        </script>
+
+{{#skip}}
+<div class="container login">
+    {{#if forms.login.error}}
+    {{> components/common/alert-error forms.login.error}}
+{{/if}}
+{{#if forms.login.success}}
+    {{> components/common/alert-success forms.login.success}}
+{{/if}}
+    <div class="row login-row">
+        
+        <div class="col-1-of-2">
+            {{#if settings.account_creation_enabled}}
+            <div class="new-customer">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3 class="head-primary">CREATE AN ACCOUNT</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="new-customer-intro">{{lang 'login.new_customer.intro' }}</p>
+                        <p class="new-customer-list">
+                            <ul class="new-customer-fact-list">
+                                <li class="new-customer-fact">{{lang 'login.new_customer.fact1' }}</li>
+                                <li class="new-customer-fact">{{lang 'login.new_customer.fact2' }}</li>
+                                <li class="new-customer-fact">{{lang 'login.new_customer.fact3' }}</li>
+                                <li class="new-customer-fact">{{lang 'login.new_customer.fact4' }}</li>
+                                <li class="new-customer-fact">{{lang 'login.new_customer.fact5' }}</li>
+                            </ul>
+                        </p>
+                        <div class="btn-wrap">
+                            <a href="/create-parent-account/" class="btn btn--sm btn--brand2">For Parents</a>
+                            <a href="/create-practitioner-account/" class="btn btn--sm btn--brand">For Practitioner</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        <div class="col-1-of-2">
+                <div class="sign-in-pane">
+                    <div class="form-group">
+                        <h3 class="head-primary">SIGN IN</h3>
+                        <div class="chk-group">
+                            <span><input type="radio" name="role" class="tick-box"> <label for="practitioner"> Practitioner</label></span>
+                            <span><input type="radio" name="role" class="tick-box"> <label for="parents"> Parents</label></span>
+                        </div>
+                                    
+                        
+                        <form class="login-form form" action="{{urls.auth.check_login}}" method="post">
+                            {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
+                            {{inject 'enterPass' (lang 'forms.validate.common.password')}}
+                            <div class="form-field">
+                                <label class="form-label" for="login_email">Email</label>
+                                <input class="form-input" name="login_email" id="login_email" type="email">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-label" for="login_pass">Password</label>
+                                <input class="form-input" id="login_pass" type="password" name="login_pass" autocomplete="off">
+                            </div>
+                            <div class="form-actions">
+                                <input type="checkbox" name="role" class="tick-box"> <label for="remember-me"> Remember me</label></span>
+                                    <input type="submit" class="btn btn--sm btn--brand" value="{{lang 'login.submit_value' }}" style="border:0;">
+                                    <a class="forgot-password" href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a>
+                                
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+<!---<div class="login account-create">
+    
+
+    <div class="login-row">
+        <div class="row">
+            
+            
+        </div>
+            
+           
+        
+     
+    </div>
+</div>-->
+</div>
+{{/skip}}
+{{/partial}}
+
+{{> layout/base}}

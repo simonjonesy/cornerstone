@@ -1,0 +1,24 @@
+.divider {
+    margin: 0 auto;
+    display: block;
+}
+
+.slick-dots {
+    li {
+        button {
+            border: 0;
+            &:before {
+                background: #d8d8d8;
+                width: 15px;
+                height: 15px;
+            }
+        }
+        &.slick-active {
+            button {
+                &:before {
+                    background: $color-brand;
+                }
+            }
+        }
+    }
+}

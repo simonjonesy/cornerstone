@@ -1,0 +1,143 @@
+ {{#or (if customer.customer_group_name '==' 'Practitioner - Certified') (if customer.customer_group_name '==' 'Practitioner - Regular')  }}
+
+         <nav class="nav-secondary ">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    <li>
+                        <a href="#">Account Details  <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                            <li><a href="/account.php?action=account_details">Your details</a></li>
+                            <li><a href="/practice-profile">Practice Profile</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Training Content <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                          <!--  <li><a href="/training-downloads/">Training Downloads</a></li>-->
+                            <li><a href="/training-videos/">Training Videos</a></li>
+                            <li><a href="/certified-only-content/">Certified only content</a></li>
+                          <!--  <li><a href="/dowload-logos/">Dowload logos</a></li>-->
+                        </ul>
+                    </li>
+                    <li><a href="/account.php?action=address_book">Shipping information</a></li>
+                </ul>
+            </div>
+        </nav>
+         {{else  if customer.customer_group_name '==' 'Practitioner 1'}}
+           <nav class="nav-secondary ">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    <li>
+                        <a href="#">Account Details  <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                            <li><a href="/account.php?action=account_details">Your details</a></li>
+                            <li><a href="/practice-profile">Practice Profile</a></li>
+                        </ul>
+                    </li>
+                   
+                    <li><a href="/account.php?action=address_book">Shipping information</a></li>
+                </ul>
+            </div>
+        </nav>
+         
+        {{else  if customer.customer_group_name '==' 'Practitioner - Enrolled'}}
+         <nav class="nav-secondary">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    <li>
+                        <a href="#">Account Details  <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                            <li><a href="/account.php?action=account_details">Your details</a></li>
+                            <li><a href="/practice-profile">Practice Profile</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/training-videos/">Training Videos</a></li>
+                   
+                    <li><a href="/account.php?action=address_book">Shipping information</a></li>
+                </ul>
+            </div>
+        </nav>
+        {{else  if customer.customer_group_name '==' 'Practitioner - Uncertified'}}
+        <nav class="nav-secondary">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    <li>
+                        <a href="#">Account Details  <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                            <li><a href="/account.php?action=account_details">Your details</a></li>
+                            <li><a href="/practice-profile">Practice Profile</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/training-videos/">Training Videos</a>
+                    
+                    </li>
+                    <li><a href="/account.php?action=address_book">Shipping information</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        {{else}}
+        <nav class="nav-secondary">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    {{#skip}}
+                    <li><a href="#">Downloads</a> </li>
+                    {{/skip}}
+                    <li><a href="/account.php?action=account_details">Account preferences</a></li>
+                    <li><a href="/account.php?action=address_book">Address details</a></li>
+                    {{#if customer.customer_group_name '==' 'Parent/Consumer - Ebook Bought'}}
+                     <li class="menu__item menu__item--highlighted"><a href="/profile-ebook-bought#review">Leave a review</a></li
+                    {{else}}
+                    <li class="menu__item menu__item--highlighted"><a href="/personal-account-dashboard#review">Leave a review</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+        {{/or}}
+<div class="account-head">
+    <div class="container">
+         <h3>My Account</h3>
+         {{#skip}}
+        <nav class="navBar navBar--sub navBar--account">
+            <ul class="navBar-section">
+                {{#if account_page '===' 'orders'}}
+                    {{#if page_type '===' 'account_order'}}
+                        <li class="navBar-item is-active">
+                            <a class="navBar-action" href="{{urls.account.orders.all}}">Recent Orders</a>
+                        </li>
+                    {{else}}
+                        <li class="navBar-item is-active">Recent Orders</li>
+                    {{/if}}
+                {{else}}
+                    <li class="navBar-item">
+                        <a class="navBar-action" href="{{urls.account.orders.all}}">Recent Orders</a>
+                    </li>
+                {{/if}}               
+               
+                {{#if account_page '===' 'settings'}}
+                    <li class="navBar-item is-active">Account Settings</li>
+                {{else}}
+                    <li class="navBar-item">
+                        <a class="navBar-action" href="{{urls.account.details}}">Account Settings</a>
+                    </li>
+                {{/if}}
+                
+                {{#if account_page '===' 'addresses'}}
+                <li class="navBar-item is-active">Addresses</li>
+            {{else}}
+                <li class="navBar-item">
+                    <a class="navBar-action" href="{{urls.account.addresses}}">Addresses</a>
+                </li>
+            {{/if}}
+            </ul>
+        </nav>
+        {{/skip}}
+    </div>
+</div>
+   

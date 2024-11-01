@@ -1,0 +1,118 @@
+.acc-wrap {
+    margin: 10px 0;
+}
+.acc-container {
+    width: 100%;
+    margin: auto;
+
+    .acc-body {
+        width: 98%;
+        width: calc(100% - 0px);
+        margin: 0 auto;
+        height: 0;
+        color: rgba(0, 0, 0, 0);
+        background-color: #fff;
+        line-height: 28px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        transition: 0.5s;
+        a{
+          color: transparent;
+        }
+      }
+
+      label {
+        cursor: pointer;
+        background-color:#fff;
+        //background-color:#3eb4e4;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: block;
+        padding: 15px;
+        width: 100%;
+        color: #707e85;
+        font-weight: bold;
+        box-sizing: border-box;
+        z-index: 100;
+        border-left: 8px solid #3eb4e4;
+      }
+
+      input{
+        display: none;
+      }
+
+      label:before {
+        font-family: 'FontAwesome';
+        content: '\f067';
+        font-weight: bolder;
+        float: right;
+      }
+
+      label:before {
+        font-size: 2rem;
+        font-family: FontAwesome;
+        content: '+';
+        transition: .5s;
+        border: 2px solid;
+        border-radius: 30px;
+        width: 22px;
+        height: 22px;
+        line-height: 0.9;
+        color: #3eb4e4!important;
+        text-align: center;
+      }
+        input:checked+label {
+            background-color: #3eb4e4;
+            color: #fff;
+        }
+        input:checked+label:before {
+            text-align: center;
+            font-family: FontAwesome;
+            content: '-';
+            transition: .5s;
+            border: 2px solid;
+            border-radius: 30px;
+            width: 22px;
+            height: 22px;
+            line-height: 0.7;
+            color: #fff!important;
+        }
+        input:checked~.acc-body {
+            height: auto;
+            color: #758591;
+            font-size: 16px;
+            padding: 20px;
+            transition: 0.5s;
+        }
+        
+         
+         @media only screen and (max-width: 56.25em){
+         label:before {
+            font-size: 2rem;
+            font-family: FontAwesome;
+            content: '+';
+            transition: .5s;
+            border: 2px solid;
+            border-radius: 30px;
+            width: 22px;
+            height: 22px;
+            line-height: 1.1;
+            color: #3eb4e4!important;
+            text-align: center;
+            padding: 0 4px;
+          }
+          input:checked+label:before {
+            text-align: center;
+            font-family: FontAwesome;
+            content: '-';
+            transition: .5s;
+            border: 2px solid;
+            border-radius: 30px;
+            width: 22px;
+            height: 22px;
+            line-height: 0.8;
+            color: #fff!important;
+            padding: 0 6px;
+        }
+    }
+    
+  }

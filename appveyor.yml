@@ -1,0 +1,61 @@
+- version: dev.{build}
+  image:
+    - Visual Studio 2022
+  environment:
+    APPVEYOR: true
+    CI: true
+    CI_WINDOWS: true
+    nodejs_version: '14.21.3'
+    STENCIL_TOKEN:
+      secure: aLY+P1gHBSP4vqOyhdWg+kxKL3Qqf7ZjdRu/Ty363z8=
+  branches:
+    # whitelist
+    only:
+      - dev
+  # Do not build feature branch with open Pull Requests
+  skip_branch_with_pr: true
+  install:
+    # Get the latest stable version of Node.js or io.js
+    - ps: Install-Product node $env:nodejs_version
+    - cmd: npm install
+    - cmd: npm install -g @bigcommerce/stencil-cli@6.1.1
+  before_build:
+    - cmd: stencil init --port=3000 --url=https://myomunchee.com/ --token=%STENCIL_TOKEN%
+
+  build_script:
+    - cmd: stencil bundle
+
+  # disable automatic tests
+  test: off
+  deploy: off
+
+- version: prod.{build}
+  image:
+    - Visual Studio 2022
+  environment:
+    APPVEYOR: true
+    CI: true
+    CI_WINDOWS: true
+    nodejs_version: '14.21.3'
+    STENCIL_TOKEN:
+      secure: aLY+P1gHBSP4vqOyhdWg+kxKL3Qqf7ZjdRu/Ty363z8=
+  branches:
+    # whitelist
+    only:
+      - master
+  # Do not build feature branch with open Pull Requests
+  skip_branch_with_pr: true
+  install:
+    # Get the latest stable version of Node.js or io.js
+    - ps: Install-Product node $env:nodejs_version
+    - cmd: npm install
+    - cmd: npm install -g @bigcommerce/stencil-cli@6.1.1
+  before_build:
+    - cmd: stencil init --port=3000 --url=https://myomunchee.com/ --token=%STENCIL_TOKEN%
+
+  build_script:
+    - cmd: stencil push -d -a Light
+
+  # disable automatic tests
+  test: off
+  deploy: off

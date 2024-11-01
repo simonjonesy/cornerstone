@@ -1,0 +1,78 @@
+{{#partial "page"}}
+
+{{#skip}}
+<div class="sitemap">
+   <section class="section-page-links">
+            <div class="container">
+
+            <ul>
+            {{#each sitemap}}
+                <li>
+                     {{#if label '==' 'Pages'}}
+                    <h3>{{label}} / site map</h3>
+                   
+                    <ul class="page-links">
+                        {{#each body}}
+                        <li>
+                            <a href="{{url}}">{{label}}</a>
+                            {{#if children}}
+                                <ul>
+                                {{#each children}}
+                                    {{> components/sitemap/links}}
+                                {{/each}}
+                                </ul>
+                            {{/if}}
+                        </li>
+                        {{/each}}
+                        
+                        {{#if show_all_link}}
+                        <li>
+                            <a href="{{subsection_url}}">{{lang 'sitemap.show_all_link'}}</a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                    {{/if}}
+                </li>
+            {{/each}}
+            </ul>
+    </div>
+</section>
+</div>
+{{/skip}}
+<div class="sitemap">
+   <section class="section-page-links">
+            <div class="container">
+<h1>{{lang 'sitemap.page_title'}}</h1>
+
+<ul>
+{{#each sitemap}}
+    <li>
+        <h3>{{label}}</h3>
+        <ul  class="page-links">
+            {{#each body}}
+            <li>
+                <a href="{{url}}">{{label}}</a>
+                
+                {{#if children}}
+                  
+                    {{#each children}}
+                        {{> components/sitemap/links}}
+                    {{/each}}
+                
+                {{/if}}
+            </li>
+            {{/each}}
+            {{#if show_all_link}}
+            <li>
+                <a href="{{subsection_url}}">{{lang 'sitemap.show_all_link'}}</a>
+            </li>
+            {{/if}}
+        </ul>
+    </li>
+{{/each}}
+</ul>
+    </div>
+</section>
+</div>
+{{/partial}}
+{{> layout/base}}

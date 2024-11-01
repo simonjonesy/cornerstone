@@ -1,0 +1,98 @@
+<ul class="tabs" data-tab>
+    <li class="tab is-active">
+        <a class="tab-title" href="#tab-description">
+            <!-- {{lang 'products.description'}} -->
+            Product Description
+        </a>
+    </li>
+    {{#if product.warranty}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
+        </li>
+    {{/if}}
+    
+
+    {{#filter product.custom_fields 'size' property='name'}}
+        <li class="tab tab--size">
+            <a class="tab-title" href="#tab-size">Sizing Guide</a>
+        </li>
+    {{else}}
+    {{/filter}}
+    {{#filter product.custom_fields 'shipping' property='name' }}
+        <li class="tab tab--shipping">
+            <a class="tab-title" href="#tab-shipping">Shipping Details</a>
+        </li>
+    {{else}}
+    {{/filter}}
+    
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
+        <li class="tab">
+            <a class="tab-title productView-reviewTabLink" href="#tab-reviews">{{lang 'products.reviews.header' total=product.reviews.total}}</a>
+        </li>
+    {{/all}}
+</ul>
+<div class="tabs-contents">
+    <div class="tab-content is-active" id="tab-description">
+        <!--{{{product.description}}}-->
+        {{> components/custom/product-inner/product-description}}
+    </div>
+   {{#if product.warranty}}
+       <div class="tab-content" id="tab-warranty">
+           {{{product.warranty}}}
+       </div>
+   {{/if}}
+   {{#each product.custom_fields}}
+       <div class="custom-fields" style="display:none;" data-attr="{{{name}}}">{{{value}}}</div>
+   {{#if name '==' 'size'}}
+    <div class="tab-content" id="tab-size">
+        <dl class="productView-info">
+            <dd class="productView-info-value"><!--{{{value}}}-->
+
+               <table id="product-table" style="background-color: #ea1a47; color: #fff; width: 100%; height: 8rem; text-align: left; border: 1px  solid #000;">
+                   <thead style="text-align: center;">
+                    <tr style="height: 4rem;">
+                        <th style="border: 1px solid #000; width: 30%;">Munchee</th>
+                        <th style="border: 1px solid #000; width: 30%;">Age</th>
+                        <th style="border: 1px solid #000; width: 40%;">Body Type</th>
+                    </tr>
+                    <tbody style="background-color: #fff; color: #000;">
+                           <tr class='product-data'>
+
+                           </tr> 
+                    </tbody>                    
+                   </thead>
+               </table>
+                <br><strong>NOTE:</strong><span id="note-description"></span><br>
+                <br>
+                <table id="product-sizes" style="background-color: #ea1a47; color: #fff; width: 100%; height: 8rem; text-align: left; border: 1px  solid #000;">
+                    <thead style="text-align: center;">
+                     <tr style="height: 4rem;">
+                         <th style="border: 1px solid #000;">Right Munchee</th>
+                         <th style="border: 1px solid #000;">Canine Width</th>
+                         <th style="border: 1px solid #000;">Myo Width</th>
+                     </tr>
+                    </thead>
+                    <tbody style="background-color: #fff; color: #000;">
+                        <tr class="product-size-data">
+
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+    </div>
+{{/if}}
+    {{#if name '==' 'shipping'}}
+    <div class="tab-content" id="tab-shipping">
+        <dl class="productView-info">
+            <dd class="productView-info-value"><!--{{{value}}}--></dd>
+        </dl>
+     </div>
+   {{/if}}
+   {{/each}}
+   {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
+       <div class="tab-content" id="tab-reviews">
+           {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+       </div>
+   {{/all}}
+</div>

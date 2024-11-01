@@ -1,0 +1,670 @@
+
+{{#partial "page"}}
+
+{{region name="flexible_content"}}
+{{#if page.title '===' 'Buy now' }}
+<section id="products" class="section-model">
+    <div class="container">
+        <div class="section-model__head">
+            {{region name="model_head"}}
+        </div>
+    </div>
+
+
+
+    {{#or (if customer.customer_group_name '==' 'Practitioner - Certified') (if customer.customer_group_name '==' 'Practitioner - Enrolled') (if customer.customer_group_name '==' 'Practitioner - Regular') (if customer.customer_group_name '==' 'Practitioner 1')}}
+    <div class="container container-fluid">
+        {{#each categories}}
+        {{#if name "==" 'Shop' }}
+
+        {{#if children}}
+        {{#each children}}
+        {{#if name '==' 'Myo Munchee Practitioner'}}
+
+        <div class="category-product-section">
+
+            <div class="category-products" data-prod="{{url}}">
+
+
+                <div class="category-product-list myo-munchee-practiioner">
+
+                    <ul class="productGrid">
+                        <li class="product"></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        {{/if}}
+        {{/each}}
+        {{/if}}
+        {{/if}}
+
+        {{/each}}
+    </div>
+    {{else}}
+
+    <div class="container container-fluid">
+        {{#each categories}}
+        {{#if name "==" 'Shop' }}
+
+        {{#if children}}
+        {{#each children}}
+        {{#or (if name '==' 'Myo Munchees - Retail')}}
+
+        <div class="category-product-section">
+
+            <div class="category-products" data-prod="{{url}}">
+
+
+                <div class="category-product-list myo-munchee-retail">
+
+                    <ul class="productGrid">
+                        <li class="product"></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        {{/or}}
+        {{/each}}
+        {{/if}}
+        {{/if}}
+        {{/each}}
+    </div>
+    {{/or}}
+
+</section>
+
+
+<script>
+    if(document.querySelectorAll('.category-products').length){
+
+        $('.category-products').each(function(){
+
+            let url = $(this).data('prod');
+
+            console.log(url);
+            let $this = $(this);
+
+            $.ajax({
+
+                url: url,
+
+                method: 'GET',
+
+                success:function(data){
+
+                    if($(data).find('li.product').length){
+                        $this.find('.category-product-list ul.productGrid').html($(data).find('li.product:lt(100)'));
+                        $('.listItem-content .button').append('<svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg>');
+
+                    }else{
+
+                        $this.find('.category-product-list ul.productGrid').html('<li>No any product yet</li>')
+
+                    }
+
+                }
+
+            })
+
+        });
+
+    }
+</script>
+
+{{/if}}
+{{#if page.title '===' 'Sign up' }}
+<style>
+    .formloader,.login_formloader{position:absolute;z-index:999;right:0;left:300px;top:0;bottom:0}.practicner_login_formloader{position:absolute;z-index:999;right:0;left:0;top:0;bottom:0}.signupformloader{position:absolute;z-index:999;right:0;left:0;top:0;bottom:0}.errorfield{color:red;font-size:14px;font-weight:500}#signuppage_login_text{opacity:45%;font-size:14px;color:#000}#signuppage_login_link{font-weight:700}#formsuccessMessage,#loginsuccessmessage,#signupformsuccessMessage,#successmessage{color:green;font-weight:700;text-align:center;line-height:22px}#loginsuccessmessage b,#successmessage b{text-decoration:underline;font-weight:800}#loginform{display:none}.login_form_div{margin-top:30px}#login_link{margin-top:10px;font-weight:600}.login_formloader img{position:relative;top:120px}p#passwordValidator{color:#000;z-index:999;font-weight:600;margin-top:10px}#emaiValidatormessage,.form_login_errorClass{color:red;z-index:999;font-weight:600!important;margin-top:10px;opacity:1!important}#emaiValidatormessage a{text-decoration:underline}#passwordValidator a{color:#00f;text-decoration:underline}.login_errorClass{color:red;margin-top:10px;text-align:center}.login_errorClass p{font-weight:700!important}p#emaiValidator{text-align:center;padding-top:15px;font-weight:600}p#emaiValidator a{color:#00f;font-weight:700}#forgot_passsword{float:right}
+    
+    
+.signupformloader,
+.practicner_login_formloader{
+    width:100%;
+    text-align: center;
+}
+</style>
+<section class="section-intouch sign-up">
+    <div class="vector-effects">
+        <svg class="icon"> <use xlink:href="#effect-vector-1"></use> </svg>
+        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="section-intouch__txt">
+                <h1>Ordering through your Practitioner’s QR Code offers you additional benefits!</h1>
+                <p>We offer additional benefits to our retail customers, working with a Munchee Certified Practitioner. Our Munchee Certified Practitioners have gone through our training program to have a more in depth understanding of the many benefits of a Myo Munchee and how it can be implemented into their treatment plans, as a tool to assist in achieving the desired outcomes.</p>
+
+            </div>
+            <div class="section-intouch__formarea">
+                <div class="section-intouch__form">
+                    <h3>Sign Up</h3>
+                    <p>To receive the additional benefits outlined below, you will need to create a personal account on our website.</p>
+                    {{#if forms.create_account.error}}
+                    {{> components/common/alert-error forms.create_account.error}}
+                    {{/if}}
+                   <form id="signuppractionerformsubmit"action="https://myomunchee.wpengine.com/myo-munchee/MyomuncheePractitonerformsubmit.php" data-create-customer-qr method="post" class="form">
+             
+               <!-- <form class="form">-->
+                
+                <p class="text-danger" id="signupformsuccessMessage" style="display:none">Your account has been created! Please click <a href="/login"><b>here</b></a> to login</p>
+                
+                <div class="signupformloader" style="display:none">
+                   <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/spinner-1s-200px.gif?t=1684344087&_gl=1*1f6wh6a*_ga*MjEwNjc5MjU4NC4xNjg0MzE2NTQ1*_ga_WS2VZYPC6G*MTY4NDM0MjQ3Ni40LjEuMTY4NDM0NDA3Ny41NS4wLjA.">
+                 </div>
+                    <div class="row">
+                        <div class="col--half" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label  for="{{id}}_input">First Name*
+                               {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="firstname_input"  data-label="{{label}}" name="firstname_input" {{#if value}} value="{{value}}"{{/if}} placeholder="John" class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}} >
+                        
+                             <span id="firstnameerror" class="errorfield"></span>
+                        </div>
+                        <div class="col--half" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label  for="{{id}}_input">Last Name*
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text"  id="lastname_input" data-label="{{label}}" name="lastname_input" {{#if value}} value="{{value}}"{{/if}} placeholder="Doe" class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}} >
+                            
+                            <span id="lastnameerror" class="errorfield"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label for="{{id}}_input">Email Address*
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="email_input"  data-label="{{label}}" name="email_input" {{#if value}} value="{{value}}"{{/if}} placeholder="email@example.com" class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}  >
+                            
+                            <span id="emailerror" class="errorfield"></span>
+                        </div>
+                      
+                    </div>
+
+                    <div class="row">
+                        <div class="col" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label for="{{id}}_input">Password*
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="password"  class="form-input" id="password_input" data-label="{{label}}" name="password_input" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}   >
+                            
+                            <span id="passworderror" class="errorfield"></span>
+                        </div>
+                        
+                    </div>
+                   
+                    <div class="">
+                        <button class="btn btn--primary btn--expand submit-btn" class="form_signup_btn">Sign up</button>
+                    </div>
+                    
+                    
+                    
+                    <a href="#QRmodal" data-reveal-id="QRmodal" style="display:none;" id="open-QRmodal">click to open</a>
+                    <div id="QRmodal" class="modal" data-reveal style="width:50%;">
+                        <a href="#" class="modal-close" aria-label="close" role="button">
+                            <span aria-hidden="true">&#215;</span>
+                        </a>
+                        <div class="modal-content" style="text-align: center; padding-top: 3rem;">
+                            <h3 style="text-align: center; color: #758591;"></h3>
+                            
+                        </div>
+                        <div class="loadingOverlay"></div>
+                    </div>
+                    
+                    <br>
+                        <p id="emaiValidatormessage" style="display:none">Email already exists click <a id="form_email_login_link"><b>here</b></a> to login</p>
+                        <p>Already have an account? <b><a href="/login"> Login</a></b></p>
+                    </form>
+                    
+                    <!---------------------------------------------------Log in Form---------------------------------------------------------------------------->
+
+                    <form id="loginformmodal"class="loginform" action="https://myomunchee.wpengine.com/myo-munchee/MyomuncheeLoginValidation.php" data-create-customer-qr method="post" class="form" style="display:none;">
+                 <!--  <form id="loginformmodal"class="loginform"  method="post" class="form" style="display:none;">-->
+                         <p id="form_loginsuccessmessage"></p>
+                         <br>
+                         <div class="practicner_login_formloader" style="display:none">
+                           <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/spinner-1s-200px.gif?t=1684344087&_gl=1*1f6wh6a*_ga*MjEwNjc5MjU4NC4xNjg0MzE2NTQ1*_ga_WS2VZYPC6G*MTY4NDM0MjQ3Ni40LjEuMTY4NDM0NDA3Ny41NS4wLjA.">
+                         </div>
+        
+                            <div class="row">
+                                <div class="col" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                                    <label for="{{id}}_input">Email Address*
+                                        {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                                    </label>
+                                    <input type="text"  id="login_email_input"  data-label="{{label}}" name="login_email_input" {{#if value}} value="{{value}}"{{/if}} placeholder="email@example.com" class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}} >
+                                    
+                                    <span id="loginemailErr" class="errorfield"></span>
+                                </div>
+                              
+                            </div>
+        
+                            <div class="row">
+                                <div class="col" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                                    <label for="{{id}}_input">Password*
+                                        {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                                    </label>
+                                    <input type="password"  class="form-input" id="login_password_input" data-label="{{label}}" name="login_password_input" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} >
+                                    
+                                    <span id="loginPasserror" class="errorfield"></span>
+                                </div>
+                                
+                            </div>
+                           
+                            <div class="">
+                                <button class="btn btn--primary btn--expand login-btn" id="practionerformlogging">Log in</button>
+                            </div>
+                            
+                            <a href="#QRmodal" data-reveal-id="QRmodal" style="display:none;" id="open-QRmodal">click to open</a>
+                            
+                            <div id="QRmodal" class="modal" data-reveal style="width:50%;">
+                                <a href="#" class="modal-close" aria-label="close" role="button">
+                                    <span aria-hidden="true">&#215;</span>
+                                </a>
+                                <div class="modal-content" style="text-align: center; padding-top: 3rem;">
+                                    <h3 style="text-align: center; color: #758591;"></h3>
+                                    
+                                </div>
+                                <div class="loadingOverlay"></div>
+                            </div>
+                            
+                            <br>
+                            <span id="signuppage_login_text">Create a new account? <a id="signuppage_login_link">Sign Up</a></span>
+                              
+                            <p class="form_login_errorClass"></p>
+                                    
+                            <div class="text-danger" id="loginsuccessmessage"></div>
+                            
+                        </form>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+ 
+<script>
+    $(document).ready(function () {
+      //--------------------- Signup funtionality ------------------------------------//
+      $(document).on("submit", "form#signuppractionerformsubmit", function (e) {
+        e.preventDefault();
+        var actionurl = $(this).attr("action");
+        var form = $("form#signuppractionerformsubmit");
+        var fname = jQuery.trim($("#firstname_input").val());
+        var lname = jQuery.trim($("#lastname_input").val());
+        var emailinput = jQuery.trim($("#email_input").val());
+        var mailpattern =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+        var pwdinput = jQuery.trim($("#password_input").val());
+        var pwdpattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{7,}$/;
+        var validator = false;
+    
+        if (
+          !fname ||
+          !lname ||
+          !emailinput ||
+          !pwdinput ||
+          !mailpattern.test(emailinput) ||
+          !pwdpattern.test(pwdinput)
+        ) {
+          $("#firstnameerror").html("First name is mandatory");
+          $("#lastnameerror").html("Last name is mandatory");
+          $("#emailerror").html("Please enter your E-mail");
+          $(".errorfield").show();
+          $("#signupformsuccessMessage").slideUp();
+          $("#emaiValidatormessage").hide();
+    
+          if (fname) {
+            $("#firstnameerror").hide();
+          }
+          if (lname) {
+            $("#lastnameerror").hide();
+          }
+          if (emailinput && !mailpattern.test(emailinput)) {
+            $("#emailerror").html("Email is not valid");
+          }
+          if (emailinput && mailpattern.test(emailinput)) {
+            $("#emailerror").hide();
+          }
+          if (!pwdinput) {
+            $("#passworderror").html("Please enter a password to Sign-up");
+            $("#passworderror").show();
+          } else if (!pwdpattern.test(pwdinput)) {
+            $("#passworderror").html("Password is not valid");
+            $("#passworderror").show();
+          }
+          if (pwdinput && pwdpattern.test(pwdinput)) {
+            $("#passworderror").hide();
+          }
+    
+          $("#signuppractionerformsubmit input").keyup(function () {
+            $(this).next(".errorfield").hide();
+          });
+        } else {
+          validator = true;
+        }
+        if (
+          validator &&
+          fname &&
+          lname &&
+          mailpattern.test(emailinput) &&
+          pwdpattern.test(pwdinput)
+        ) {
+          $.ajax({
+            type: "POST",
+            url: actionurl,
+            dataType: "json",
+            data: form.serialize(),
+            beforeSend: function () {
+              $(".signupformloader").show();
+              $(".form_signup_btn").html("Saving...");
+            },
+    
+            success: function (data, response) {
+              // console.log(data);
+    
+              if (data.errors) {
+                if (data.status == 422) {
+                  $("#emaiValidatormessage").slideDown();
+                  $(".signupformloader").hide();
+                  $("#formsuccessMessage").hide();
+                  $(".form_signup_btn").html("Sign up");
+                  $("#signupformsuccessMessage").slideUp();
+                } else if (data.status == 400) {
+                  $("#emaiValidatormessage").slideDown();
+                  $("#formsuccessMessage").hide();
+                  $(".signupformloader").hide();
+                  $(".form_signup_btn").html("Sign up");
+                  $("#signupformsuccessMessage").slideUp();
+                }
+              } else {
+                $("#signupformsuccessMessage").slideDown();
+                $(".signupformloader").hide();
+                $(".form_signup_btn").html("Sign up");
+                $("#emaiValidatormessage").hide();
+                $("#signuppractionerformsubmit ").trigger("reset");
+              }
+            },
+            error: function (request, textStatus, errorThrown) {
+              console.log(request.responseText);
+              console.log(response);
+              console.log(textStatus);
+              console.log(errorThrown);
+            },
+          });
+        }
+      });
+    
+      $(".signupform_login_link, .signup_login_link, #form_email_login_link").click(
+        function (e) {
+          e.preventDefault();
+          $("#signuppractionerformsubmit").hide();
+          $("#signup_login_link").hide();
+          $("#loginformmodal").fadeIn(2000);
+        }
+      );
+    
+      $("#signuppage_login_link").click(function (e) {
+        e.preventDefault();
+        $("#loginformmodal").hide();
+        $("#signuppractionerformsubmit").fadeIn(1500);
+      });
+    
+      //----------------------------------- Login Functionality  --------------------------------------------------------//
+      $(".login_errorClass").hide();
+      $("#loginsuccessmessage").hide();
+    
+      $("form#loginformmodal").on("submit", function (e) {
+        e.preventDefault();
+        var actionurl = $("form.loginform").attr("action");
+        var login_form = $("form#loginformmodal");
+        var emailinput = jQuery.trim($("#login_email_input").val());
+        var pwdinput = $("#login_password_input").val();
+        var mailpattern =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var pwdpattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{7,}$/;
+        var validator = false;
+    
+        if (
+          !emailinput ||
+          !pwdinput ||
+          !mailpattern.test(emailinput) ||
+          !pwdpattern.test(pwdinput)
+        ) {
+          $("#loginemailErr").html("Please enter your E-mail");
+          $("#loginPasserror").html("Please enter your password");
+          $(".errorfield").show();
+          $(".form_login_errorClass").hide();
+    
+          if (emailinput) {
+            $(".loginemailErr").hide();
+          }
+          if (emailinput && !mailpattern.test(emailinput)) {
+            $("#loginemailErr").html("Email is not valid");
+          } else if (emailinput && mailpattern.test(emailinput)) {
+            $("#loginemailErr").hide();
+          }
+    
+          if (pwdinput && !pwdpattern.test(pwdinput)) {
+            $("#loginPasserror").html("Password is not valid");
+          } else if (pwdinput && pwdpattern.test(pwdinput)) {
+            $("#loginPasserror").hide();
+          }
+        } else {
+          validator = true;
+        }
+    
+        $("#loginformmodal input").keyup(function () {
+          $(this).next(".errorfield").hide();
+        });
+    
+        if (mailpattern.test(emailinput) && pwdpattern.test(pwdinput)) {
+          $.ajax({
+            type: "POST",
+            url: actionurl,
+            dataType: "json",
+            data: login_form.serialize(),
+            beforeSend: function () {
+              $(".practicner_login_formloader").show();
+              $(".login_submit_btn").html("Logging...");
+              $(".form_login_errorClass").hide();
+            },
+    
+            success: function (data, response) {
+              // console.log(data);
+              var customerid = data.customer_id;
+              if (data.is_valid == true) {
+                $("#loginsuccessmessage").slideDown();
+                $("#practionerformlogging").html("Redirecting");
+                $("#loginValidator").hide();
+                $("#customergroup").val("7");
+                $("#loginsuccessmessage").html(
+                  "Credentials valid! Redirecting to your account now."
+                );
+                $(".form_login_errorClass").slideUp();
+                $(".errorfield").hide();
+                loginviaapi(customerid);
+              } else {
+                $("#loginsuccessmessage").slideUp();
+                $(".form_login_errorClass").html("Invalid Credentials");
+                $(".form_login_errorClass").slideDown();
+                $(".errorfield").hide();
+                $("#loginValidator").show();
+                $(".practicner_login_formloader").hide();
+                $("#loginform input").val("");
+                $("#practionerformlogging").html("Log in");
+              }
+            },
+            error: function (request, textStatus, errorThrown) {
+              console.log(request.responseText);
+              console.log(textStatus);
+              console.log(errorThrown);
+            },
+          });
+        }
+      });
+      function loginviaapi(customerid) {
+        $.ajax({
+          type: "POST",
+          url: "https://myomunchee.wpengine.com/myo-munchee/MyomuncheePractitionerLogin.php",
+          data: { customer_id: customerid },
+          beforeSend: function () {},
+    
+          success: function (data, response) {
+            window.location.replace(data);
+          },
+          error: function (request, textStatus, errorThrown) {
+            console.log(request.responseText);
+            console.log(textStatus);
+            console.log(errorThrown);
+          },
+        });
+      }
+      // ----- login end
+    });
+
+</script>
+    
+  
+</section>
+<section>
+    <div class="container">
+        {{region name="three_blocks"}}
+    </div>
+</section>
+
+{{/if}}
+
+
+{{#if page.title '===' 'Update Customer QR' }}
+<section class="section-intouch update customer qr">
+    <div class="vector-effects">
+        <svg class="icon"> <use xlink:href="#effect-vector-1"></use> </svg>
+        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          
+         
+                <div class="section-intouch__form">
+                    <h3>Update customer QR to be certified</h3>
+                  
+                    {{#if forms.create_account.error}}
+                    {{> components/common/alert-error forms.create_account.error}}
+                    {{/if}}
+                    <form action="" update-customer-qr method="post" class="form">
+                         {{inject 'firstName' (lang 'forms.validate.account.edit.first_name')}}
+                            {{inject 'lastName' (lang 'forms.validate.account.edit.last_name')}}
+                            {{inject 'phoneNumber' (lang 'forms.validate.account.edit.phone')}}
+                            {{inject 'currentPassword' (lang 'forms.validate.account.edit.password')}}
+                   <input type="text" id="firstname_edit" data-label="{{label}}" name="{{name}}" value="Sheena Joyce" class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                   
+                    <input type="text" id="lastname_edit" data-label="{{label}}" name="{{name}}" value="Gono" {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    
+                      <input type="text" id="email_edit" data-label="{{label}}" name="{{name}}" {{#if customer.email}} value="{{customer.email}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                      
+                      <input type="password"  class="form-input" id="password_edit"  data-label="{{label}}" name="{{name}}" value="Fptyltd1@" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                  
+                    
+                    
+                        <div class="">
+                            <button class="btn btn--primary btn--expand" id="updateCustomerQR">Update</button>
+                    
+                        </div>
+  
+
+                     </form>
+                 </div>
+
+            </div>
+
+    </div>
+ 
+  <script>
+      $(document).ready(function(){
+        $('[update-customer-qr]').on('submit', function(e){
+    e.preventDefault();
+
+      var editAccount = {
+       first_name: $('#firstname_edit').val(),
+        last_name:  $('#lastname_edit').val(),
+        email:  $('#email_edit').val(),
+         phone: "",
+        customer_group: "Practitioner - Certified",
+        addresses: [{
+          state_or_province: "Alabama",
+          address1: "none",
+          address2: "none",
+          postal_code: "none",
+          country_code: "US",
+          city: "none"
+        }],
+       
+         authentication: {
+          new_password:  $('#password_edit').val()
+        }
+      };
+
+      console.log(JSON.stringify(editAccount)),
+      $.post({
+        url: "https://randem-clients-bc-api.randemcommerce.com/customer/createCustomer/1653E8E7-8300-4D15-BA7C-064ECB18756F",
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(editAccount),
+        beforeSend: function() {
+           $('#updateCustomerQR').text('Saving...');
+        },
+        success: function(e) {
+              $('#updateCustomerQR').text('Updated');
+        }
+      });
+    
+  }); 
+  
+
+      });
+  </script>
+    
+  
+</section>
+<section>
+    <div class="container">
+        {{region name="three_blocks"}}
+    </div>
+</section>
+
+{{/if}}
+
+
+
+{{region name="flexible_content_1"}}
+{{region name="flexible_content_2"}}
+
+<div class="modal-background"></div>
+ <a href="#QRmodal" data-reveal-id="QRmodal" style="display:none;" id="open-modal">click to open</a>
+<div id="QRmodal" class="modal" data-reveal style="width:50%;">
+    <a href="#" class="modal-close" aria-label="close" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content" style="text-align: center; padding-top: 3rem;">
+        <h3 style="text-align: center; color: #758591;"></h3>
+
+    </div>
+    <div class="loadingOverlay"></div>
+</div>
+{{/partial}}
+{{> layout/base}}

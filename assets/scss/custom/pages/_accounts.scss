@@ -1,0 +1,194 @@
+$color: #3eb4e4;
+.navBar--sub {
+    font-weight: bold;
+    .navBar-item.is-active {
+        border-bottom: 3px solid #3eb4e4;
+        letter-spacing: 2px;
+        font-size: 20px;        
+    }
+    .navBar-item {
+        display: inline-block;
+        width: 30%;
+    }
+    .navBar-action {
+        color: #758591;
+        font-size: 20px;
+        padding: 0;
+    }
+}
+.account.account--fixed {
+    .breadcrumbs{
+        display: none;
+    }
+    .page-heading{
+        display: none;
+    }
+    .form-label{
+        color: #758591;
+        font-size: 15px;
+        line-height: 32px;
+        letter-spacing: 0.75;
+    }
+    .form-input, .form-select{
+        background-color: #e9ebeb;
+        border-radius:0;
+        width: 100%;
+        height: 47px;
+        font-size: 15px;
+    }
+    
+  
+}
+.panel--address{
+    font-size: 15px;
+    .address-details{
+        font-size: 15px;
+        letter-spacing: 0.75;
+        line-height: 25px;
+        padding: 40px;
+        text-align: justify;
+    }
+    .button.button--primary{
+        margin: 0 auto;
+    }
+    .panel-body{
+        height: 278px;
+        width: 390px;
+        background: #e5e5e5;
+        color: #707e85;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+    }
+    .button{
+        width: 140px;
+        height: 47px;
+        border: none;
+        transform: translateX(20%);
+    }
+    .button.button--primary{
+        background-color: $color;
+       
+    }
+   
+}
+
+div[data-type=CurrentPassword]{
+    display: none;
+}
+.page-header{
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 3px;
+}
+.new-customer{
+    .btn-wrap a{
+        margin: 9px;
+        width: 180px;
+    }
+}
+.sign-in-pane .form-actions {
+    text-align: left;
+}
+.login-form{
+    label{
+        font-size: 15px;
+    }
+}
+.addressList .btn {
+    padding: 1.5rem 5.5rem;
+    margin: 5px;
+}
+
+.create-account .head-primary {
+    padding-left: 19rem;
+    font-size: 30px;
+}
+div#FormField_31, #FormField_32 {
+    display: none;
+}
+.account .btn--brand {
+    line-height: 0.5rem;
+    width: 182px;
+    height: 40px;
+    font-weight: 600;
+}
+.addressList .btn {
+    width: 170px;
+    height: 47px;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.notif-content {
+    padding: 20px;
+    background-color: #78dcdc;
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 4rem;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+  .addressList {
+    text-align: center !important;
+}
+
+@media (min-width: 1261px){
+    .address {
+        width: 40.33333% !important;
+    }
+}
+@media (max-width: 56.25em){
+    .account{
+        padding: 0 2rem;
+    }
+    .account.account--fixed .form-input, .account.account--fixed .form-select {
+        width: 100%;
+    }
+    .account form{
+        padding: 2rem;
+    }
+    .addressList .btn--brand{
+        display: none;
+    }
+    .navBar.navBar--sub.navBar--account{
+        display: block;
+    }
+    .navBar {
+        .navBar-item {
+            display: inline-block;
+            width: 80%;
+            border-bottom: 1px solid #979797;
+            font-size: 13px;
+            line-height: 28px;
+            letter-spacing: 0.65px;
+            font-weight: normal;
+        }
+         .navBar-action {
+            font-size: 13px;
+            line-height: 28px;
+            letter-spacing: 0.65px;
+            font-weight: normal;
+        }
+        .navBar-item.is-active {
+            font-size: 13px;
+            line-height: 28px;
+            letter-spacing: 0.65px;
+            font-weight: normal;
+        }
+    }
+    
+}
+

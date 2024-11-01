@@ -1,0 +1,145 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #dddddd;
+    padding: 3rem 4.5rem;
+    width: 100%;
+    transition: all .3s;
+    // height: 100%;
+    &:hover {
+        box-shadow: 0 0 5px rgba($color-black, 0.2);
+        //transform: translateY(-4px);
+    }
+
+    &-figure {
+        &:hover {
+            img {
+                transform: scale(1.1);
+                filter: grayscale(.3);
+            }
+        }
+        img {
+            transition: all .3s;
+        }
+    }
+    &-img-container {
+        margin-bottom: 15px;
+        &:after {
+            padding-bottom: 100%;
+        }
+    }
+    &-image {
+        margin: 0;
+    }
+    &-figcaption {
+        opacity: 1;
+        height: auto;
+        position: relative;
+        display: block;
+        &-body {
+            display: block;
+            transform: initial;
+            top: 0;
+            .button {
+                background-color: $color-brand;
+                border-color: $color-brand;
+                border-radius: 0;
+                padding: 1.6rem 3rem;
+                font-family: $font-primary;
+                font-size: 1.5rem;
+                font-weight: $fw-b;
+                color: $color-white;
+                transition: all .3s;
+                line-height: 1;
+                width: 100%;
+                @include breakpoint(phone) {
+                    padding: 17px 20px;
+                    display: inline-block;
+                    min-width: 160px;
+                }
+                &:hover {
+                    background-color: $color-brand2;
+                    border-color: $color-brand2;
+                }
+            }
+        }
+    }
+
+    &-body {
+        text-align: center;
+        flex: 1;
+        padding-bottom: 15px;
+    }
+}
+.card2 {
+    @extend .card;
+    padding: 0;
+    margin-bottom: 0;
+    height: 100%;
+    @include breakpoint(phone) {
+        //max-width: 218px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .card {
+        &-figure {
+            padding-top: 80%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        &-header {
+            padding: 2rem 2.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            @include breakpoint(phone) {
+                padding: 13px 15px;
+            }
+            a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+            h3 {
+                margin: 0;
+                color: $color-white;
+                font-weight: $fw-b;
+                letter-spacing: 1.25px;
+                line-height: 1.2;
+                @include breakpoint(phone) {
+                    font-size: 18px;
+                    letter-spacing: 0.9px;
+                    line-height: 1.11;
+                }
+            }
+            &--blue {
+                background-color: $color-brand;
+            }
+            &--green {
+                background-color: $color-pelorous;
+            }
+            &--violet {
+                background-color: $color-pigeon-post;
+            }
+            &--gray {
+                background-color: $color-slate-gray;
+            }
+            svg {
+                @include breakpoint(phone) {
+                    width: 18px;
+                }
+            }
+        }
+        &-body {
+            background-color: $color-white;
+            padding: 2rem;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+    }
+}

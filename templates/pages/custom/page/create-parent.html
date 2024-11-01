@@ -1,0 +1,126 @@
+{{#partial "page"}}
+
+<div class="container">   
+
+    <div class="account account--fixed create">
+        <h3 class="head-primary">CREATE A PARENT ACCOUNT</h3>
+        <div class="notif">
+            
+        </div>
+        <div class="account-body">
+            {{#if forms.create_account.error}}
+                {{> components/common/alert-error forms.create_account.error}}
+            {{/if}}
+                <form action="" data-create-account-form method="post" class="form">
+                    <div class="form-row form-row--half">
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">First Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="firstname_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                        
+                        
+                        </div>
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">Last Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="lastname_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row--half">
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">Suburb/City<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="suburb_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                        </div>
+                        
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            
+                            <label class="form-label" for="{{id}}_select">Country<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            {{> pages/custom/page/countrylist }}
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-row form-row--half">
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">Postcode<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="postcode_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                        </div>
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                        
+                            <label class="form-label" for="{{id}}_select">State/Province<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}
+                                    <small>{{lang 'common.required'}}</small>
+                                {{/if}}
+                            </label>
+                            <!--<input type="text" id="state_select" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>-->
+                            <select id="state_select" class="form-select"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row--half">
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">Email Address<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="email_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                        </div>
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">Phone Number
+                                {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                            </label>
+                            <input type="text" id="phone_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row--half">
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">Password<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}
+                                    <small>{{lang 'common.required' }}</small>
+                                {{/if}}
+                            </label>
+                            <input type="password"  class="form-input" id="password_input" data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                        </div>
+                        <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                            <label class="form-label" for="{{id}}_input">Confirm Password<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                                {{#if required}}
+                                    <small>{{lang 'common.required' }}</small>
+                                {{/if}}
+                            </label>
+                            <input type="password"  class="form-input" id="confirm_input" data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <div class="form-actions">
+                        <button class="btn btn--sm btn--brand" id="createParentAccount">Register</button>
+                        
+                    </div>
+
+                    <a href="#parentmodal" data-reveal-id="parentmodal" style="display:none;" id="open-modal">click to open</a>
+                <div id="parentmodal" class="modal" data-reveal style="width:50%;">
+                    <a href="#" class="modal-close" aria-label="close" role="button">
+                        <span aria-hidden="true">&#215;</span>
+                    </a>
+                    <div class="modal-content" style="text-align: center; padding-top: 3rem;">
+                        <h3 style="text-align: center; color: #758591;"></h3>
+                        
+                    </div>
+                    <div class="loadingOverlay"></div>
+                </div>
+                </form>
+        </div>
+    </div>
+</div>
+    
+{{/partial}}
+{{> layout/base}}

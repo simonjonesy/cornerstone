@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: $color-slate-gray;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+    color: $color-brand;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-primary;
+    font-weight: $fw-sb;
+}
+
+.head-primary {
+    color: $color-brand;
+    font-size: 4rem;
+    line-height: 1.2;
+    font-weight: $fw-b;
+    @include breakpoint(tab-port) {
+        font-size: 2.6rem;
+    }
+    @include breakpoint(phone) {
+        font-size: 20px;
+    }
+    &--white {
+        color: $color-white;
+    }
+    &--withLogo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        @include breakpoint(tab-port) {
+            flex-direction: column;
+        }
+        img {
+            margin-left: 20px;
+        }
+    }
+}
+
+.head-secondary {
+    font-size: 2.4rem;
+    color: $color-white;
+}
+
+.head-tertiary {
+    font-size: 2rem;
+    color: $color-white;
+}
+
+.head-mid {
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: $color-brand;
+}
+.font-color{
+    color: $color-brand;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}

@@ -1,0 +1,177 @@
+.parents{
+    .section-movement, .section-easyfun:after {
+        background-color: transparent;
+    }
+    .tinyimg .card2{
+        border: 0;
+    }
+    .tinyimg .card2 .card-body{
+        background-color: transparent !important;
+    }
+    .section-1{
+        background-color: #eaf0f4;
+        padding-bottom: 3rem;
+    }
+    .section-2 .range p.text-center {
+        max-width: 805px;
+        margin: 0 auto;
+    }
+    .section-2 .btn-wrap a {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        line-height: 2.6rem;
+        letter-spacing:1px;
+        font-weight: 600;
+    }
+   .section-2 .range .last-container div {
+        max-width: 410px;
+        max-height: 324px;
+        margin: 0 auto;
+        
+    }
+    .section-2 .bottom-image {
+        max-width: 406px;
+        display: inline-block;
+        padding: 0 20px;
+    }
+    .section-intro .btn--brand2 {
+        min-width: 50%;
+    }
+    .section-intro .btn {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .section-2 .card2 .card-body {
+        padding-bottom: 6rem;
+    }
+    .column-1{
+        padding-right: 5rem;
+        padding-top: 3rem;
+    }
+    .tinyimg .card2 .card-body {
+        text-align: center;
+        padding: 0;
+    }
+    .mid-button{
+        margin: 0 auto;
+        width: 148px;
+        height: 47px;
+        text-align: center;
+    }
+    @media(max-width: 56.25em){
+        .column-1 {
+            padding: 0;
+        }
+        .section-intro .row [class^="col-"]:not(:last-child),.section-easyfun .row [class^=col-]:not(:last-child) {
+            margin-bottom: 0;
+        }
+        .section-intro .btn {
+            height: 57px;
+            line-height: 1.2;
+            font-size: 15px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 0.75px;
+            line-height: 18px;
+            letter-spacing: 0.75px;
+        }
+        .btn--brand2 {
+            width: 100%;
+            height: 57px;
+            line-height: 35px;
+            letter-spacing: 0.75px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .mid-button .btn--brand2{
+            line-height: 4rem !important;
+        }
+        
+        .mid-button {
+            margin: 0 auto;
+        }
+        .card2 {
+            margin-bottom: 2rem;
+        }
+        .section-intro p {
+            font-size: 13px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.92;
+            letter-spacing: 0.65px;
+        }
+        .mid-button {
+            width: 264px !important;
+            height: 57px !important;
+            font-size: 15px !important;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2 !important;
+            letter-spacing: 0.75px;
+        }
+        .section-2 .bottom-image {
+            max-width: 221px;
+            padding: 0;
+        }
+        .section-2 .card2 .card-body {
+            padding-bottom: 3rem;
+        }
+    }
+    @media only screen and (min-width: 75em){
+        .section-intro {
+            padding-bottom: 3rem;
+        }
+    }
+    @media only screen and (max-width: 37.5em){
+        .head-primary {
+            font-size: 20px !important;
+        }
+    }
+    
+}
+
+.cs-btn-wrap--center {
+    margin-top: 52px;
+    @media only screen and (max-width: 901px){
+        margin-top: 1.5rem;
+    }
+    .btn--brand2 p, .btn--brand p {
+        margin-bottom: 0px;
+        width: 100%;
+        font-size: 24px;
+        line-height: 24px;
+        margin-top: 7px;
+        @media only screen and (max-width: 1024px) {
+            line-height: 20px;
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+    }
+
+    .btn--brand2 {
+        font-size: 18px!important;
+        @media (max-width: 56.25em) {
+            font-size: 15px!important;
+        }
+    }
+    .btn--brand {
+        font-size: 20px!important;
+        @media (max-width: 56.25em) {
+            font-size: 15px!important;
+        }
+    }
+
+    .btn--brand, .btn--brand2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        @media only screen and (max-width: 901px){
+            height: auto!important;
+        }
+    }
+}

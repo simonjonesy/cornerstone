@@ -1,0 +1,1 @@
+{"pages/custom/page/countrylist":"<select class=\"{{class}} crs-country\" id=\"country_select\" data-label=\"{{label}}\" aria-required=\"{{required}}\" name=\"{{name}}\" data-region-id=\"state_select\" data-value=\"shortcode\">\r\n    \r\n</select>\r\n"}

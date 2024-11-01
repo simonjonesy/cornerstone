@@ -1,0 +1,196 @@
+<table class="cart-table" data-cart-quantity="{{cart.quantity}}">
+         <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody class="cart-list">
+            {{#each cart.items}}
+                <tr class="cart-item" data-item-row>
+                    <td class="cart-item-block cart-item-figure">
+                        <a href="{{url}}" class="cart-prod-image">
+                        {{#if type '==' 'GiftCertificate'}}
+                            <img class="cart-item-fixed-image" src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="{{lang 'cart.gift_certificate'}}" title="{{lang 'cart.gift_certificate'}}">
+                        {{else}}
+                            {{> components/common/responsive-img
+                                image=image
+                                class="cart-item-image"
+                                fallback_size=../../theme_settings.productthumb_size
+                                lazyload='disabled'
+                                default_image=../../theme_settings.default_image_product
+                            }}
+                        {{/if}}
+                        </a>
+                       
+                        <h5><a href="{{url}}">{{name}}</a></h5>
+                        
+                        {{#skip}}
+                        {{#if release_date}}
+                            <p>({{release_date}})</p>
+                        {{/if}}
+    
+                        {{#if options}}
+                            <dl class="definitionList">
+                                {{#each options}}
+                                    <dt class="definitionList-key">{{name}}:</dt>
+                                    <dd class="definitionList-value">
+                                        {{#if is_file}}
+                                            <a href="/viewfile.php?attributeId={{../id}}&cartitem={{../../id}}">{{value}}</a>
+                                        {{else}}
+                                            {{{ sanitize value}}}
+                                        {{/if}}
+                                    </dd>
+                                {{/each}}
+                            </dl>
+    
+                            <a href="#" data-item-edit="{{id}}">{{lang 'cart.checkout.change'}}</a>
+                        {{/if}}
+    
+                        {{#if type '==' 'GiftCertificate'}}
+                            <a href="{{edit_url}}">{{lang 'cart.checkout.change'}}</a>
+                        {{/if}}
+                        {{> components/cart/item-giftwrap this}}
+                        {{#if event_date}}
+                            <dl class="cart-item-options">
+                                <dt class="cart-item-option-title">
+                                    {{event_date.name}}
+                                </dt>
+    
+                                <dd class="cart-item-option-description">
+                                    {{event_date.date}}
+                                </dd>
+                            </dl>
+                        {{/if}}
+                        {{/skip}}
+                         <div class="cart-item-block cart-item-info remove-item">
+                        {{#if can_modify}}
+                            <a class="cart-remove" data-cart-itemid="{{id}}" href="#" data-confirm-delete="{{lang 'cart.confirm_delete'}}">
+                                  Remove item
+                            </a>
+                        {{else}}
+                            {{#if type '==' 'GiftCertificate'}}
+                                <a class="cart-remove" data-cart-itemid="{{id}}" href="#" data-confirm-delete="{{lang 'cart.confirm_delete'}}">
+                                       Remove item
+                                </a>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+    
+                    </td>
+                       <td class="cart-item-block cart-item-info cart-item-quantity">
+                           {{#skip}}
+                        <div class="cart-prod-quality">
+                                            <button type="button" class="cart-prod-quality__minus">-</button>
+                                            <input type="number" placeholder="1" value="1" min="1">
+                                            <button type="button" class="cart-prod-quality__plus">+</button>
+                                        </div>
+                                        {{/skip}}
+                        <label class="form-label cart-item-label" for="qty-{{id}}">{{lang 'products.quantity'}}</label>
+                        <div class="form-increment">
+                            {{#if can_modify}}
+                                <!--<button class="button button--icon" data-cart-update data-cart-itemid="{{id}}" data-action="dec">
+                                    <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-down" /></svg></i>
+                                </button>-->
+                            {{/if}}
+                            <input class="form-input form-input--incrementTotal cart-item-qty-input"
+                                   id="qty-{{id}}"
+                                   name="qty-{{id}}"
+                                   type="number"
+                                   value="{{quantity}}"
+                                   data-quantity-min="{{min_purchase_quantity}}"
+                                   data-quantity-max="{{max_purchase_quantity}}"
+                                   data-quantity-min-error="{{lang 'products.quantity_min' quantity=min_purchase_quantity}}"
+                                   data-quantity-max-error="{{lang 'products.quantity_max' quantity=max_purchase_quantity}}"
+                                   min="1"
+                                   pattern="[0-9]*"
+                                   data-cart-itemid="{{id}}"
+                                   data-action="manualQtyChange"
+                                   aria-live="polite"{{#unless can_modify}} disabled{{/unless}}>
+                            {{#if can_modify}}
+                               <!-- <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}" data-action="inc">
+                                    <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up" /></svg></i>
+                                </button>-->
+                            {{/if}}
+                        </div>
+    
+                    </td>
+                    <td class="cart-item-block cart-item-info custom-price">
+                        <span class="cart-item-label">{{lang 'cart.checkout.price'}}</span>
+                        {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+ 
+                            {{#if price.value '==' 0}}
+                            <span class="cart-item-value {{#if price_discounted}}price--discounted{{/if}} noPrice">
+                                {{#if price.currency '==' 'EUR'}} 
+                                EUR {{price.formatted}}
+                                {{else if price.currency '==' 'GBP'}} 
+                                GBP {{price.formatted}}
+                                {{else}}
+                                {{price.formatted}}
+                                {{/if}}</span><br>
+                            {{else}}
+                            <span class="cart-item-value {{#if price_discounted}}price--discounted{{/if}} hasPrice">
+                                {{#if price.currency '==' 'EUR'}} 
+                                EUR {{price.formatted}}
+                                {{else if price.currency '==' 'GBP'}} 
+                                GBP {{price.formatted}}
+                                {{else}}
+                                {{price.formatted}}
+                                {{/if}}</span><br>
+
+                            {{/if}}
+                            {{#if price_discounted}}
+                               <span class="cart-item-value">
+                                {{#if price.currency '==' 'EUR'}} 
+                                EUR {{price_discounted.formatted}}
+                                {{else if price.currency '==' 'GBP'}} 
+                                GBP {{price_discounted.formatted}}
+                                {{else}}
+                                {{price_discounted.formatted}}
+                                {{/if}}
+                            </span>
+                            {{/if}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                    </td>
+    
+                 
+    
+                    <td class="cart-item-block cart-item-info custom-totalPrice">
+                        <span class="cart-item-label">{{lang 'cart.checkout.total'}}</span>
+                        {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                            <strong class="cart-item-value {{#if total_discounted}}price--discounted{{/if}}">
+                                {{#if price.currency '==' 'EUR'}} 
+                                EUR {{total.formatted}}
+                                {{else if price.currency '==' 'GBP'}} 
+                                GBP {{total.formatted}}
+                                {{else}}
+                                {{total.formatted}}
+                                {{/if}}
+                            </strong>
+                            {{#if total_discounted}}
+                               <br> <strong class="cart-item-value">
+                                {{#if price.currency '==' 'EUR'}} 
+                                EUR {{total_discounted.formatted}}
+                                {{else if price.currency '==' 'GBP'}} 
+                                GBP {{total_discounted.formatted}}
+                                {{else}}
+                                {{total_discounted.formatted}}
+                                {{/if}}   
+                              </strong>
+                            {{/if}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                        
+                    </td>
+                   
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>

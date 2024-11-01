@@ -1,0 +1,230 @@
+.new-customer{
+    .panel{
+        height: 70vh;
+        border-right: 2px solid #e9ebeb;
+        padding-top: 1rem;
+        padding-left: 9rem;
+    }
+    .panel-header, .panel-body{
+        background-color: #fff;
+    }
+    ul {
+        list-style: none;
+      }
+      
+      .new-customer-fact:before {
+        content: '✓ ';
+        font-weight: bold;
+      }
+}
+.button {
+    width: 175px;
+    color: #fff;
+    display: inline-block;
+}
+.button1{
+    background-color: #ea1947;
+}
+.button2{
+    background-color: #3eb4e4;
+}
+.tick-box{
+    padding: 20px;
+}
+a.forgot-password {
+    text-decoration: none;
+    line-height: 3.5;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #3eb4e4;
+}
+
+#login_email, #login_pass {
+    font-size: 1.5rem;
+    height: 40px;
+}
+.form-group {
+    padding-top: 4%;
+
+    .head-primary{
+        padding: 0 12rem;
+    }
+}
+.new-customer{
+    width: 100% !important;
+}
+.new-customer .head-primary, .form-group .head-primary {
+    font-size: 3rem;
+    line-height: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.new-customer .new-customer-intro{
+    font-size: 15px;
+    letter-spacing: 0.60px;
+    line-height: 24px;
+}
+ul.new-customer-fact-list {
+    font-size: 15px;
+    letter-spacing: 0.75px;
+    line-height: 24px;
+}
+.new-customer .btn-wrap a {
+    font-weight: bold;
+}
+
+.login-row{
+    .form-inlineMessage {
+        width: 389px;
+    }
+    #login_email, #login_pass {
+        width: 389px;
+        background: #eaf0f4;
+    }
+    .chk-group span {
+        padding: 0;
+        margin-right: 5rem;
+    }
+   
+    .form-actions input {
+        vertical-align: text-bottom;
+    }
+    .login-form {
+        margin-top: 2rem;
+        .forgot-password{
+            position: absolute;
+            font-weight: bold;
+        }
+        input[type=submit]{
+            font-size: 15px;
+            letter-spacing: 1px;
+            line-height: 15px;
+            height: 47px;
+            width: 183px;
+            font-weight: bold;
+        }
+    }
+}
+
+input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+input[type="radio"] {
+    vertical-align: text-bottom;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: #eaf0f4;
+    height: 20px;
+    width: 20px;
+  }
+  
+  input[type="radio"]:checked {
+    background: #3eb4e4;
+    
+  }
+  
+  input[type="checkbox"]:hover {
+    filter: brightness(90%);
+  }
+  
+  input[type="checkbox"]:disabled {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  input[type="radio"]:after {
+    content: '';
+    position: relative;
+    left: 40%;
+    top: 20%;
+    width: 15%;
+    height: 40%;
+    border: solid #3eb4e4;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    display: none;
+  }
+  
+  input[type="radio"]:checked:after {
+    display: block;
+  }
+  
+  input[type="radio"]:disabled:after {
+    border-color: #7b7b7b;
+  }
+
+  @media (max-width: 56.2em){
+    .login-row .login-form .forgot-password {
+        position: relative;
+        text-align: center;
+    }
+    .form-group{
+        .head-primary{
+            padding: 0;
+        }
+    }
+    .login-row .chk-group span {
+        padding: 0;
+        margin-right: 7rem;
+    }
+    .login-row #login_email, .login-row #login_pass {
+        width: 100%;
+    }
+    .form-actions > * {
+        width: 50%;
+    }
+    .login-row .login-form input[type=submit]{
+        margin: 0 auto;
+        height: 47px;
+       width: 100%;
+    }
+    .login-row .form-actions input {
+        vertical-align: sub;
+    }
+    .form-actions{
+        text-align: center;
+    }
+    
+    .new-customer{
+        .panel {
+            border-right: 0;
+            height: 60vh !important;
+            padding: 0;
+        }
+        .btn-wrap {
+        display: block;
+        
+            a {
+            margin: 9px 0 !important;
+            width: 100% !important;
+            height: 47px;
+            line-height: 3.5rem;
+            }
+    
+        }
+        
+        .panel-header {
+            padding: 0 !important;
+        }
+        .panel-body {
+            padding: 0;
+        }
+        .head-primary {
+            font-size: 20px;
+        }
+        .new-customer-fact-list {
+            margin-left: 0rem;
+        }
+    } 
+    
+    
+    .sign-in-pane .head-primary{
+        font-size: 20px;
+    }
+    
+  }

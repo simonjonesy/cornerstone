@@ -1,0 +1,318 @@
+.footer {
+    background-color: $color-brand;
+    color: $color-white;
+    padding: 7.5rem 0;
+    font-size: 1.5rem;
+    @include breakpoint(phone) {
+        padding: 35px 0;
+    }
+    .container {
+        .row {
+            @include breakpoint(tab-land) {
+                max-width: 98%;
+                margin-bottom: 4rem;
+            }
+            @include breakpoint(phone) {
+                padding: 0 20px;
+                max-width: 100%;
+            }
+        }
+    }
+    a {
+        color: $color-white;
+        font-size: 1.5rem;
+    }
+
+    &__logo {
+        max-width: 241px;
+        margin-bottom: 2rem;
+    }
+
+    &__left {
+        
+        @include breakpoint(tab-port-up) {
+            width: 30%;
+        }
+        p {
+            @include breakpoint(phone) {
+                margin-bottom: 5px;
+            }
+        }
+        &-social {
+            margin-top: 2rem;
+            a {
+                &:not(:first-child) {
+                    margin-left: 1.5rem;
+                }
+            }
+        }
+
+        &-help {
+            margin: 2rem 0;
+        }
+    }
+
+    &__right {
+        @include breakpoint(tab-port-up) {
+            padding-left: 7rem;
+            width: 70%;
+        }
+        &-cb {
+            display: flex;
+            margin: 20px 0 10px;
+            @include breakpoint(phone) {
+                margin: 20px 0 0;
+            }
+            .cb-wrap {
+                &:first-child {
+                    margin-right: 15px;
+                }
+            }
+            .form-label {
+                color: $color-white;
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+        }
+        &-links {
+            display: flex;
+            @include breakpoint(tab-port) {
+                flex-wrap: wrap;
+                margin-top: 5rem;
+            }
+            div {
+                width: 25%;
+                @include breakpoint(tab-port-up) {
+                    &:last-child {
+                        padding-left: 2rem;
+                    }
+                }
+                @include breakpoint(tab-port) {
+                    width: 50%;
+                    &:nth-child(even) {
+                        padding-left: 2rem;
+                    }
+                    &:nth-child(3),
+                    &:last-child {
+                        margin-top: 2rem;
+                    }
+                }
+                a {
+                    color: $color-white;
+                    font-weight: $fw-b;
+                }
+                ul {
+                    margin: 0 0 2rem;
+                    li {
+                        margin-top: 20px;
+                        @include breakpoint(phone) {
+                            margin-top: 5px;
+                        }
+                        a {
+                            font-weight: $fw-r;
+                            font-size: 15px;
+                            @include breakpoint(phone) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-insights {
+            margin-top: 2rem;
+
+            .hbspt-form {
+                form {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .hs-input {
+                        &[type="text"],
+                        &[type="email"] {
+                            color: #758591;
+                            font-size: 1.5rem;
+                            padding: 16px 10px;
+                            width: 100%;
+                            height: 4.7rem;
+                            margin-right: 2rem;
+                            border: 0;
+                            font-family: $font-primary;
+                            &.error {
+                                border: 2px solid $color-brand2;
+                            }
+                            @include breakpoint(phone) {
+                                width: 100% !important;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
+                        }
+                        &[type="radio"] {
+                            width: 15px !important;
+                            height: 15px;
+                            margin-right: 10px;
+                            position: relative;
+                            top: -2px;
+                            &:checked {
+                                background-color: #eee;
+                                &:after {
+                                    left: 5px;
+                                    top: 2px;
+                                    width: 5px;
+                                    height: 10px;
+                                    border: solid #3eb4e4;
+                                    border-width: 0 2px 2px 0;
+                                    transform: rotate(45deg);
+                                }
+                            }
+                        }
+                    }
+
+                    .hs-form-radio-display {
+                        margin-right: 20px;
+                    }
+
+                    .hs-form-required {
+                        display: none;
+                    }
+
+                    .form-columns-1 {
+                        width: 100%;
+                        order: 1;
+
+                        .inputs-list {
+                            display: flex;
+                            margin-left: 0;
+                        }
+                    }
+
+                    .form-columns-3 {
+                        max-width: 100%;
+                        width: 85%;
+                        order: 2;
+                        @include breakpoint(phone) {
+                            width: 100%;
+                            .input {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+
+                    .hs_submit {
+                        order: 3;
+                        width: 15%;
+                        @include breakpoint(phone) {
+                            width: 100%;
+                            text-align: center;
+                        }
+                        .hs-button {
+                            background-color: #ea1947;
+                            border-color: #ea1947;
+                            border: 0;
+                            color: #fff;
+                            padding: 1.6rem 3rem;
+                            font-family: "Raleway", sans-serif;
+                            font-size: 15px;
+                            line-height: 1;
+                            transition: all .3s;
+                            text-decoration: none;
+                            text-align: center;
+                            font-weight: 600;
+                            @include breakpoint(tab-land-up) {
+                                min-width: 126px;
+                            }
+                            @include breakpoint(tab-port-up) {
+                                position: relative;
+                                left: -10px;
+                            }
+                            @include breakpoint(phone) {
+                                width: 210px;
+                            }
+                        }
+                    }
+
+                    .hs-error-msgs {
+                        display: none !important;
+                    }
+
+                    .hs_error_rollup {
+                        order: 4;
+                        display: none;
+                    }
+                }
+            }
+        }
+        &-form {
+            .form-section {
+                display: flex;
+                @include breakpoint(tab-port) {
+                    flex-wrap: wrap;
+                }
+                div {
+                    @include breakpoint(tab-port-up) {
+                        &:not(:first-child) {
+                            margin-left: 1rem;
+                        }
+                    }
+                    @include breakpoint(tab-port) {
+                        width: 100%;
+                        margin: 5px 0;
+                        text-align: center;
+                    }
+                    .form-input {
+                        font-size: 1.5rem;
+                        padding: 16px 10px;
+                        height: 4.7rem;
+                        margin-right: 2rem;
+                    }
+                    .btn {
+                        white-space: nowrap;
+                        &:hover {
+                            background-color: rgba($color-brand2, 0.8);
+                        }
+                        @include breakpoint(tab-land-up) {
+                            min-width: 126px;
+                        }
+                        @include breakpoint(tab-port) {
+                            width: 80%;
+                            font-size: 15px;
+                        }
+                        @include breakpoint(phone) {
+                            max-width: 210px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .divider2 {
+        margin-top: 2rem;
+        @include breakpoint(phone) {
+            display: none;
+        }
+        &-mobile {
+            display: none;
+            @include breakpoint(phone) {
+                display: block;
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+
+    .footer__img {
+        @media (max-width: 768px) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__acknowledgment {
+        font-size: 14px;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        font-style: italic;
+        width: 100%;
+    }
+}
+

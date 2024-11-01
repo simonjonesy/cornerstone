@@ -1,0 +1,419 @@
+<style>
+    #FormField_35,
+    #FormField_48,
+    #FormField_33,
+    #FormField_49{
+        display:none;
+    }
+    div#FormField_31{
+        display:block;
+    }
+    .form-row .form-row{
+        margin:0;
+    }
+    .form-row .form-row .form-field {
+            width: 100%;
+    }
+    .form-row--half>.form-field:nth-child(odd) {
+    clear: none;
+}
+</style>
+
+<div class="container"></div>
+<div class="account account--fixed">
+    {{#skip}}
+<form id="edit-account-form" data-edit-account-form class="form test" method="post">
+    {{inject 'firstName' (lang 'forms.validate.account.edit.first_name')}}
+    {{inject 'lastName' (lang 'forms.validate.account.edit.last_name')}}
+    {{inject 'phoneNumber' (lang 'forms.validate.account.edit.phone')}}
+    {{inject 'currentPassword' (lang 'forms.validate.account.edit.password')}}
+
+    <input type="hidden" id="customer-id" {{#if customer.id}} value="{{customer.id}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+    <div id="customer-group" style="visibility:hidden;">{{{customer_group_name}}}</div>
+
+    <fieldset class="form-fieldset">
+          {{#or (if customer_group_name '==' 'Parents/Consumers') (if customer_group_name '==' 'Parent/Consumer - Ebook Bought') }}
+          <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">First Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        
+                    </label>
+                    <input type="text" id="firstname_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.first_name }} value="{{forms.edit_account.first_name}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Last Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        
+                    </label>
+                    <input type="text" id="lastname_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.last_name}} value="{{forms.edit_account.last_name}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+            </div>
+          
+           
+           
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Email Address<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="email_input" data-label="{{label}}" name="{{name}}" {{#if customer.email}} value="{{customer.email}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Phone Number
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="phone_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.phone}} value="{{forms.edit_account.phone}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+            </div>
+
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Password*
+                        <small class="validation"></small>
+                    </label>
+                    <input type="password"  class="form-input" id="password_input"  data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Confirm Password*
+                        <small class="confirmpass"></small>
+                    </label>
+                    <input type="password"  class="form-input" id="confirm_password" data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                </div>
+                
+            </div>
+          {{else}}
+            <div class="form-row form-row--half"> 
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">First Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        
+                    </label>
+                    <input type="text" id="firstname_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.first_name }} value="{{forms.edit_account.first_name}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Last Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        
+                    </label>
+                    <input type="text" id="lastname_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.last_name}} value="{{forms.edit_account.last_name}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+            </div>
+          
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Business URL<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                    </label>
+                     {{#each forms.edit_account.fields}}
+                       
+                   {{#if name '==' 'FormField[1][35]'}}
+                    <input type="text" id="url_input" data-label="{{label}}" name="{{name}}"  value="{{value}}" {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    {{/if}}
+                      {{/each}}
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Profession*
+                        
+                    </label>
+                    <select name="{{name}}" class="form-select" aria-required="{{required}}" id="profession_select" data-label="{{label}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                        <option value="">Choose a profession</option>
+                        {{#each forms.edit_account.fields}}
+                            {{#each options}}
+                            
+                            <option {{#if value}} value="{{value}}"{{/if}}  {{selected}}>{{value}}</option>
+                            
+                            {{/each}}
+                        {{/each}}
+                        
+                       <!-- <option value="General Dentist">General Dentist</option>
+                        <option value="Paediatric Dentist">Paediatric Dentist</option>
+                        <option value="Orthodontist">Orthodontist </option>
+                        <option value="Registered Dental Hygienist">Registered Dental Hygienist </option>
+                        <option value="Oral Health Therapist">Oral Health Therapist</option>
+                        <option value="Medical Practitioner">Medical Practitioner</option>
+                        <option value="Speech and Language Professional">Speech and Language Professional </option>
+                        <option value="Chiropractor">Chiropractor</option>
+                        <option value="Osteopath">Osteopath</option>
+                        <option value="Occupational Therapist">Occupational Therapist </option>
+                        <option value="Myofunctional Therapy">Myofunctional Therapy </option>
+                        <option value="Physiotherapist">Physiotherapist</option>
+                        <option value="Lactation Specialist">Lactation Specialist</option>
+                        <option value="Others">Others</option>-->
+                        
+                    </select>
+                    <small class="validation"></small>
+                </div>
+            </div>
+          
+           <!-- <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Contact Person(if any)
+                        {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                    </label>
+                    <input type="text" id="contactperson_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Contact Person Number(if any)
+                        {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                    </label>
+                    <input type="text" id="contactpersonnumber_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                </div>
+            </div>-->
+           
+           
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Practice Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                    </label>
+                     
+                        <input type="text" id="practicename_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                       
+                 
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Practice Location
+                        {{#if required}}<small>{{lang 'common.required' }}</small>{{/if}}
+                    </label>
+                        {{#each forms.edit_account.fields}}
+                      {{#if name '==' 'FormField[1][34]'}} 
+                    <input type="text" id="practicelocation_select" data-label="{{label}}" name="{{name}}"  
+                       value="{{value}}" {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                   {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+          
+
+            <!--<div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Suburb/City*
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="suburb_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">State/Province*
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="state_select" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+            </div>-->
+
+            <!--<div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Postcode*
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="postcode_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Country*
+                        <small class="validation"></small>
+                    </label>
+                    {{> pages/custom/page/countrylist }}
+                    <small class="validation"></small>
+                </div>
+            </div>-->
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Email Address<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="email_input" data-label="{{label}}" name="{{name}}" {{#if customer.email}} value="{{customer.email}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Phone Number
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="phone_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.phone}} value="{{forms.edit_account.phone}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+            </div>
+
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Password*
+                        <small class="validation"></small>
+                    </label>
+                    <input type="password"  class="form-input" id="password_input"  data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Confirm Password*
+                        <small class="confirmpass"></small>
+                    </label>
+                    <input type="password"  class="form-input" id="confirm_password" data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                </div>
+                
+            </div>
+              {{/or}}
+    </fieldset>
+    <div class="form-actions">
+        <button class="btn btn--primary" id="editAccount">Save Changes</button>
+    </div>
+
+    <a href="#editaccountmodal" data-reveal-id="editaccountmodal" style="display:none;" id="open-modal">click to open</a>
+                <div id="editaccountmodal" class="modal" data-reveal style="width:50%;">
+                    <a href="#" class="modal-close" aria-label="close" role="button">
+                        <span aria-hidden="true">&#215;</span>
+                    </a>
+                    <div class="modal-content" style="text-align: center; padding-top: 3rem;">
+                        <h3></h3>
+                        
+                    </div>
+                    <div class="loadingOverlay"></div>
+                </div>
+</form>
+{{/skip}}
+
+
+ {{#or (if customer_group_name '==' 'Parents/Consumers') (if customer_group_name '==' 'Parent/Consumer - Ebook Bought') }}
+        <form id="edit-account-form" data-edit-account-form class="form test" method="post">
+    {{inject 'firstName' (lang 'forms.validate.account.edit.first_name')}}
+    {{inject 'lastName' (lang 'forms.validate.account.edit.last_name')}}
+    {{inject 'phoneNumber' (lang 'forms.validate.account.edit.phone')}}
+    {{inject 'currentPassword' (lang 'forms.validate.account.edit.password')}}
+
+    <input type="hidden" id="customer-id" {{#if customer.id}} value="{{customer.id}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+    <div id="customer-group" style="visibility:hidden;">{{{customer_group_name}}}</div>
+
+    <fieldset class="form-fieldset">
+        
+          <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">First Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        
+                    </label>
+                    <input type="text" id="firstname_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.first_name }} value="{{forms.edit_account.first_name}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Last Name<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        
+                    </label>
+                    <input type="text" id="lastname_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.last_name}} value="{{forms.edit_account.last_name}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+            </div>
+          
+           
+           
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Email Address<span style="font-size: 3rem; vertical-align: middle;">*</span>
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="email_input" data-label="{{label}}" name="{{name}}" {{#if customer.email}} value="{{customer.email}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Phone Number
+                        <small class="validation"></small>
+                    </label>
+                    <input type="text" id="phone_input" data-label="{{label}}" name="{{name}}" {{#if forms.edit_account.phone}} value="{{forms.edit_account.phone}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}} {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+            </div>
+
+            <div class="form-row form-row--half">
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Password*
+                        <small class="validation"></small>
+                    </label>
+                    <input type="password"  class="form-input" id="password_input"  data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                    <small class="validation"></small>
+                </div>
+                <div class="form-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+                    <label class="form-label" for="{{id}}_input">Confirm Password*
+                        <small class="confirmpass"></small>
+                    </label>
+                    <input type="password"  class="form-input" id="confirm_password" data-label="{{label}}" name="{{name}}" value="{{value}}" autocomplete="off" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+                </div>
+                
+            </div>
+         
+    </fieldset>
+    <div class="form-actions">
+        <button class="btn btn--primary" id="editAccount">Save Changes</button>
+    </div>
+
+    <a href="#editaccountmodal" data-reveal-id="editaccountmodal" style="display:none;" id="open-modal">click to open</a>
+                <div id="editaccountmodal" class="modal" data-reveal style="width:50%;">
+                    <a href="#" class="modal-close" aria-label="close" role="button">
+                        <span aria-hidden="true">&#215;</span>
+                    </a>
+                    <div class="modal-content" style="text-align: center; padding-top: 3rem;">
+                        <h3></h3>
+                        
+                    </div>
+                    <div class="loadingOverlay"></div>
+                </div>
+</form>
+ {{else}}
+<form action="{{urls.account.update_action}}" data-edit-account-form class="form" method="post">
+    {{inject 'firstName' (lang 'forms.validate.account.edit.first_name')}}
+    {{inject 'lastName' (lang 'forms.validate.account.edit.last_name')}}
+    {{inject 'phoneNumber' (lang 'forms.validate.account.edit.phone')}}
+    {{inject 'currentPassword' (lang 'forms.validate.account.edit.password')}}
+    <fieldset class="form-fieldset">
+        <div class="form-row form-row--half">
+            <div class="form-field">
+                <label class="form-label" for="account_firstname">
+                 First Name*
+
+                    <small>{{lang 'common.required' }}</small>
+                </label>
+                <input type="text" class="form-input" name="account_firstname" id="account_firstname" value="{{forms.edit_account.first_name}}">
+            </div>
+            <div class="form-field">
+                <label class="form-label" for="account_lastname">
+                 Last Name* 
+
+                    <small>{{lang 'common.required' }}</small>
+                </label>
+                <input type="text" class="form-input" name="account_lastname" id="account_lastname" value="{{forms.edit_account.last_name}}">
+            </div>
+         
+                 <div class="form-row">
+                <div class="form-field">
+                <label class="form-label" for="account_companyname">
+                    Business URL
+
+                </label>
+                <input type="text" class="form-input" name="account_companyname" id="account_companyname" value="{{forms.edit_account.company_name}}">
+                </div>
+            </div>
+          
+           
+                
+            <div class="form-field">
+                
+                <label class="form-label" for="account_phone">
+                    {{lang 'account.settings.phone' }}
+                </label>
+                <input type="text" class="form-input" name="account_phone" id="account_phone" value="{{forms.edit_account.phone}}">
+            </div>
+            
+             
+            
+            {{#each forms.edit_account.fields}}
+                {{{dynamicComponent 'components/common/forms'}}}
+            {{/each}}
+        </div>
+    </fieldset>
+    <div class="form-actions">
+        <button class="btn btn--primary">{{lang 'account.settings.update_details'}}</button>
+    </div>
+</form>
+{{/or}}
+</div>
+</div>

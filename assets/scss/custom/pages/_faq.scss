@@ -1,0 +1,151 @@
+.get-help{
+    .section{
+        padding: 0;
+    }
+    .head-primary{
+        padding-bottom: 2rem;
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: 2px;
+    }
+    .column-1 p{
+        padding-bottom: 2rem;
+        font-size: 20px;
+        line-height: 32px;
+        letter-spacing: 1px;
+    }
+    .section-intro .container {
+        padding: 3rem 0;
+    }
+    figure.section-intro__img {
+        line-height: 20;
+    }
+    .row:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+    .symptoms p {
+        padding-bottom: 2rem;
+    }
+    .section-easyfun:after {
+        background-color: transparent;
+    }
+
+    .section-2 {
+        padding-bottom: 5rem;
+        background-color: #eaf0f4;
+        margin-bottom: 5rem;
+    }
+    .faq{
+        padding-top: 3rem;
+        width: 100%;
+    }
+    .section.section-easyfun .row {
+        justify-content: center;
+    }
+    .section-header {
+        background: url(https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/get-help-header.png?t=1602603502&_ga=2.139209136.2021519667.1602475469-917231899.1601625370) no-repeat center;
+        width: 100%;
+        height: 320px;
+        background-size: cover;
+    }
+    #acc-1 > span {
+        cursor: pointer;
+        font-weight: 700;
+    }
+
+
+    @media only screen and (max-width: 56.25em){
+        .head-primary {
+            font-size: 20px;
+            line-height: 25px;
+            letter-spacing: 1px;
+        }
+        .column-1 p, .symptoms p{
+            font-size: 13px;
+            line-height: 25px;
+            letter-spacing: 0.65px;
+        }
+        figure.section-intro__img{
+            line-height: 0;
+            margin-bottom: 0;
+        }
+        .section-intro .container {
+            padding: 3rem 0;
+        }
+    }
+    @media only screen and (max-width: 37.5em){
+        .section-intro p {
+            margin-bottom: 0;
+        }
+    }
+
+   
+}
+.get-help .section-easyfun.cs-section-easyfun {
+    .container {
+        padding: 0px 78px;
+        @media (max-width: 1024px) {
+            padding: 0px;
+        }
+        > .row {
+            justify-content: center;
+            margin-left: -15px;
+            margin-right: -15px;
+            @media (max-width: 900px) {
+                margin: 0 auto;
+            }
+        }
+    }
+    .hidden-text {
+        opacity: 0;
+        @media (max-width: 900px) {
+            display: none!important;
+        }
+    }
+    .row .col-1-of-4 {
+        width: 33.3%;
+        margin-right: 0px;
+        padding: 0px 15px;
+        @media (max-width: 900px) {
+            padding: 0px;
+        }
+        .card2 {
+            @media (max-width: 600px) {
+                max-width: 100%;
+            }
+            .card-header {
+                padding: 2rem 14.5px;
+                padding-right: calc(13.5px + 24px);
+                svg {
+                    width: 17px;
+                    position: absolute;
+                    right: 14px;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                }
+            }
+            h3 {
+                font-size: 25px;
+                @media (max-width: 900px) {
+                    font-size: 20px;
+                    br {
+                        display: none;
+                    }
+                }
+                span {
+                    font-size: 21px;
+                    display: block;
+                    @media (max-width: 900px) {
+                        font-size: 18px
+                    }
+                }
+            }
+            .card-body {
+                padding: 2rem 14.5px;
+            }
+        }
+    }
+}
+
+
+

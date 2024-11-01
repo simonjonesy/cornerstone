@@ -1,0 +1,26 @@
+{{#partial "page"}}
+<style>
+    .page-content{
+            padding: 100px 0;
+    max-width: 700px;
+    margin: 0 auto;
+    float: none;
+    }
+</style>
+    <section class="page">
+        <main class="page-content page-content--textCenter">
+           
+            <h1>New practitioner account has been added!</h1>
+            <p>Thank you for creating an account with us, we hope you enjoy the website and educational information we have created to add to your learning journey.</p>
+            <p>Your order history and any digital products you purchase will be shown on your personal dashboard.</p>
+            <p>We welcome you to the Munchee Movement.</p>
+            {{#skip}}
+            <h1 class="page-heading">{{lang 'create_account.created.heading'}}</h1>
+            
+            <p>{{{lang 'create_account.created.intro' store_name=settings.store_name email=customer.email}}}</p>
+            <a class="btn btn--primary" href="{{create_account.continue_url}}">{{lang 'create_account.created.continue'}}</a>
+            {{/skip}}
+        </main>
+    </section>
+{{/partial}}
+{{> layout/base}}

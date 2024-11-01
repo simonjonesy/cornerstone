@@ -1,0 +1,244 @@
+.productView {
+    &-product {
+        margin-top: 5rem;
+        @include breakpoint(phone) {
+            padding: 0 10px;
+        }
+    }
+    &-title {
+        color: #707e85;
+        font-size: 3rem;
+    }
+
+    &-info {
+        margin-bottom: 10px;
+        &__sku {
+            display: flex;
+            font-size: 13px;
+            margin-top: 0 !important;
+        }
+        &-name {
+            font-weight: $fw-b;
+            position: relative;
+            top: -1px;
+        }
+        &-value {
+            margin-bottom: 0;
+        }
+    }
+    &-price {
+        color: $color-brand;
+        font-weight: $fw-b;
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+
+    &-options {
+        @include breakpoint(phone) {
+            padding: 0 10px;
+        }
+        .form {
+            &-input {
+                font-size: 1.8rem;
+                color: $color-brand;
+                &[type="number"] {
+                    border: solid 2px $color-brand;
+                    width: 71px;
+                    height: 47px;
+                    padding-left: 10px;
+                    padding-right: 7px;
+                    margin: 0 20px 0 10px;
+                }
+            }
+            &-radio {
+                &:checked + .form-option {
+                    border-color: $color-brand2;
+                    box-shadow: none;
+                    color: $color-brand2;
+                }
+            }
+            &-label {
+                color: #707e85;
+                font-size: 1.5rem;
+                font-weight: $fw-b;
+                text-align: left;
+            }
+            &-option {
+                border: solid 2px $color-brand;
+                padding: 1.5rem 3.5rem;
+                color: $color-brand;
+                @include breakpoint(phone) {
+                    padding: 6px 12px;
+                }
+                &:hover {
+                    border-color: $color-brand2;
+                    color: $color-brand2;
+                }
+                &-variant {
+                    font-size: 1.5rem;
+                    line-height: 1;
+                    font-weight: $fw-b;
+                }
+            }
+        }
+        &__qty {
+            display: flex;
+            align-items: center;
+            margin-top: 3rem;
+            .form {
+                &-label {
+                    margin-bottom: 0;
+                }
+                &-field {
+                    &--increments {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 0;
+                    }
+                }
+                &-action {
+                    margin-top: 0;
+                    .button {
+                        padding: 1.6rem 3rem;
+                        margin: 0;
+                        border-radius: 0;
+                        &--primary {
+                            background-color: $color-brand2;
+                            &:hover {
+                                background-color: $color-brand;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .shipping-stock {
+        margin-top: 4rem;
+        @include breakpoint(phone) {
+            padding-left: 4rem;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+            p {
+                margin: 0 0 0 15px;
+            }
+        }
+    }
+
+    &-description {
+        padding: 0;
+    }
+
+    .tab {
+        border-top: 0;
+        border-bottom: 3px solid transparent;
+        transition: all .3s;
+        &s {
+            @include breakpoint(phone) {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        &--size {
+            + .tab--size {
+                display: none;
+            }
+        }
+        &--shipping {
+            + .tab--shipping {
+                display: none;
+            }
+        }
+        &-content {
+            padding: 1.5rem;
+            @include breakpoint(tab-land-up) {
+                padding: 0;
+            }
+        }
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+        &-title {
+            font-weight: $fw-b;
+            color: $color-slate-gray;
+            padding: 0;
+            font-size: 1.5rem;
+            outline: 0;
+            transition: all .3s;
+            
+            @include breakpoint(phone) {
+                line-height: 1.5;
+                padding-bottom: 10px;
+                width: 80px;
+            }
+        }
+        &:hover,
+        &.is-active {
+            border: 0;
+            border-bottom: 4px solid $color-brand;
+            margin-bottom: 0;
+            .tab-title {
+                color: $color-brand;
+            }
+        }
+        &-content {
+            .productView-info {
+                margin-bottom: 0;
+                &-value {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    #tab-description {
+        padding-top: 15px;
+        font-size: 1.5rem;
+    }
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+.product-related {
+    .head-primary {
+        margin-bottom: 4rem;
+    }
+}
+
+[data-content-region="product_below_content"] {
+    [data-layout-name="title"] {
+        [id*="sd-simple-text"] {
+            @include breakpoint(tab-port) {
+                font-size: 18px;
+            }
+        }
+    }
+    [data-layout-name="text"] {
+        @include breakpoint(phone) {
+            flex-direction: column-reverse;
+            margin-bottom: 15px;
+        }
+        [id*="sd-simple-text"] {
+            @include breakpoint(phone) {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+@media (max-width: 56.25em){
+    .productView .tab.is-active, .productView .tab:hover {
+        width: 100%;
+    }
+    .productView .tab.is-active .tab-title, .productView .tab:hover .tab-title {
+        width: 45%;
+    }
+}

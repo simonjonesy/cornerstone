@@ -1,0 +1,133 @@
+<div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
+{{#each product.reviews.messages}}
+        {{#if error}}
+            {{> components/common/alert-error error}}
+        {{/if}}
+        {{#if success}}
+            {{> components/common/alert-success success}}
+        {{/if}}
+    {{/each}}
+<div class="product-image">
+    <div class="row">
+        <div class="product-image__thumbs">
+             
+                  <div class="product-thumbs-slider js-product-thumbs-slider">
+                        {{#each product.images}}
+                            <div class="sl">
+                           <!--     <a
+                                    class="productView-thumbnail-link"
+                                    href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                                    data-image-gallery-item
+                                    data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+                                    data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                                    data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                                >-->
+                                {{> components/common/responsive-img
+                                    image=this
+                                    fallback_size=../theme_settings.product_size
+                                    lazyload=../theme_settings.lazyload_mode
+                                }}
+                             <!--   </a>-->
+                            </div>
+                        {{/each}}
+                         {{#each product.custom_fields}}
+                         {{#if name '===' 'Poster'}}
+                          <div class="sl">
+                              <div class="video-container">
+                                    <video style="width:100%;" poster="{{{ sanitize value }}}">
+                                   
+                                    </video>
+                                    <button class="play-button">
+                                        <svg class="icon">
+                                            <use xlink:href="#play"></use>
+                                        </svg>
+                                    </button>
+                              </div>
+                                
+                            </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+        </div>
+        <div class="product-image__single">
+             <div class="product-images-slider js-product-images-slider">
+            {{!--
+                Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
+                for variant/rule image replacement
+            --}}
+              {{#each product.images}}
+                <div class="sl">
+
+                    <div class="zoom" id="zoom{{@index}}">
+                        {{> components/common/responsive-img
+                            image=this
+                            fallback_size=../theme_settings.product_size
+                         
+                        }}
+                     </div>
+                </div>
+            {{/each}}
+             {{#each product.custom_fields}}
+              {{#if name '===' 'Video'}}
+              <div class="sl">
+                    <div class="vimeo" style="padding-bottom:100%;width:100%"><iframe src="{{{ sanitize value}}}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="junior-1080p"></iframe></div>
+                </div>
+                {{/if}}
+            {{/each}}
+        <!--    <figure class="productView-image"
+                    data-image-gallery-main
+                    {{#if product.main_image}}
+                    data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
+                    {{/if}}
+                    >
+                <div class="productView-img-container">
+                    {{!-- Remove the surrounding a-element if there is no main image. --}}
+                    {{#if product.main_image}}
+                        <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}"
+                            target="_blank"{{#if schema}} itemprop="image"{{/if}}>
+                    {{/if}}
+                    {{> components/common/responsive-img
+                        image=product.main_image
+                        class="productView-image--default"
+                        fallback_size=theme_settings.product_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                        otherAttributes="data-main-image"
+                    }}
+                    {{!-- Remove the surrounding a-element if there is no main image. --}}
+                    {{#if product.main_image}}
+                        </a>
+                    {{/if}}
+                </div>
+            </figure>-->
+          
+        </div>
+        </div>
+       
+    </div>
+    
+</div>
+</div>
+
+<div id="previewModal" class="modal modal--large" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    $(document).ready(function(){
+            {{#each product.images}}
+			$('#zoom{{@index}}').zoom({magnify : 1.5});
+		    {{/each}}
+		    
+		    $('.js-product-images-slider').on('afterChange', function(event, slick, currentSlide){   
+		          {{#each product.images}}
+        			$('#zoom{{@index}}').zoom({magnify : 1.5});
+        		    {{/each}}
+		    });
+		});
+</script>
+

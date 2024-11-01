@@ -1,0 +1,462 @@
+<!-- <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a> -->
+{{# if template '==' 'pages/custom/page/munchee-u' }}
+{{else}}
+
+
+<div class="mobile-nav">
+        <div class="mobile-nav__topbar">
+          
+            <div class="currency-swicher">
+                {{#skip}}
+                {{> components/common/currency-selector}}
+                {{/skip}}
+                   <div class="currency-loc currency-aud">
+                        <div class="currency">
+                            <img src="https://store-o6ldfcbwf8.mybigcommerce.com/content/images/flag-au.png" alt="" class="currency__flag">
+                            <span class="currency__name">AUD</span>
+                        </div>
+                   </div>
+                        <div class="currency-loc hide-initial currency-usd">
+                            <div class="currency ">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-us.png" alt="" class="currency__flag">
+                                <span class="currency__name">USD</span>
+                            </div>
+                        </div>
+                         <div class="currency-loc hide-initial currency-gbr">
+                             <div class="currency">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/gbp-flag.png" alt="" class="currency__flag">
+                                <span class="currency__name">GBP</span>
+                            </div>
+                        </div>
+                        
+                        <div class="currency-loc hide-initial currency-eur">
+                             <div class="currency">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/eur.png" alt="" class="currency__flag">
+                                <span class="currency__name">EUR</span>
+                            </div>
+                        </div>
+                          
+                        <div class="currency-loc hide-initial currency-cad">
+                             <div class="currency">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-canada.png" alt="" class="currency__flag">
+                                <span class="currency__name">CAD</span>
+                            </div>
+                        </div>
+            </div>  
+            <ul class="mobile-nav__top-links">
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </div>
+        <ul class="menu">
+            {{#if customer}}
+                <li>
+                    {{#if customer.customer_group_name '==' 'Practitioner 1' }}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'Practitioner - Uncertified'}}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'Practitioner - Enrolled'}}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Practitioner - Certified' }}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'Munchee Support Team' }}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'Educator Partner 1' }}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'Education Partner 2' }}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'NACD - Laird Doman' }}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'Munchee Education Team' }}
+                    <a href="/practitioner-dashboard">Your Dashboard </a>
+                    {{else if customer.customer_group_name '==' 'Parent/Consumer - Ebook Bought' }}
+                    <a href="/profile-ebook-bought/">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Distribution Level 1' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Distribution Level 2' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - AP Enrolled - No BB' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - AP Certified - No BB' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - BB Enrolled - No AP' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - AP & BB Enrolled' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - BB Certified - No AP' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - AP & BB Certified' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - Certified AP - Enrolled BB' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Prac - Certified BB - Enrolled AP' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Education Partner -  BB Enrolled' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else if customer.customer_group_name '==' 'Education Partner' }}
+                    <a href="/practitioner-dashboard">Your Dashboard</a>
+                    {{else}}
+                    <a href="/personal-account-dashboard/">Your Dashboard </a>
+                    {{/if}}
+                    {{else}}
+            </li>
+            <li class="has-submenu"><a href="#createAccountMobile">Create an account</a></li>
+            {{/if}}
+            <li><a href="/shop/">Shop</a></li>
+            <!--  <li><a href="/shop">Shop all products</a></li>-->
+            <li class="has-submenu"><a href="#buyNow">Ages and Stages</a></li>
+            <li><a href="/munchee-story/">Our Story</a></li>
+            <li class="has-submenu"><a href="#resources">Resources</a></li>
+               <li><a href="/find-practitioners/">Practitioner Listing</a></li>
+            <li><a href="/contact-us/">Contact</a></li>
+        </ul>
+    </div>
+    <div class="megamenu  {{#or (if template '==' 'pages/custom/page/single-team') (if template '==' 'pages/custom/page/practitioner-certified') (if template '==' 'pages/custom/page/practitioner-uncertified') (if template '==' 'pages/auth/login')}}section--bg{{/or}}" >
+        <div class="megamenu__item" id="buyNow">
+            <div class="container">
+                <div class="row">
+                    <div class="megamenu__desc">
+                        <h4>
+                            <svg class="icon"><use xlink:href="#effect-vector-1"></use></svg>
+                            Buy Now
+                        </h4>
+                        <p>Myo Munchee is for every stage and every age</p>
+                        <a href="/shop/" class="btn btn--primary">View all products to see our range</a>
+                    </div>
+                    <div class="megamenu__links">
+                        <div class="row">
+                            <div class="col">
+                                <a class="box-link" href="/bebe">
+                                    <img loading="lazy" src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/megamenu-img-1-1.png" alt="Myo Munchee BEBE">
+                                    <span class="box-link__text">
+                                        <strong>Myo Munchee BEBE</strong> <br>
+                                        <span>6-18 months</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="box-link" href="/mini">
+                                    <img loading="lazy" src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/megamenu-img-2.png" alt="Myo Munchee MINI">
+                                    <span class="box-link__text">
+                                        <strong>Myo Munchee MINI</strong> <br>
+                                        <span>18 months- 4 years</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="box-link" href="/junior">
+                                    <img loading="lazy" src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/megamenu-img-3.png" alt="Myo Munchee Junior">
+                                     <span class="box-link__text">
+                                        <strong>Myo Munchee
+JUNIOR</strong> <br>
+                                        <span>4-8 years</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="box-link" href="/tween">
+                                    <img loading="lazy" src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/megamenu-img-4-2.png" alt="Myo Munchee Tween">
+                                    <span class="box-link__text">
+                                        <strong>Myo Munchee
+TWEEN</strong> <br>
+                                        <span>8–14 years</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="box-link" href="/adult">
+                                    <img loading="lazy" src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/megamenu-img-5.png" alt="Myo Munchee Adult">
+                                     <span class="box-link__text">
+                                        <strong>Myo Munchee
+ADULT</strong> <br>
+                                        <span>From 14+ years</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="megamenu__item" id="createAccountMobile">
+            <br/>
+                        <ul class="links-list">
+                            <li><a href="/create-personal-account">Personal</a></li>
+                            <li><a href="/register-practitioner-account">Practitioner</a></li>
+                        </ul>
+        </div>
+
+        <div class="megamenu__item" id="resources">
+            <div class="container">
+                <div class="row">
+                    <div class="megamenu__desc">
+                        <h4>
+                            <svg class="icon"><use xlink:href="#effect-vector-1"></use></svg>
+                            Resources
+                        </h4>
+                        <p>Our goal is to provide education to the public and practitioners about the long term impacts of poor oral health, lifestyle and underdeveloped jaws and how they affect future well being.</p>
+                    </div>
+                    <div class="megamenu__links">
+                        <h5 class="links-list-title"><a href="/munchee-story/">How to use a Myo Munchee</a></h5>
+                        <ul class="links-list">
+                           <!-- <li><a href="/blog/">Articles</a></li>-->
+                           <li><a href="https://store-ib0clqurx6.mybigcommerce.com/content/PDF/Myo%20Munchee%20Parent%20Checklist.pdf" target="_blank">Parent Checklist</a></li>
+                           <li><a href="/chart-size/">Sizing Guide</a></li>
+                           <li><a href="/faqs/">FAQs</a></li>
+                           <li><a href="/myo-munchee-special-needs/">Special needs</a></li>
+                           <li><a href="/blog/dummies-pacifiers/">Dummies/ pacifiers</a></li>
+                           <li><a href="/blog/thumb-sucking/">Thumb sucking</a></li>
+                           <li><a href="/blog/tongue-tie/">Tongue tie</a></li>
+                           <li><a href="/munchee-colouring-in-templates/">Munchee Colouring In</a></li>
+                           <li><a href="/blog/why-we-must-chew/">Why we must Chew!</a></li>
+                           <li><a href="/blog/what-does-ideal-function-and-development-look-like/">What does ideal function and development look like</a></li>
+                           <li><a href="/blog/baby-boomers-and-beyond/">Baby Boomers and beyond</a></li>
+                           <li><a href="/blog/research-papers/">Research papers</a></li>
+                           <li><a href="/testimonials">Testimonials</a></li>
+                           <li><a href="/video">Video Library</a></li>
+                           <li><a href="/munchee-movement">What is the #muncheemovement</a></li>
+
+                           {{#or (if  customer.customer_group_name '==' 'Practitioner - Certified') (if  customer.customer_group_name '==' 'Practitioner 1') (if  customer.customer_group_name '==' 'Education Partner') (if  customer.customer_group_name '==' 'Distribution Level 1') (if  customer.customer_group_name '==' 'Practitioner - Enrolled')  (if  customer.customer_group_name '==' 'Distribution Level 2') (if  customer.customer_group_name '==' 'Prac - AP Enrolled - No BB') (if  customer.customer_group_name '==' 'Prac - AP Certified - No BB') (if  customer.customer_group_name '==' 'Prac - BB Enrolled - No AP') (if  customer.customer_group_name '==' 'Prac - AP & BB Enrolled') (if  customer.customer_group_name '==' 'Prac - BB Certified - No AP') (if  customer.customer_group_name '==' 'Prac - AP & BB Certified') (if  customer.customer_group_name '==' 'Prac - Certified AP - Enrolled BB') (if  customer.customer_group_name '==' 'Prac - Certified BB - Enrolled AP')}}
+                                <li><a href="/myo-munchee-events">Events</a></li>
+                           {{else}}
+                                <li><a href="/myo-events">Events</a></li>
+                           {{/or}}
+                           
+                           <li><a href="/brochures">Brochures</a></li>
+                           <li><a href="/in-the-media/">In the media</a></li>
+                        </ul>
+                    </div>
+                    <div class="megamenu__img">
+                        <img loading="lazy" src="https://store-o6ldfcbwf8.mybigcommerce.com/content/images/images-12125.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<header class="header {{#or (if template '==' 'pages/home') (if template '==' 'pages/contact-us') (if template '==' 'pages/errors/404') (if template '==' 'pages/custom/page/practitioners-new') (if template '==' 'pages/product') (if template '==' 'pages/category') (if template '==' 'pages/custom/page/parents') (if template '==' 'pages/custom/page/munchee-story-new') (if template '==' 'pages/custom/page/chart-size') (if template '==' 'pages/custom/page/flexible') (if template '==' 'pages/custom/page/bebe')  (if template '==' 'pages/custom/page/mini')  (if template '==' 'pages/custom/page/junior') (if template '==' 'pages/custom/page/tween') (if template '==' 'pages/custom/page/adult') }} header--abs{{/or}} {{#or (if template '==' 'pages/custom/page/single-team') (if template '==' 'pages/custom/page/practitioner-certified') (if template '==' 'pages/custom/page/practitioner-uncertified') (if template '==' 'pages/auth/login')  (if template '==' 'pages/auth/new-password')  (if template '==' 'pages/auth/forgot-password') (if template '==' 'pages/custom/page/dashboard-practitioner') (if template '==' 'pages/custom/page/dashboard-enrolled-practitioner')  (if template '==' 'pages/order-confirmation')}}section--bg{{/or}}" role="banner">
+      <div class="container">
+        
+         <div class="header__topbar">
+           
+                <div class="currency-swicher">
+                        {{#skip}} {{> components/common/currency-selector}} {{/skip}}
+
+                        <img class="currency-loading-image" src="{{cdn 'img/loading.svg'}}" />
+                   
+                        <div class="currency-loc currency-aud">
+                        <div class="currency">
+                            <img src="https://store-o6ldfcbwf8.mybigcommerce.com/content/images/flag-au.png" alt="" class="currency__flag">
+                            <span class="currency__name">AUD</span>
+                        </div>
+                        </div>
+                        <div class="currency-loc hide-initial currency-usd">
+                            <div class="currency ">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-us.png" alt="" class="currency__flag">
+                                <span class="currency__name">USD</span>
+                            </div>
+                        </div>
+                         <div class="currency-loc hide-initial currency-gbr">
+                             <div class="currency">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/gbp-flag.png" alt="" class="currency__flag">
+                                <span class="currency__name">GBP</span>
+                            </div>
+                        </div>
+                        
+                        <div class="currency-loc hide-initial currency-eur">
+                             <div class="currency">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/eur.png" alt="" class="currency__flag">
+                                <span class="currency__name">EUR</span>
+                            </div>
+                        </div>
+                          
+                        <div class="currency-loc hide-initial currency-cad">
+                             <div class="currency">
+                                <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-canada.png" alt="" class="currency__flag">
+                                <span class="currency__name">CAD</span>
+                            </div>
+                        </div>                   
+                 
+                </div>
+                <ul class="header__links">
+                     {{#if customer}}
+                        
+                         <li>
+                         
+                        {{#if customer.customer_group_name '==' 'Practitioner 1' }}
+                            <a href="/practitioner-dashboard">Welcome to your Dashboard </a>
+                        {{else if customer.customer_group_name '==' 'Practitioner - Uncertified'}}
+                            <a href="/practitioner-dashboard">Welcome to your Dashboard </a>
+                        {{else if customer.customer_group_name '==' 'Practitioner - Enrolled'}}
+                            <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                        {{else if customer.customer_group_name '==' 'Practitioner - Certified' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard </a>
+                          {{else if customer.customer_group_name '==' 'Munchee Support Team' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard </a>
+                           {{else if customer.customer_group_name '==' 'Educator Partner 1' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard </a>
+                          {{else if customer.customer_group_name '==' 'Education Partner 2' }}
+                         <a href="/practitioner-certified/">Welcome to your Dashboard </a>
+                          {{else if customer.customer_group_name '==' 'NACD - Laird Doman' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard </a>
+                            {{else if customer.customer_group_name '==' 'Munchee Education Team' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard </a>
+                        {{else if customer.customer_group_name '==' 'Parent/Consumer - Ebook Bought' }}
+                         <a href="/profile-ebook-bought/">Welcome to your Dashboard</a>
+                         {{else if customer.customer_group_name '==' 'Distribution Level 1' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Distribution Level 2' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Prac - AP Enrolled - No BB' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Prac - AP Certified - No BB' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                           {{else if customer.customer_group_name '==' 'Prac - BB Enrolled - No AP' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Prac - AP & BB Enrolled' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                         {{else if customer.customer_group_name '==' 'Prac - BB Certified - No AP' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                         {{else if customer.customer_group_name '==' 'Prac - AP & BB Certified' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Prac - Certified AP - Enrolled BB' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Prac - Certified BB - Enrolled AP' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Education Partner -  BB Enrolled' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                          {{else if customer.customer_group_name '==' 'Education Partner' }}
+                         <a href="/practitioner-dashboard">Welcome to your Dashboard</a>
+                        {{else}}
+
+                           <a href="/personal-account-dashboard/">Welcome to your Dashboard </a>
+                        {{/if}}
+                       
+                        </li>
+                        <li><a href="{{urls.auth.logout}}">Logout</a></li>
+                      {{else}}
+
+                    <li class="dropdown">Create account
+                        <ul class="dropdown-content">
+                            <li><a href="/create-personal-account">Personal</a></li>
+                            <li><a href="/register-practitioner-account">Practitioner</a></li>
+                        </ul>
+                    </li>
+
+                 <li><a href="/login">Login</a></li>
+                      {{/if}}
+                   
+                </ul>
+            </div>
+          <div class="header__main">
+                <button class="menu-toggle">
+                    <svg class="icon"><use xlink:href="#menu"></use></svg>
+                </button>
+                <div class="header__navbar">
+                       <a class="header__logo" href="/">
+                   {{#if template '==' 'pages/home' }}
+                      <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                      {{else if template '==' 'pages/contact-us' }}
+                             <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                     {{else if template '==' 'pages/custom/page/practitioners-new'}}
+                     <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                     
+                      {{else if template '==' 'pages/product'}}
+                      <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                     
+                     {{else if template '==' 'pages/category'}}
+                     <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                     
+                      {{else if template '==' 'pages/custom/page/parents'}}
+                      <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                      
+                      {{else if template '==' 'pages/custom/page/munchee-story-new'}}
+                       <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                      
+                      {{else if template '==' 'pages/custom/page/chart-size'}}
+                      <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                      
+                       {{else if template '==' 'pages/custom/page/flexible'}}
+                       <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                       
+                         {{else if template '==' 'pages/custom/page/bebe'}}
+                         <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                         
+                          {{else if template '==' 'pages/custom/page/mini'}}
+                          <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                          
+                          {{else if template '==' 'pages/custom/page/junior'}}
+                          <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                          
+                          {{else if template '==' 'pages/custom/page/tween'}}
+                          <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                          
+                          {{else if template '==' 'pages/custom/page/adult'}}
+                          <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-light.svg" alt="Myo Munchee Logo">
+                    
+                    {{else}}
+                     
+                          <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/logo-dark.svg" alt="Myo Munchee Logo Dark"></a>
+
+                    
+                    {{/if}}
+                    </a>
+                   
+                      <ul class="header__menu menu">
+                          <li><a href="/shop/">Shop</a></li>
+                     
+                      <!--  <li><a href="/shop">Shop all products</a></li>-->
+                        <li class="has-submenu"><a href="#buyNow">Ages and Stages</a></li>
+                        <li><a href="/munchee-story/">Our Story</a></li>
+                        <li class="has-submenu"><a href="#resources">Resources</a></li>
+                           <li><a href="/find-practitioners/">Practitioner Listing</a></li>
+                        <li><a href="/contact-us/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="header__cart">
+                    <a class="cart-icon" href="{{urls.cart}}"><svg class="icon"><use xlink:href="#cart"></use></svg></a>
+                    <a href="{{urls.cart}}"><span class="">Cart</span></a>
+                    <a class="btn btn--primary" href="/checkout">Checkout</a>
+                </div>
+            </div>
+    </div>
+</header>
+   {{#if page.title '===' 'Training Videos'}}
+   <style>
+       .account-head{
+           display:none;
+       }
+   </style>
+    {{#or (if customer.customer_group_name '==' 'Practitioner - Certified') (if customer.customer_group_name '==' 'Practitioner - Enrolled') (if customer.customer_group_name '==' 'Practitioner - Regular') (if customer.customer_group_name '==' 'Practitioner 1') (if customer.customer_group_name '==' 'Distribution Level 1') (if customer.customer_group_name '==' 'Distribution Level 2') (if customer.customer_group_name '==' 'Education Partner')}}
+    
+        {{> components/account/navigation}}
+     {{/or}}
+   {{/if}}
+{{/if}}
+
+<style>
+
+    .dropdown {
+        position: sticky;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        color: #001C42;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        z-index: 1;
+        margin: 2px 6px 0 0;
+        padding: 15px;
+        li:nth-child(2){
+            border-left: 0 !important;
+        }
+    }
+
+    .dropdown-content a:hover {color: #757575}
+    .dropdown:hover .dropdown-content {display: block}
+    .dropdown:hover {color: #757575}
+</style>

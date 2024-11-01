@@ -1,0 +1,311 @@
+{{#partial "head"}}
+
+{{{ checkout.checkout_head }}}
+{{{ stylesheet '/assets/css/optimized-checkout.css' }}}
+{{ getFontsCollection }}
+<style>
+    .checkoutHeader-heading img{
+        max-width: 300px;
+    }
+    .stepHeader-title {
+        color: #001C42;
+        font-family: "Raleway";
+    }
+    .checkout-step {
+        border-color: #e5effe;
+    }
+    .customerView-actions .button,
+    .button--primary,
+    .stepHeader-actions .button{
+        background-color: #e61949;
+        font-family: "Raleway";
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 100px;
+        padding: 14px 26px;
+        border:0;
+    }
+    .customerView-actions .button:hover,
+    .button--primary:hover,
+    .stepHeader-actions .button:hover{
+        background: #001C42;
+    }
+    .cart{
+            padding: 20px;
+        background: #fff;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        border-radius: 21.017px;
+    }
+    .form-input{
+        background: rgba(139,138,192,.1);
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+        padding: 0.75rem 1rem;
+        color: #001C42;
+    }
+    .form-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #9199aa;
+    }
+    .form-input::-moz-placeholder { /* Firefox 19+ */
+      color: #9199aa;
+    }
+    .form-input:-ms-input-placeholder { /* IE 10+ */
+      color: #9199aa;
+    }
+    .form-input:-moz-placeholder { /* Firefox 18- */
+      color: #9199aa;
+    }
+    .cart-header .cart-title.optimizedCheckout-headingSecondary{
+            font-size: 24px !important;
+        line-height: 1.333 !important;
+        letter-spacing: 0 !important;
+        font-weight: bold;
+         color: #001C42 !important;
+    }
+    .cart-section{
+        border-color: rgba(0,28,66,.1);
+    }
+    .optimizedCheckout-contentPrimary{
+        font-family: "Raleway";
+            color: #001c42;
+    }
+    .dropdown-toggle--select,
+     .form-select{
+           padding: 10px 16px;
+        background-color: rgba(139,138,192,.1);
+        border: 0;
+        border-radius: 0;
+        outline: none;
+        box-shadow: none;
+        color: #001C42;
+            background-image: url(https://store-o6ldfcbwf8.mybigcommerce.com/content/images/arrow-down.svg);
+        background-repeat: no-repeat;
+        background-size: 20px auto;
+        background-position: calc(100% - 15px) 50%;
+    }
+   .form-field .dropdown-chevron{
+       display:none;
+   }
+   .checkout-form .optimizedCheckout-form-label[for="cb-payment"]{
+        margin-bottom:20px;
+    }
+    .checkout-form .optimizedCheckout-form-label[for="cb-payment"] a{
+        color:#333;
+        border-bottom:1px solid ;
+        font-weight:bold !important;
+    }
+   
+    
+    
+   @media screen and (max-width: 640px){
+   .optimizedCheckout-orderSummary-cartSection{
+        margin: 0;
+    }
+    .optimizedCheckout-orderSummary-cartSection .product-body{
+        margin-top: 10px;
+    }
+  
+  /*
+  .form-actions .optimizedCheckout-form-checkbox+.optimizedCheckout-form-label::before{
+        display:none;
+    }
+  .form-actions input[type=checkbox].optimizedCheckout-form-checkbox{
+            clip: auto;
+            width: 15px;
+            height: 15px;
+            left:0;
+            position:relative;
+    }
+    .form-checkbox+.form-label, .form-radio+.form-label{
+            -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+      .form-checkbox+.form-label:after,
+      .form-checkbox+.form-label:before{
+          display:none;
+      }
+      .form-checkbox{
+          position: relative;
+    width: 15px;
+    height: 15px;
+      }*/
+    
+}
+    
+</style>
+<script type="text/javascript">
+    window.language = {{{langJson 'optimized_checkout'}}};
+    window.cart_id = "{{cart_id}}";
+    window.active_currency_code = "{{currency_selector.active_currency_code}}";
+</script>
+
+
+<script>
+    let customerGroup = '{{customer.customer_group_name}}';
+    function checkRole() {
+        if (document.getElementById('field_42Input') && document.getElementById('field_38Input')) {
+            if (customerGroup.toLowerCase().includes('parent') || customerGroup == '') {
+                // if parent, remove Role
+                document.getElementById('field_30Input')?.closest('.dynamic-form-field').remove();
+            }
+            else {
+                // if pro, hide how did you learn
+                document.getElementById('field_42Input')?.closest('.dynamic-form-field').remove();
+            }
+            clearInterval(checkShipping);
+        }
+    }
+    
+    let checkShipping = setInterval(function(){
+        if(document.querySelector('.checkout-step--shipping') ){
+            const callback = function(mutationsList, observer) {            
+                for(const mutation of mutationsList) {
+                    if (mutation.type === 'childList') {
+                        // on every shipping form show
+                        checkRole();
+                    }
+                }
+            };
+            const observer = new MutationObserver(callback);
+            observer.observe(document.querySelector('.checkout-step--shipping'), {childList: true});            
+        }
+        // on initial form load
+        checkRole();
+    }, 1000);
+</script> 
+
+{{{head.scripts}}}
+
+{{/partial}}
+
+{{#partial "page"}}
+<div id="customer-group" style="display: none;">{{{customer_group_name}}}</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    setInterval(function () {
+        if ($("#customer-group").text() === 'Parents/Consumer') {
+            console.log('test trawley');
+            $(".optimizedCheckout-form-checklist .form-checklist-item:nth-child(4)").css('display', 'none');
+        }
+        
+         
+            /* $('.checkout-form .optimizedCheckout-form-label[for="cb-payment"]').text('I acknowledge customs duties/taxes and country taxes have not been included in the purchase price and may be charged and are the responsibility of the purchaser. This applies to orders outside of Australia and USA. I have read and agreed to the <a href="https://myomunchee.com/privacy">Terms and Conditions</a>.');
+            
+            
+                $('.checkout-form .optimizedCheckout-form-label[for="cb-payment"]').insertAfter('<span>I acknowledge customs duties/taxes and country taxes have not been included in the purchase price and may be charged and are the responsibility of the purchaser. This applies to orders outside of Australia and USA. I have read and agreed to the <a href="https://myomunchee.com/privacy">Terms and Conditions</a>.</span>');*/
+    })
+</script>
+
+<header class="checkoutHeader optimizedCheckout-header">
+    <div class="checkoutHeader-content">
+        <h1 class="is-srOnly">{{lang 'checkout.title'}}</h1>
+        <h2 class="checkoutHeader-heading">
+            <a class="checkoutHeader-link" href="{{urls.home}}">
+                {{#if checkout.header_image}}
+                <img alt="{{settings.store_logo.title}}" class="checkoutHeader-logo" id="logoImage" src="{{ checkout.header_image }}" />
+                {{ else }}
+                <span class="header-logo-text">{{settings.store_logo.title}}</span>
+                {{/if}}
+            </a>
+        </h2>
+    </div>
+</header>
+
+
+{{{ checkout.checkout_content }}}
+
+<div id="currency-helper-hidden" style="display: none;">
+    {{> components/common/currency-selector}}
+</div>
+
+{{{ footer.scripts }}}
+
+{{/partial}}
+
+{{> layout/empty}}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://store-ib0clqurx6.mybigcommerce.com/content/js/custom-utility.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        window.CustomUtility = new CustomUtility();
+    });
+</script>
+
+<!-- <script type="text/javascript">
+      $(function() {
+            let checkProd = setInterval(function(){
+                if ($('.productList').length) {
+                    clearInterval(checkProd);
+                    
+                    $(".productList li").each(function (index, element) { 
+                        var tds = $( this ).find( '.product .product-body h5' ).html()
+                        const hideProduct = 'munchee promotion 132';
+                        if (tds.includes(hideProduct)) {
+                            $(this).hide();
+                        }
+                    },200);
+           
+        }})
+    })
+</script>-->
+
+<script type="text/javascript">
+    $(document).ready(() => {
+        const localStorageKey = "shipping_country_hook";
+        const selectCountryInput = "#countryCodeInput";
+
+        if(localStorage.getItem(localStorageKey)) {
+            const interval = setInterval(() => {
+                const countryInput = $(selectCountryInput);
+                if(countryInput.length > 0) {
+                    const country = localStorage.getItem(localStorageKey);
+                    countryInput.val(country);
+                    clearInterval(interval);
+                    localStorage.removeItem(localStorageKey);
+                }
+            }, 500);
+        }
+
+        $("#checkout-app").on("change", `${selectCountryInput}`, (ev) => {
+            const newCountryCode = ev.target?.value;
+            const newCurrency = window.CustomUtility.getCurrencyByCountryCode(newCountryCode);
+            const currentCurrency = window.active_currency_code;
+            
+            if(newCurrency !== currentCurrency) {
+                changeCurrency(localStorageKey, newCountryCode, newCurrency);
+            }
+        });
+
+        $("#checkout-app").one("changeAuthUserCurrency", (ev, data) => {
+            const { country } = data;
+            const countryCode = window.CustomUtility.getCountryCodeByCountry(country);
+            const currency = window.CustomUtility.getCurrencyByCountryCode(countryCode);
+            changeCurrency(localStorageKey, countryCode, currency);
+        });
+
+        function changeCurrency(localStorageKey, newCountryCode, newCurrency) {
+            const currencyElements = [...document.querySelectorAll("#currency-helper-hidden .currency-swicher__curencies .currency")];
+            const currencyElement = currencyElements.find(el => el.getAttribute("data-currency-code") === newCurrency);
+            
+            if(currencyElement) {
+                const url = $(currencyElement).data('cart-currency-switch-url');
+                const currencyCode = $(currencyElement).data('currency-code');
+                $.ajax({
+                    url,
+                    contentType: 'application/json',
+                    method: 'POST',
+                    data: JSON.stringify({ currencyCode }),
+                }).done(() => {
+                    localStorage.setItem(localStorageKey, newCountryCode)
+                    window.location.reload();
+                });
+            }
+        }
+    });
+</script>

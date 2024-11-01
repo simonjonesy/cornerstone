@@ -1,0 +1,349 @@
+.header {
+    @include breakpoint(tab-land) {
+        background-color: transparent;
+        &.is-open {
+            &:before {
+                content:'';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba($color-black,.3);
+                z-index: 11;
+            }
+        }
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include breakpoint(tab-land) {
+            flex-wrap: wrap;
+            padding: 0;
+            max-width: 100%;
+        }
+    }
+    &__top {
+        background-color: $color-brand;
+        position: relative;
+        z-index: 99;
+        @include breakpoint(tab-land) {
+            padding: 5px 10px;
+        }
+        &-icons {
+            display: flex;
+            align-items: center;
+            @include breakpoint(tab-land) {
+                display: none;
+            }
+            a {
+                display: inline-block;
+                text-decoration: none;
+                width: 3.6rem;
+                height: 3.6rem;
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+            svg {
+                width: 3.6rem;
+                height: 3.6rem;
+            }
+        }
+        .navUser {
+            width: auto;
+            @include breakpoint(tab-land-up) {
+                padding: 0;
+            }
+            @include breakpoint(tab-land) {
+                transform: initial;
+                position: relative;
+                top: 0;
+                right: 5px;
+            }
+        
+            &-section {
+                + .navUser-section {
+                    margin-left: 0;
+                }
+            }
+            &-item {
+                &--cart {
+                    .navUser-action {
+                        height: 24px;
+                        margin-left: 2rem;
+                        @include breakpoint(tab-land) {
+                            height: 30px;
+                            margin-left: 0;
+                        }
+                        .countPill {
+                            background-color: $color-brand2;
+                            position: absolute;
+                            right: -6px;
+                            top: 7px;
+                        }
+                    }
+                }
+                &-cartLabel {
+                    @include breakpoint(tab-land) {
+                        display: block;
+                    }
+                }
+                &.currency {
+                    @include breakpoint(tab-land) {
+                        display: block;
+                    }
+                    .currency-label {
+                        @include breakpoint(tab-land) {
+                            display: none;
+                        }
+                    }
+                    .navUser-action--currencySelector {
+                        text-transform: initial;
+                        @include breakpoint(tab-land) {
+                            display: flex;
+                        }
+                        @include breakpoint(phone) {
+                            position: relative;
+                            top: 3px;
+                            svg {
+                                width: 20px;
+                                height: 25px;
+                                margin-top: 2px;
+                            }
+                        }
+                        .icon {
+                            width: 20px;
+                            height: 18px;
+                        }
+                        .mobile-flag {
+                            display: none;
+                            margin-right: 10px;
+                            @include breakpoint(tab-land) {
+                                display: block;
+                            }
+                            img {
+                                width: 28px;
+                                position: relative;
+                                top: -1px;
+                            }
+                        }
+                    }
+                }
+            }
+            &-or {
+                color: $color-white;
+                font-size: 1.5rem;
+                font-weight: $fw-m;
+            }
+            &-action {
+                color: $color-white;
+                font-size: 1.5rem;
+                font-weight: $fw-m;
+
+                &.signup {
+                    color: $color-brand2;
+                }
+
+                svg {
+                    fill: $color-white;
+                    stroke: transparent;
+                    @include breakpoint(tab-land) {
+                        height: 30px;
+                    }
+                }
+            }
+            &__separator {
+                padding: 0 20px;
+                color: $color-white;
+                font-size: 26px;
+                font-weight: 300;
+                @include breakpoint(phone) {
+                    padding: 0;
+                }
+            }
+        }
+        .dropdown-menu {
+            background: $color-brand;
+            &.is-open {
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
+            &-item {
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-white;
+                }
+                a {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $color-white;
+                    padding: 6px 12px;
+                    strong {
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+    &__bottom {
+        @include breakpoint(tab-land-up) {
+            padding: 0 11rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-logo {
+            @include breakpoint(tab-land-up) {
+                margin: 20px 0;
+            }
+            @include breakpoint(tab-land) {
+                z-index: 999;
+                background-color: $color-white;
+                width: 100%;
+                padding: 20px;
+                margin: 0;
+                box-shadow: 1px 1px 5px rgba($color-black, .1);
+            }
+            &__link {
+                @include breakpoint(tab-land) {
+                    justify-content: center;
+                }
+            }
+            &-image {
+                position: relative;
+                max-height: none;
+                max-width: 194px;
+                @include breakpoint(phone) {
+                    max-height: 20px;
+                }
+    
+                &-container {
+                    &:after {
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .navPages {
+            @include breakpoint(tab-land) {
+                padding: 5px 0 0;
+            }
+            &-list {
+                + .navPages-list {
+                    border-top: 0;
+                    margin-top: 0;
+                    padding-top: 0;
+                    .navPages-item {
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+                    }
+                }
+                &--user {
+                    @include breakpoint(tab-land) {
+                        .navPages-item {
+                            .navPages-action {
+                                text-transform: uppercase;
+                            }
+                            &:last-child {
+                                display: flex;
+                                align-items: center;
+                                .navPages-or {
+                                    margin: 0 -13px;
+                                    color: #fff;
+                                    + .navPages-action{
+                                        //color: $color-brand2;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &-item {
+                @include breakpoint(tab-land) {
+                    border-bottom: solid 1px #d8dfe1;
+                }
+                &.buy-now {
+                    .btn {
+                        margin: 1.5rem 0 1.5rem 3rem;
+                        width: auto;
+                        font-weight: 600;
+                        
+                        @include breakpoint(tab-land) {
+                            padding: 17px;
+                            margin: 22px;
+                            display: block;
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+            &-action {
+                font-size: 1.5rem;
+                line-height: 1;
+                font-weight: $fw-r;
+                text-transform: initial;
+                color: $color-black;
+                padding: 2.5rem 3rem;
+                @include breakpoint(tab-land) {
+                    padding: 10px 22px;
+                    font-size: 15px;
+                    //color: #758591;
+                    color: #fff;
+                }
+            }
+        }
+    }    
+
+    .currency-loading-image {
+        height: 25px;
+        width: 25px;
+    }
+}
+
+
+.xmas-banner {
+    position: relative;
+    text-align: center;
+    padding: 5px 0 10px;
+    color: #ffffff;
+    background: #ea1947;
+    display: none !important;
+
+    @media only screen and (max-width: 900px) {
+        padding: 5px 70px 10px;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        width: 38px;
+        height: 50px;
+        position: absolute;
+        top: 8px;
+        left: 15px;
+        background: url("https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/christmas-pine-star-treexh50.png") no-repeat;
+        @media only screen and (max-width: 900px) {
+            top: 25%;
+        }
+    }
+    &::after {
+        content: '';
+        display: block;
+        width: 38px;
+        height: 50px;
+        position: absolute;
+        top: 8px;
+        right: 15px;
+        background: url("https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/christmas-pine-star-treexh50.png") no-repeat;
+        @media only screen and (max-width: 900px) {
+            top: 25%;
+        }
+    }
+}

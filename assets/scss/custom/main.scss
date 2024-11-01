@@ -1,0 +1,35 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/helpers";
+
+@import "components/banner";
+@import "components/button";
+@import "components/card";
+@import "components/checkbox";
+@import "components/popup";
+@import "components/pagination";
+
+@import "layout/footer";
+@import "layout/form";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+
+@import "pages/contactus";
+@import "pages/home";
+@import "pages/product-list";
+@import "pages/product-inner";
+@import "pages/parents";
+@import "pages/practitioners";
+@import "pages/signin";
+@import "pages/accounts";
+@import "pages/faq";
+@import "pages/accordion";
+@import "pages/registration";
+@import "pages/story";
+@import "pages/privacy";

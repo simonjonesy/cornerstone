@@ -1,0 +1,56 @@
+// Category Banner
+
+div[data-content-region="category_below_header"] {
+		
+    [id*="sd-hero-image"] {
+        .go1757002104,
+        .go2518959811 {
+            min-height: 320px;
+            @include breakpoint(phone) {
+                min-height: 150px;
+            }
+            &:before {
+                content: '';
+                background: rgb(216,216,216);
+                background: linear-gradient(90deg, rgba(216,216,216,1) 0%, rgba(85,85,85,0.1) 100%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;            
+            }
+            [data-test-id="hero-image-title"] {
+                color: $color-brand;
+                font-weight: $fw-b;
+                @include breakpoint(phone) {
+                    font-size: 20px;
+                }
+            }
+            .go2029122802 {
+                position: relative;
+                z-index: 11;
+                display: block;
+                text-align: left;
+                @include breakpoint(phone) {
+                    max-width: 200px;
+                    .go3821107826 {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+        
+    .go3393032375 {
+        @include breakpoint(phone) {
+            display: none;
+        }
+	}
+}
+
+.page-banner {
+    img {
+        width: 100%;
+    }
+}

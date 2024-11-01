@@ -1,0 +1,53 @@
+.page {
+    .pagination {
+        &-item {
+            border: 0;
+            &--current {
+                a {
+                    background-color: $color-brand2;
+                    color: $color-white;
+                    &:hover {
+                        color: $color-white;
+                    }
+                }
+            }
+            &--next,
+            &--previous {
+                float: none;
+                a {
+                    color: #758591;
+                    background-color: transparent !important;
+                    &:hover {
+                        color: $color-brand2;
+                    }
+                }
+            }
+        }
+        &-link {
+            color: #758591;
+            font-size: 2rem;
+            font-weight: $fw-m;
+            padding: 6px 11px;
+            border-radius: 8px;
+            transition: all .3s;
+            line-height: 1;
+            @include breakpoint(phone) {
+                font-size: 13px;
+            }
+            &:hover {
+                background-color: $color-brand2;
+                color: $color-white;
+            }
+
+            .icon {
+                margin-right: 0;
+                width: 24px;
+                height: 28px;
+                svg {
+                    width: 24px;
+                    height: 28px;
+                }
+            }
+        }
+    }
+}

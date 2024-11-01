@@ -1,0 +1,412 @@
+{{#partial "page"}}
+<nav class="nav-secondary">
+            <div class="container">
+                <ul class="menu">
+                   <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                   {{#skip}}
+                    <li><a href="#">Downloads</a> </li>
+                    {{/skip}}
+                    <li><a href="/account.php?action=account_details">Account preferences</a></li>
+                    <li><a href="/account.php?action=address_book">Address details</a></li>
+                    <li class="menu__item menu__item--highlighted"><a href="#review">Leave a review</a></li>
+                </ul>
+            </div>
+        </nav>
+<section class="section-flipbook">
+            <div class="container">
+                <div class="row">
+                    <div class="section-flipbook__media">
+
+                    </div>
+                    <div class="section-flipbook__form"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-intouch section-intouch--flipbook" data-customer-id="{{customer.id}}">
+            <div class="container">
+                <div class="row">
+                    <div class="section-intouch__txt">
+                        <h2>Your Munchee Moves Digital Flipbook</h2>
+                        <div>
+                            <span class="imgs-queue">
+                                <img src="https://myomunchee.wpengine.com/html/images/image-22.png" alt="">
+                                <img src="https://myomunchee.wpengine.com/html/images/image-22.png" alt="">
+                            </span>
+                        </div>
+                        <!--<video class="short-movie-ebook" controls>
+                                <source src="https://store-o6ldfcbwf8.mybigcommerce.com/content/videos/short-myo-moves.mp4" type="video/mp4">
+                            </video>-->
+                        <a href="/your-munchee-moves-flipbook/
+" class="btn btn--primary" target="_blank">Access your flipbook here <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg> </a>
+                    </div>
+                    <div class="section-intouch__formarea">
+                        <div class="section-intouch__form">
+                            <style>
+                                .section-intouch__form .circle-container{
+                                    background-color: #fff;
+                                    padding-top: 40px;
+                                    padding-bottom: 40px;
+                                    width: 210px;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    margin-bottom: 30px;
+                                    border-radius: 50%;
+                                    -webkit-border-radius: 50%;
+                                }
+                            </style>
+                            <h3>Parent checklist</h3>
+                            <div>
+                                <div class="circle-container">
+                                    <img src="https://store-o6ldfcbwf8.mybigcommerce.com/content/images/checklist.png">
+                                </div>
+                                <a href="https://store-o6ldfcbwf8.mybigcommerce.com/content/PDF/MM_Parent-Checklist.pdf" target="_blank" class="btn btn--primary">Download the checklist <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg></a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-resources section--bg">
+            <div class="container">
+                <div class="section-resources__head">
+                    <h2>More About Munchee</h2>
+                    <div class="btns-group">
+                      
+                        <a href="/munchee-story" class="btn btn--third"> Learn more </a>
+                    </div>
+                </div>
+                <div class="section-resources__body">
+                    <div class="resources-list">
+                        <div class="row">
+                            <div class="resources-list__item">
+                                <div class="card card--resource">
+                                    <div class="card__body">
+                                        <div class="card__icon">
+                                            <svg class="icon"><use xlink:href="#questions"></use></svg>
+                                        </div>
+                                        <h4>How do I use a Munchee</h4>
+                                        <p>Watch this video to find out the most important movements for chewing a Munchee</p>
+                                        <a href="/how-to-use-a-myo-munchee/" class="btn btn--secondary strached-link" tabindex="0">Watch video <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg> </a>
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="resources-list__item">
+                                <div class="card card--resource">
+                                    <div class="card__body">
+                                        <div class="card__icon">
+                                            <svg class="icon" viewBox="0 0 66 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8471 0.00099934C10.6788 -0.0184185 8.40542 0.243913 5.99355 0.895392C5.66906 0.982969 5.37552 1.18032 5.17242 1.4478C4.96891 1.71489 4.85705 2.05053 4.85943 2.38618L4.89236 7.16451L2.17147 5.98164C1.93901 5.88059 1.68156 5.83858 1.42926 5.85999C1.17697 5.88139 0.930227 5.96659 0.718399 6.10529C0.506571 6.24398 0.329648 6.43578 0.209451 6.65848C0.0888581 6.88119 0.0245947 7.13362 0.0245947 7.38684L0 46.466C0 46.6665 0.039669 46.8675 0.116623 47.0529C0.19358 47.2384 0.307035 47.4088 0.449441 47.5506C0.591452 47.6925 0.761631 47.8062 0.947279 47.8831C1.13293 47.96 1.33366 48 1.53478 48H64.4656C64.6667 48 64.8675 47.96 65.0531 47.8831C65.2388 47.8062 65.409 47.6925 65.551 47.5506C65.693 47.4088 65.8068 47.2384 65.8834 47.0529C65.9603 46.8675 66 46.6665 66 46.466L65.9706 7.38785C65.9706 7.13503 65.9064 6.8822 65.7858 6.65989C65.6652 6.43758 65.4887 6.24539 65.2768 6.10669C65.065 5.968 64.8183 5.8828 64.566 5.8614C64.3137 5.84 64.0562 5.88201 63.8238 5.98305L61.106 7.16318L61.1398 2.3881C61.1421 2.05245 61.0303 1.7168 60.8268 1.44972C60.6233 1.18223 60.3297 0.984887 60.0052 0.897309C49.2021 -2.01887 41.1744 2.86081 32.9954 5.90744C26.6436 3.54171 20.3826 0.0703195 12.8465 0.00295904L12.8471 0.00099934ZM12.4683 3.0662C19.204 3.01865 24.8993 6.1239 31.4646 8.60771V43.7254C26.1256 40.7831 19.4794 38.0931 8.1848 39.5761L7.93726 3.57881C9.50899 3.23603 11.0132 3.07752 12.4686 3.06722L12.4683 3.0662ZM53.5268 3.0662C54.9831 3.07651 56.4885 3.23502 58.0613 3.5778L57.8066 39.575C46.5222 38.0934 39.8725 40.7797 34.5339 43.7209V8.60416C41.0963 6.12075 46.7903 3.01832 53.5262 3.0658L53.5268 3.0662ZM62.9021 9.72525L62.9287 44.9332H38.8161C43.5471 42.69 49.3105 41.2681 59.0819 42.8615C59.2997 42.8968 59.525 42.8845 59.738 42.8262C59.9506 42.7672 60.1502 42.6622 60.3192 42.5203C60.4878 42.3781 60.6254 42.1993 60.719 41.9996C60.8126 41.7999 60.8626 41.58 60.8642 41.3596L61.0824 10.5159L62.9021 9.72525ZM3.09196 9.72604L4.91471 10.5186L5.12734 41.3593C5.12893 41.5797 5.17891 41.7996 5.27253 41.9993C5.36615 42.199 5.5038 42.3778 5.67239 42.52C5.84099 42.6623 6.04052 42.7673 6.25355 42.8259C6.46618 42.885 6.69149 42.8965 6.90967 42.8612C16.6872 41.2674 22.4471 42.6896 27.1764 44.9329H3.06998L3.09196 9.72604Z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Resources</h4>
+                                        <p>A lot is said about pacifiers! At Munchee, we took an in-depth look at the research and collated these guidelines</p>
+                                        <a href="/resources" class="btn btn--secondary strached-link" tabindex="0">View our resources <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg>  </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resources-list__item">
+                                <div class="card card--resource">
+                                    <div class="card__body">
+                                        <div class="card__icon">
+                                            <svg class="icon"><use xlink:href="#message"></use></svg>
+                                        </div>
+                                        <h4>Contact Munchee</h4>
+                                        <p>Got a question for us to chew over or need product and ordering support? Reach out to Munchee</p>
+                                        <a href="/contact-us/" class="btn btn--secondary strached-link" tabindex="0">Send message </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="resources-modal-overlay"></div>
+            <div class="modal video-modal" id="useMunchee">
+                    <div class="modal-body">
+                        <a href="#" class="close-modal close-resource-modal">X</a>
+                        <div class="vimeo">
+                             <iframe id="video1Iframe" src="https://player.vimeo.com/video/772336598?h=c1620eb84a&amp;amp;badge=0&amp;amp;autopause=0&amp;amp;player_id=0&amp;amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
+                      </div>
+                    </div>
+                    
+                </div>
+        </section>
+        <section class="section-cathy-video section--bg">
+            <div class="container">
+                <div class="video-container">
+                   <!-- <video class="video" poster="images/poster-4.png">
+                        <source src="images/videos/What-Is-A-Myo-Munchee.mp4" type="video/mp4">
+                    </video>-->
+
+
+
+                <div style="padding:55% 0 0 0;position:relative;">
+                    <iframe src="https://player.vimeo.com/video/768440634?h=7638e4a742&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Myo Munchee - What Why Who"></iframe>
+                </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+                    <button type="button" class="play-button" style="" tabindex="-1">
+                        <svg class="icon">
+                            <use xlink:href="#play"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        {{#skip}}
+      <section class="section-family section--bg">
+            <div class="container">
+                <div class="section-family__head">
+                    <h2>Your Munchee family</h2>
+                    <p>Add the members of your family that use a Myo Munchee device so you dont miss the opportunities and promos we have for each stage!</p>
+                </div>
+                <div class="section-family__body">
+                    <ul class="profiles-list">
+                        <li>
+                            <div class="profile">
+                                <span class="profile__name">Family Member 1</span>
+                                <div class="profile__tools">
+                                    <button type="button" id="profile_1_edit">Edit</button>
+                                    <button type="button" id="profile_1_erase">Erase</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <span class="profile__name">Family Member 2</span>
+                                <div class="profile__tools">
+                                    <button type="button" id="profile_2_edit">Edit</button>
+                                    <button type="button" id="profile_2_erase">Erase</button>
+                                </div>
+                            </div>
+                        </li>
+                   
+                    </ul>
+                    <button class="btn btn--third btn--expand" id="addProfile" data-toggle="#profileForm">Add new profile</button>
+
+                    <div class="profile-form" id="profileForm">
+                        <form action="">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col--half">
+                                        <label>First Name*</label>
+                                        <input type="text" placeholder="Joe" name="firstName">
+                                    </div>
+                                    <div class="col--half">
+                                        <label>Date of Birth</label>
+                                        <input type="date" placeholder="" name="bdate">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <h5>Current Myo Munchee device:</h5>
+                                <div class="radio-group">
+                                    <span class="radio-group__item">
+                                        <input type="radio" checked="" id="radio1">
+                                        <label for="radio1">Bebe</label>
+                                    </span>
+                                    <span class="radio-group__item">
+                                        <input type="radio" id="radio2">
+                                        <label for="radio2">Mini</label>
+                                    </span>
+                                    <span class="radio-group__item">
+                                        <input type="radio" checked="" id="radio3">
+                                        <label for="radio3">Junior</label>
+                                    </span>
+                                    <span class="radio-group__item">
+                                        <input type="radio" id="radio4">
+                                        <label for="radio4">Tween</label>
+                                    </span>
+                                    <span class="radio-group__item">
+                                        <input type="radio" id="radio5">
+                                        <label for="radio5">Adult</label>
+                                    </span>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <h5>What are your primary concerns in using your Myo Munchee device?</h5>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox1">
+                                        <label for="checkbox1">Mouth Breathing</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox2">
+                                        <label for="checkbox2">Practitioner Referral</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox3">
+                                        <label for="checkbox3">Clenching/Bruxism</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox4">
+                                        <label for="checkbox4">Dummy/Pacifier <br>
+                                            Replacement</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox5">
+                                        <label for="checkbox5">Tongue Tie</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox6">
+                                        <label for="checkbox6">Dysfunctional Tongue <br>
+                                            Placement</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox7">
+                                        <label for="checkbox7">Breast/Bottle Feeding <br>
+                                            Problems</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox8">
+                                        <label for="checkbox8">Improve Saliva <br>
+                                            Management</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox9">
+                                        <label for="checkbox9">Dysfunctional Chewing <br>
+                                            or Swallowing</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox10">
+                                        <label for="checkbox10">Speech Impediment</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox11">
+                                        <label for="checkbox11">Malocclussion/Teeth and <br>
+                                            Jaw Posture</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox12">
+                                        <label for="checkbox12">Improve Saliva Product</label>
+                                    </div>
+                                    <div class="checkbox-group__item">
+                                        <input type="checkbox" checked="" id="checkbox13">
+                                        <label for="checkbox13">OMT Adjunct Tool</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <h5>Are you working with a practitioner?</h5>
+                                <div class="radio-group">
+                                    <span class="radio-group__item">
+                                        <input name="working-practitioner" type="radio" checked="" id="yes">
+                                        <label for="yes">Yes</label>
+                                    </span>
+                                    <span class="radio-group__item">
+                                        <input name="working-practitioner" type="radio" id="no">
+                                        <label for="no">No</label>
+                                    </span>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5><label>Practitioner Full Name*</label></h5>
+                                        <input type="text" placeholder="Elena Practice ">
+                                    </div>
+                                    <div class="col">
+                                        <h5><label>Type/role of practitioner*</label></h5>
+                                        <select name="" id="">
+                                            <option value="">Pediatric Dentist</option>
+                                            <option value="">Pediatric Dentist</option>
+                                            <option value="">Pediatric Dentist</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <h5><label>Practice Name*</label></h5>
+                                        <input type="text" placeholder="Happy Smiles">
+                                    </div>
+                                    <div class="col">
+                                        <input type="checkbox" checked id="checkAgree">
+                                        <label for="checkAgree">I agree with all the terms and conditions and privacy policy.</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="btn btn--third btn--expand">Add new profile</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{/skip}}
+          <section id="review" class="section-protocols section--bg dark">
+        <div class="container">
+            <div class="section-protocols__inner">
+               
+                <h2>Share your Munchee journey - Submit your testimony here</h2>
+                <div class="form-hide-label">
+                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "8335345",
+    formId: "525e7acc-5740-4cb4-8770-893687ced323"
+  });
+</script>
+</div>
+<br>
+<p style="opacity:0.5">*Please only provide photos that you are happy for us to share</p>
+            </div>
+        </div>
+    </section>
+    {{# skip}}
+        <section class="section-instruction section--bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2>How to <br>
+                            get yours!</h2>
+                        <a href="/buy-now" class="btn btn--primary">Shop now <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg></a>
+                    </div>
+                    <div class="col">
+                        <div class="card card--inst">
+                            <div class="card__body">
+                                <h4>Parent/Guardian or for a child</h4>
+                                <p>Watch this video to find out the most important movements for chewing a Munchee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card--inst">
+                            <div class="card__body">
+                                <h4>For myself or Adult</h4>
+                                <p>Watch this video to find out the most important movements for chewing a Munchee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card--inst">
+                            <div class="card__body">
+                                <h4>Find a Munchee Certified Practitoner</h4>
+                                <p>Watch this video to find out the most important movements for chewing a Munchee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <a href="/our-products" class="btn btn--primary">Shop now <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{/skip}}
+        <section class="section-signup section-signup--alt section--bg">
+            <div class="container">
+                <div class="section-signup__inner">
+                    <div class="vector-effects">
+                        <svg class="icon"> <use xlink:href="#effect-vector-1"></use> </svg>
+                        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+                        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+                    </div>
+                    <div class="section-signup__head">
+                        <h2 class="h3">Find a Munchee Certified Practitioner or Stockist</h2>
+                        <a href="/find-practitioners/" class="btn btn--primary ">Find the closest practitioner</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{{/partial}}
+
+{{> layout/base}}

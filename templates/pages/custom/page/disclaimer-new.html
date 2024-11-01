@@ -1,0 +1,164 @@
+{{#partial "page"}}
+{{#if page.title '===' 'Practice Profile'}}
+<style>
+    .account-head{
+        display:none;
+    }
+</style>
+{{> components/account/navigation account_page='settings'}}
+{{/if}}
+
+{{#if page.title '===' 'Resource - Distributor' }}
+<style>
+    .account-head{
+        display:none;
+    }
+</style>
+
+ <nav class="nav-secondary">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    <li>
+                        <a href="#">Account Details  <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                            <li><a href="/account.php?action=account_details">Your details</a></li>
+                            <li><a href="/practice-profile">Practice Profile</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Munchee U <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                          <!--  <li><a href="/training-downloads/">Training Downloads</a></li>-->
+                            <li><a href="/training-videos/">Training Videos</a></li>
+                            <li><a href="/certified-only-content/">Certified only content</a></li>
+                          <!--  <li><a href="/dowload-logos/">Dowload logos</a></li>-->
+                        </ul>
+                    </li>
+                    <li><a href="/account.php?action=address_book">Shipping information</a></li>
+                    <li><a href="https://myomunchee.com/resource-distributor/">Resources</a></li>
+                </ul>
+            </div>
+        </nav>
+{{/if}}
+
+{{#if page.title '===' 'Resource - Certified' }}
+<style>
+    .account-head{
+        display:none;
+    }
+</style>
+
+ <nav class="nav-secondary">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    <li>
+                        <a href="#">Account Details  <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                            <li><a href="/account.php?action=account_details">Your details</a></li>
+                            <li><a href="/practice-profile">Practice Profile</a></li>
+                        </ul>
+                    </li>
+                     <li><a href="/training-videos/">Training Videos</a></li>
+                   
+                  
+                    <li><a href="/account.php?action=address_book">Shipping information</a></li>
+                    <li><a href="https://myomunchee.com/resource-certified/">Resources</a></li>
+                </ul>
+            </div>
+        </nav>
+{{/if}}
+<div class="container">
+    
+{{region name="flexible_content"}}
+
+</div>
+
+{{#if page.title '===' 'Submit A Warranty Claim' }}
+<section class="warranty-container">
+    <div class="container">
+        <div class="enquiry">
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                region: "na1",
+                portalId: "8335345",
+                formId: "58793c6c-3862-43f6-a665-4f93318e27b4"
+              });
+            </script>
+        </div>
+    </div>
+</section>
+<section class="section-office-contact section--bg">
+            <div class="container">
+                <div class="row">
+                    <div class="section-office-contact__map">
+                        <div id="map2">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.4718181587455!2d151.75741505040597!3d-32.938550480829825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b73143831a35121%3A0x93028cfe17a03fcc!2sMyo%20Munchee%20Australia!5e0!3m2!1sen!2sph!4v1669803409654!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="section-office-contact__contacts">
+                        <h3>{{region name="heading_contact"}}</h3>
+                        <span class="sect-tag sect-tag--secondary">{{region name="heading_contact_subtext"}}</span>
+                        <div class="contact-group">
+                            <h5 class="contact-group__title">Address:</h5>
+                            <address>
+                               {{region name="contact_address"}}
+                            </address>
+                        </div>
+                        <div class="contact-group">
+                            {{region name="contact"}}
+                        </div>
+                        <div class="contact-group">
+                            <div><strong>Email: </strong> <span>{{region name="contact_email"}}</span></div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </section>
+   
+        <section class="section-ship-map">
+            <div class="container">
+                <div class="section-ship-map__inner">
+                    <img class="map-overlay" src="https://myomunchee.wpengine.com/html/images/map.svg">
+
+                    <div class="row">
+                        <div class="section-ship-map__txt">
+                            <img src="https://myomunchee.wpengine.com/html/images/map-marker.png" alt="">
+                            {{region name="contact_map_info"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{{/if}} 
+
+ 
+ <div class="container">
+   {{#if page.title '===' 'Training Videos'}}
+     {{#inArray theme_settings.training_video_restricted_groups customer.customer_group_name}}
+            <p class="no-access" style="margin-bottom:50px">Sorry! You don't have access to this page.</p>
+            <style>
+                div[data-sub-layout-container="19f627c6-b461-4ad5-ab79-2bfbae58d5ff"],
+                div[data-sub-layout-container="b96f3a37-f5f7-4df4-85d5-f10860c46590"]{
+                    display: none;
+                }
+            </style>              
+     {{/inArray}}
+     {{/if}}
+ </div>
+{{region name="flexible_content_bottom"}}
+{{region name="flexible_content_bottom2"}}
+
+  
+{{#or (if page.title '===' 'Myo Munchee Events') (if page.title '===' 'Myo Events') }}
+ 
+    {{region name="events_flexbile_content"}}
+           {{region name="events_flexbile_content2"}}
+         
+{{/or}}
+{{/partial}}
+{{> layout/base}}

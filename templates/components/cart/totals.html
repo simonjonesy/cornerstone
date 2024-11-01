@@ -1,0 +1,78 @@
+<style>
+    button.coupon__apply{
+        border-radius:0;
+    }
+</style>
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+        <ul class="order-summary__details">
+            <li>
+                <span>{{lang 'cart.checkout.subtotal'}}:</span>
+                <span>{{cart.sub_total.formatted}}</span>
+            </li>
+            {{#if cart.shipping_handling.show_estimator}}
+            <li>
+                <span>{{lang 'cart.checkout.shipping'}}</span>
+                {{> components/cart/shipping-estimator cart.shipping_handling}}
+            </li>
+            {{/if}}
+            {{#each cart.taxes}}
+            <li>
+                <span>{{name}}</span>
+                <span>{{cost.formatted}}</span>
+            </li>
+            {{/each}}
+           <!-- {{#if currency_selector.active_currency_code '!=' 'USD'}}-->
+            <li>
+                <span>INCLUDES GST (AUS)</span>
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    <span>{{cart.grand_total.formatted}}</span>
+                {{else}}
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+            </li>
+          <!--  {{/if}} -->
+        </ul>
+        {{#if cart.coupons}}
+            {{#each cart.coupons}}
+            <div class="coupon">
+                <div class="cart-total-label">
+                        <strong>{{lang 'cart.coupons.code_label' code=code}}</strong>
+                        <div>
+                            <a data-url="{{remove_url}}" class="remove-coupon">{{lang 'cart.coupons.remove'}}</a>
+                        </div>
+                    </div>
+                    <div class="cart-total-value">
+                        <span>{{discount.formatted}}</span>
+                    </div>
+            </div>
+            {{/each}}
+        {{else}}
+        <div class="coupon">
+            <!--<input type="text" class="coupon__input" placeholder="Add coupon">
+            <button class="coupon__apply" type="button">Apply</button>-->
+            
+            <form class="form form--hiddenLabels coupon-form" method="post" action="/cart.php">
+                <input class="coupon__input" data-error="Please enter your coupon code." id="couponcode" type="text" name="couponcode" value="" placeholder="Add Coupon">
+                <!--<input class="button button--primary button--small" type="submit" value="Apply">-->
+                <button class="coupon__apply" type="submit">Apply</button>
+                <input type="hidden" name="action" value="applycoupon">
+            </form>
+        </div>
+        {{/if}}
+
+        <div class="total-summary">
+            <h3>Order Summary</h3>
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                <span>{{cart.grand_total.formatted}}</span>
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+
+        <a href="/checkout" class="btn btn--primary btn--expand">Go to checkout</a>
+    </div>
+
+
+
+

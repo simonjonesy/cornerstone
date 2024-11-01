@@ -1,0 +1,184 @@
+{{#partial "page"}}
+
+
+
+
+<section class="section-intouch">
+    <div class="vector-effects">
+        <svg class="icon"> <use xlink:href="#effect-vector-1"></use> </svg>
+        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="section-intouch__txt">
+                <h1>{{region name="heading"}}</h1>
+               {{region name="description"}}
+            </div>
+            <div class="section-intouch__formarea">
+                <div class="section-intouch__form">
+                   {{region name="form_heading"}}
+                    <div class="form-hide-label"  data-sr-id="57" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 1.8s cubic-bezier(0.5, 0, 0, 1) 0.3s, transform 1.8s cubic-bezier(0.5, 0, 0, 1) 0.3s;">
+                  <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "8335345",
+    formId: "b6baab8e-dde3-4b73-af26-9c2b303623d0"
+  });
+</script>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <section class="section-office-contact section--bg">
+            <div class="container">
+                <div class="row">
+                    <div class="section-office-contact__map">
+                        <div id="map2">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.4718181587455!2d151.75741505040597!3d-32.938550480829825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b73143831a35121%3A0x93028cfe17a03fcc!2sMyo%20Munchee%20Australia!5e0!3m2!1sen!2sph!4v1669803409654!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="section-office-contact__contacts">
+                        <h3>{{region name="heading_contact"}}</h3>
+                        <span class="sect-tag sect-tag--secondary">{{region name="heading_contact_subtext"}}</span>
+                        <div class="contact-group">
+                            <h5 class="contact-group__title">Address:</h5>
+                            <address>
+                               {{region name="contact_address"}}
+                            </address>
+                        </div>
+                        <div class="contact-group">
+                            {{region name="contact"}}
+                        </div>
+                        <div class="contact-group">
+                            <div><strong>Email: </strong> <span>{{region name="contact_email"}}</span></div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </section>
+  <section class="section-resources contact section--bg">
+            <div class="container">
+                <div class="section-resources__head">
+                     {{{region name="resources_heading"}}}
+                   
+                </div>
+                <div class="section-resources__body">
+                    <div class="resources-list">
+                        <div class="row">
+                            <div class="resources-list__item">
+                                <div class="card card--resource">
+                                    <div class="card__body">
+                                        <div class="card__icon">
+                                            <svg class="icon"><use xlink:href="#sertificate"></use></svg>
+                                        </div>
+                                       {{region name="resources_1"}}
+                                        {{region name="resources_1_btn"}}
+                                    </div>
+                                </div>
+                            </div>
+                   
+                            <div class="resources-list__item">
+                                <div class="card card--resource">
+                                    <div class="card__body">
+                                        <div class="card__icon">
+                                            <svg class="icon"><use xlink:href="#warranty"></use></svg>
+                                        </div>
+                                         {{region name="resources_3"}}
+                                        {{region name="resources_3_btn"}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-ship-map">
+            <div class="container">
+                <div class="section-ship-map__inner">
+                    <img class="map-overlay" src="https://store-ib0clqurx6.mybigcommerce.com/content/images/map.svg">
+
+                    <div class="row">
+                        <div class="section-ship-map__txt">
+                            <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/map-marker.png" alt="">
+                            {{region name="contact_map_info"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{region name="follow"}}
+    
+    {{#skip}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<div class="page-banner">
+    <img src="https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/banner-contactus.png" alt="">
+</div>
+<div class="container">
+    <main class="page">
+        {{#unless theme_settings.hide_contact_us_page_heading }}
+            <!-- <h1 class="page-heading">{{page.title}}</h1> -->
+        {{/unless}}
+
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+
+        <div id="contact-us-page" class="contactus">
+            <aside class="contactus__left">
+                <h1 class="head-primary">Contact Info</h1>
+                <div>
+                    <p>Addresss:</p>
+                    <p>{{nl2br settings.address}}</p>
+                </div>
+                <div>
+                    <p>Call Us: 
+                        <a href="tel:{{#if settings.phone_number}}{{settings.phone_number}}{{/if}}">
+                            {{#if settings.phone_number}}
+                                {{settings.phone_number}}
+                            {{/if}}
+                        </a>
+                    </p>
+                    <p>International: <a href="tel:+61 491 156 372">+61 491 156 372</a></p>
+                    <p>Email: <a href="mailto:hello@myomunchee.com">hello@myomunchee.com</a></p>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.5102680503032!2d151.75771441518611!3d-32.93753498092388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b73143831a3511f%3A0x76433c9790857f4b!2s179%20Union%20St%2C%20The%20Junction%20NSW%202291%2C%20Australia!5e0!3m2!1sen!2sph!4v1602833570597!5m2!1sen!2sph" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </aside>
+            <article class="contactus__right">
+            {{#if forms.contact.success}}
+                <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+            {{else}}
+                <h1 class="head-primary">Get in touch with us</h1>
+                <p>{{{page.content}}}</p>
+                <!--[if lte IE 8]>
+                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+                <![endif]-->
+                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                <script>
+                hbspt.forms.create({
+                    portalId: "8335345",
+                    formId: "4e48ee61-a1c4-4148-b82b-4a4a73bcadf0"
+                });
+                </script>
+            {{/if}}
+            </article>
+        </div>
+    </main>
+</div>
+{{/skip}}
+{{/partial}}
+
+{{> layout/base}}

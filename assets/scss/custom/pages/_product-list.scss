@@ -1,0 +1,199 @@
+.viewChange {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    padding: 0 1.2rem;
+    @include breakpoint(phone) {
+        display: none;
+    }
+    span {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #758591;
+    }
+    a {
+        margin-left: 25px;
+        /*
+        svg {
+            width: 3.2rem;
+            height: 3.2rem;
+            fill {
+                color: #ddd !important;
+            }
+            g {
+                fill {
+                    color: #ddd !important;
+                }
+            }
+            path {
+                fill {
+                    color: #ddd !important;
+                }
+            }
+        }   
+        */     
+        &.gridView, &.listView {
+            img {
+                width: 32px;
+                &:last-of-type {
+                    display: none;
+                }
+            }
+        }
+        &.gridView.active, &.listView.active {
+            img {
+                width: 32px;
+                &:first-of-type {
+                    display: none;
+                }
+                &:last-of-type {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.product {
+    h4 {
+        font-size: 2rem;
+        font-weight: $fw-b;
+        
+        a {
+            color: $color-brand;
+            transition: all .3s;
+            &:hover {
+                color: $color-brand2;
+            }
+        }
+    }
+    .price {
+        font-size: 2rem;
+        font-weight: $fw-b;
+        color: lighten($color-black, 32.16);
+    }
+}
+
+.productGrid {
+    display: flex;
+    flex-wrap: wrap;
+    @include breakpoint(phone) {
+        width: 80%;
+        padding-top: 5rem;
+        margin-top: 30px;
+        margin: 0 auto;
+    }
+    .product {
+        display: flex;
+        transition: all .3s;
+        @include breakpoint(tab-land-up) {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+        }
+        @include breakpoint(phone) {
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+}
+
+.cart-actions .btn-wrap {
+    float: right;
+}
+.cart-actions .btn-wrap .btn {
+    margin: 10px;
+    width: 235px;
+    height: 55px;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 1px;
+}
+
+.listItem {
+    &-body {
+        width: 100%;
+    }
+    &-content {
+        width: 100%;
+        .button {
+            margin: 0;
+        }
+    }
+}
+
+.cart-remove {
+    margin-right: 2rem;
+    background-color: transparent;
+    border-radius: 0;
+    cursor: pointer;
+    float: right;
+    margin-top: 0.84286rem;
+    padding: 0;
+    transition: background-color .15s ease;
+}
+.icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cart-total-label, .cart-total-value {
+    width: 50%;
+}
+
+@media(max-width: 56.25em){
+    .cart-actions .btn-wrap {
+        float: right;
+        justify-content: center;
+        margin: 0 auto;
+        display: -ms-flexbox;
+        flex-wrap: wrap;
+        display: flex;
+    }
+    .cart-page {
+        font-size: 18px !important;
+        line-height: 40px !important;
+        letter-spacing: 1.8px !important;
+    }
+    .cart-actions .btn-wrap .btn {
+        line-height: 2rem;
+    }
+    .cart-remove {
+        margin-top: 0;
+        margin-right: 2rem;
+    }
+    .cart .icon {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
+
+span.price.price--withoutTax > span:nth-child(1),
+.card-text > span,
+h4.cart-item-name > span {
+    display: none !important;
+}
+
+
+.page {
+    .banners[data-banner-location="top"] {
+        display: none;
+    }
+}
+
+.page-content.Practitioner {
+    .banners[data-banner-location="top"] {
+        display: block !important;
+        margin-bottom: 50px;
+        padding: 30px 0;
+        background: #ea1947;
+    }
+}

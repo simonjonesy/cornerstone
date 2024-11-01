@@ -1,0 +1,86 @@
+---
+blog:
+    posts:
+        limit: 9
+        summary: 200
+---
+{{#partial "page"}}
+<section class="section-breadcrumb">
+    <div class="container">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+</section>
+ <section class="section-blog-top">
+    <div class="container">
+        {{region name="blog_heading"}}
+    </div>
+</section>
+ <section class="section-special-post">
+            <div class="container">
+                <div class="special-post">
+                    <div>
+                        <h5>News & Updates</h5>
+                        <h3>Baby Boomers and beyond</h3>
+                        <p><time>13 December 2022</time></p>
+                        <!--<br>
+                            By Tim Ross, Helene Fouquet, and Ian Wishart</p>-->
+                        <a href="/blog/baby-boomers-and-beyond/" class="btn btn--primary">Read article <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg> </a>
+                    </div>
+                    <div class="special-post-img-cont">
+                        <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/640w/uploaded_images/card-img-4a.png?t=1669193964">
+                    </div>
+                </div>
+            </div>
+        </section>
+     
+ <section class="section-articles section--bg">
+            <div class="container">
+                <div class="section-articles__head">
+                    <div class="row">
+                        <h3>All articles</h3>
+                       <!-- <form action="">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="search" placeholder="Search">
+                                </div>
+                                <div class="col">
+                                    <select name="" id="">
+                                        <option hidden value="">Categories</option>
+                                        <option value="">Categorie 1</option>
+                                        <option value="">Categorie 2</option>
+                                        <option value="">Categorie 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>-->
+                    </div>
+                </div>
+                <div class="section-articles__body">
+                    <div class="row articles-list">
+                          {{#each blog.posts}}
+                           <div class="articles-list__item">
+                                 {{> components/blog/post post=this}}
+                            </div>
+                          {{/each}}
+                     
+                </div>
+                  {{> components/common/paginator pagination.blog}}
+            </div>
+        </section>
+{{#skip}}
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<main class="page">
+    {{#unless theme_settings.hide_blog_page_heading }}
+        <h1 class="page-heading">{{ blog.name }}</h1>
+    {{/unless}}
+
+    {{#each blog.posts}}
+        {{> components/blog/post post=this}}
+    {{/each}}
+
+    {{> components/common/paginator pagination.blog}}
+</main>
+{{/skip}}
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,16 @@
+{{#partial "page"}}
+<section class="section-breadcrumb">
+    <div class="container">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+</section>
+
+{{> components/blog/post post=blog.post show_tags=true}}
+{{#skip}}
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+{{> components/blog/post post=blog.post show_tags=true}}
+
+{{/skip}}
+{{/partial}}
+{{> layout/base}}

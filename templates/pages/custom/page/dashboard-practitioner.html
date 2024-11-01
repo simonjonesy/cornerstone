@@ -1,0 +1,241 @@
+{{#partial "page"}}
+<style>
+@media screen and (min-width:1025px){
+    .section-enrolled h3{
+            font-size: 43px;
+    }
+    .section-enrolled .col--half:nth-child(2) .section-enrolled__box{
+        padding-left: 30px;
+        padding-right: 30px;    
+    }
+    .section-enrolled .col--half:nth-child(2) .btns-group .btn{
+        min-width:382px;
+    }
+}
+</style>
+    <nav class="nav-secondary section--bg">
+            <div class="container">
+                <ul class="menu">
+                    <li><a href="https://myomunchee.com/account.php?action=order_status">Order History</a></li>
+                    <li>
+                        <a href="#">Account Details  <svg class="icon"> <use xlink:href="#arrow-down"></use> </svg></a>
+                        <ul class="sub-menu">
+                            <li><a href="/account.php?action=account_details">Your details</a></li>
+                            <li><a href="/practice-profile">Practice Profile</a></li>
+                        </ul>
+                    </li>
+                     <li><a href="/training-videos/">Training Videos</a></li>
+                   
+                  
+                    <li><a href="/account.php?action=address_book">Shipping information</a></li>
+                   
+                </ul>
+            </div>
+        </nav>
+    <section class="section-enrolled section--bg">
+        <div class="container">
+            <div class="row">
+                <div class="col--half">
+                    <div class="section-enrolled__box">
+                        <!--<h5>Certified Practitioner</h5>-->
+                        {{ region name="practitioner_cont_left" }}
+                     
+                       
+                    </div>
+                </div>
+                <div class="col--half">
+                    <div class="section-enrolled__box">
+                         {{ region name="practitioner_cont_right" }}
+                      
+                        
+                        <!--<h2>Munchee-U <br/>how is your training going?</h2>
+                        <p>Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more</p>
+                        <a href="#" class="btn btn--primary">Resume your training</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!--<section class="section-casestudies">
+        <div class="container">
+            <div class="section-casestudies__head">
+                <h2>Practitioner Types</h2>
+            </div>
+            <div class="section-casestudies__slider js-types-slider">
+                 <div class="sl">
+                    <div class="card">
+                       
+                        <div class="card__body">
+                            <h4>Dental</h4>
+
+                            <a href="#" class="btn btn--secondary strached-link">View case details <svg class="icon">
+                                    <use xlink:href="#arrow-topright"></use>
+                                </svg> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sl">
+                    <div class="card">
+                       
+                        <div class="card__body">
+                            <h4>Speech</h4>
+                            <a href="#" class="btn btn--secondary strached-link">View case details <svg class="icon">
+                                    <use xlink:href="#arrow-topright"></use>
+                                </svg> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sl">
+                    <div class="card">
+                        
+                        <div class="card__body">
+                            <h4>Myofunctional</h4>
+                            <a href="#" class="btn btn--secondary strached-link">View case details <svg class="icon">
+                                    <use xlink:href="#arrow-topright"></use>
+                                </svg> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sl">
+                    <div class="card">
+                       
+                        <div class="card__body">
+                            <h4>Manual Therapist</h4>
+                            <a href="#"
+                                target="_blank" class="btn btn--secondary strached-link">View case details <svg
+                                    class="icon">
+                                    <use xlink:href="#arrow-topright"></use>
+                                </svg> </a>
+                        </div>
+                    </div>
+                </div>
+              <div class="sl">
+                    <div class="card">
+                       
+                        <div class="card__body">
+                            <h4>Aged Care</h4>
+                            <a href="#"
+                                target="_blank" class="btn btn--secondary strached-link">View case details <svg
+                                    class="icon">
+                                    <use xlink:href="#arrow-topright"></use>
+                                </svg> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+       <section class="section-protocols">
+        <div class="container">
+            <div class="section-protocols__inner">
+                <div class="vector-effects">
+                    <svg class="icon">
+                        <use xlink:href="#effect-vector-2"></use>
+                    </svg>
+                    <svg class="icon">
+                        <use xlink:href="#effect-vector-2"></use>
+                    </svg>
+                    <svg class="icon">
+                        <use xlink:href="#effect-vector-1"></use>
+                    </svg>
+                </div>
+                <h2>Send us your testimony</h2>
+                <p>Help us spread the Munchee Movement message, share your experience about our products and training. Tell us how Myo Munchee has made an impact in your practice and patient's lives.</p>
+                <div class="form-hide-label">
+                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                    <script>
+                      hbspt.forms.create({
+                        region: "na1",
+                        portalId: "8335345",
+                        formId: "525e7acc-5740-4cb4-8770-893687ced323"
+                      });
+                    </script>
+                </div>
+                <div class="case-study-form-cont form-hide-label">
+                    <script>
+                  hbspt.forms.create({
+                    region: "na1",
+                    portalId: "8335345",
+                    formId: "757ff4a8-d8f9-4409-b9ef-2addf45741a4"
+                  });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{{/partial}}
+{{#if customer.customer_group_name '==' 'Practitioner 1' }}
+<div class="modal-overlay practitioner-overlay"></div>
+<div class="modal become-practitioner">
+    <a class="close-modal"><svg class="icon"><use xlink:href="#close"></use></svg></a>
+      <section class="section-become-practitioner section--bg">
+            <div class="container">
+                <div class="section-become-practitioner__inner">
+                    <div class="vector-effects">
+                        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+                        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+                        <svg class="icon"> <use xlink:href="#effect-vector-2"></use> </svg>
+                        <svg class="icon"> <use xlink:href="#effect-vector-1"></use> </svg>
+                        <svg class="icon"> <use xlink:href="#effect-vector-1"></use> </svg>
+                    </div>
+                     <h2>Join the movement - become a MUNCHEE CERTIFIED practitioner!</h2>
+                        <div class="row">
+                            
+                             <div class="section-become-practitioner__txt">
+                               
+                                
+                                <p>Complete our Munchee U Protocols Online course to gain a thorough understanding of how to use the Myo Munchee in your practice. The course includes a digital copy of our Practitioner User Manual which outlines over 20 conditions where the Munchee may assist within your treatment protocols. There is 10 hours of content across 4 modules. Within each module there are multiple videos, so easy to complete even when you have limited time.</p>
+
+        <p>Once you have completed the course, which includes a live meeting, you are then listed on our practitioner listing page as a certified Myo Munchee practitioner. This page is creating referral pathways and connecting the general public to our Munchee Certified community and, to our Munchee Certified community and also connecting our practitioners with one another, creating localised hubs of like-minded practitioners and therapists working collaboratively to achieve the best possible patient outcomes. </p>
+
+        <p>You will then also receive invitations to our monthly Certified Practitioner Advanced sessions where Dr Bourke hosts a presentation by an expert in the field of myofunctional therapy. Past presenters include Sharon Moore SLP, author of Sleep Wrecked Kids, Dr Dan Hanson on Functional Breathing and why it's more than just nose breathing, and Yulli Tamayo Myerson on recognising primitive reflex retention in OMD patients.
+        </p>
+                                <a href="/munchee-u-online-advanced-protocols/" target="_blank" class="btn btn--primary">Purchase here <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg> </a>
+                            </div>
+
+                               <div class="section-become-practitioner__video">
+                                   <div><iframe src="https://player.vimeo.com/video/768444933?h=0854de3c1b&badge=0&autopause=0&player_id=0&app_id=58479/embed" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+                               
+                                    <h4>MUNCHEE U COURSE STRUCTURE AND TOPICS:</h4>
+                                    <p><strong>MODULE 1:</strong> Total = 1 hr Across 4 videos</p>
+                                    <ul>
+                                        <li>
+                                            Myo Munchee history and philosophy
+                                        </li>
+                                        <li>Guidelines for use and care</li>
+                                        <li>Introducing the Munchee to your own body</li>
+                                        <li>Manual + useful resources</li>
+                                    </ul>
+                                    <p><strong>MODULE 2:</strong> Total = 3 hrs Across 5 Videos</p>
+                                    <ul>
+                                        <li>Condition specific information including posture, malocclusion and myofunctional applications </li>
+                                       
+                                    </ul>
+                                     <p><strong>MODULE 3:</strong> Total = 1.5 hrs Across 5 Videos</p>
+                                    <ul>
+                                        <li>More condition specific presentations including; mouth breathing, speech, TMD and pacifier replacement</li>
+                                       
+                                    </ul>
+                                     <p><strong>MODULE 4:</strong> Total = 2.5 hrs Across 4 Videos</p>
+                                     <p>Advanced protocols including;</p>
+                                    <ul>
+                                        <li>
+                                            Munchee for sleep breathing and bruxism, dysphagia, cranial
+nerves screening and gag reflexes
+                                        </li>
+                                        <li>Introduction to cranial theory</li>
+                                    </ul>
+                                     <p><strong>MODULE 5:</strong> Certification exam</p>
+                                       <p><strong>MODULE 6:</strong> Total = 2 hr Across 6 Videos</p>
+                                       <p>Bonus material - Myo Munchee Bebe </p>
+                               </div>
+                         
+                        </div>
+                           
+            </div>
+        </section>
+</div>
+{{/if}}
+{{> layout/base}}

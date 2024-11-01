@@ -1,0 +1,66 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+    @include breakpoint(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+
+    @include breakpoint(tab-port) { // width < 900?
+        //font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+    
+    @include breakpoint(big-desktop) {
+        //font-size: 75%; //1rem = 12, 12/16
+    }
+}
+
+body {
+    box-sizing: border-box;
+    @include breakpoint(tab-land) {
+        padding-top: 110px;
+    }
+    &.hasAdminBar {
+        .header {
+            padding-top: 0 !important;
+        }
+    }
+}
+
+.body {
+    margin-top: 0;
+}
+
+ul {
+    li {
+        list-style: none;
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+
+.container {    
+    @include breakpoint(tab-port-up) {
+        max-width: 90%;
+    }
+    @include breakpoint(tab-land-up) {
+        max-width: 1100px;
+        padding: 0;
+    }
+
+    @include breakpoint(desktop-up) {
+        max-width: 1215px;
+        padding: 0;
+    }
+}

@@ -1,0 +1,38 @@
+{{#if customer_group_name '==' 'Parents/Consumers'}}
+  
+        {{#each products}}
+            {{#if name '!=' 'Bundle: Paediatric Pack'}}
+              <div class="section-products__col">
+                    {{>components/products/card settings=../settings show_compare=../show_compare
+                    show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event
+                    position=(add @index 1)}}
+                </div>
+            {{/if}}
+        {{/each}}
+  
+{{else}}
+   {{#or (if customer.customer_group_name '==' 'Practitioner - Certified') (if customer.customer_group_name '==' 'Practitioner - Enrolled') (if customer.customer_group_name '==' 'Practitioner - Regular') (if customer.customer_group_name '==' 'Practitioner 1') }}
+         
+        {{#each products}}
+          
+          
+            <div class="section-products__col">
+                    {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
+            </div>
+           
+       
+        {{/each}}
+   {{else}}
+        {{#each products}}
+            {{#if name '!=' 'Myo Munchee Bebe'}}
+           
+            <div class="section-products__col">
+                    {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
+            </div>
+          
+        {{/if}}
+        {{/each}}
+    {{/or}}
+    
+ 
+{{/if}}

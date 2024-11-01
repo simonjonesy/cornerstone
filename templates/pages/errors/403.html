@@ -1,0 +1,20 @@
+{{#partial "page"}}
+
+
+
+    <section class="page-content page-content--centered error-403">
+           <div class="container">
+        <h2 class="page-heading">{{lang 'forbidden.page_heading'}}</h2>
+        <p class="u-textAlignCenter">
+            {{lang 'forbidden.if_you_were_signed_in'}}
+            <a href="{{urls.auth.login}}">{{lang 'forbidden.sign_in'}}</a>
+            {{lang 'forbidden.to_continue'}}
+        </p>
+        {{#skip}}
+        {{> components/common/search-box}}
+        {{/skip}}
+        </container>
+    </section>
+
+{{/partial}}
+{{> layout/base}}

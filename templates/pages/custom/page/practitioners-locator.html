@@ -1,0 +1,88 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<div class="page-banner">
+    <img src="https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/banner-contactus.png" alt="">
+</div>
+<div class="container">
+    <main class="page">
+        {{#unless theme_settings.hide_contact_us_page_heading }}
+            <!-- <h1 class="page-heading">{{page.title}}</h1> -->
+        {{/unless}}
+
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+
+        <div id="find-practitioner" class="contactus">
+            {{{page.content}}}
+        </div>
+    </main>
+</div>
+{{/partial}}
+
+{{> layout/base}}
+
+<script>
+    var fb='';
+    var ig='';
+    var video='';
+
+    function getURL() {
+        $(".storemapper-custom-1").each(function(){
+            $(this).html($(this).html().replace(/Facebook: /g, ''));
+            var fb = $(this).text();
+            $(this).parent(".tier").find('.get-fb-link').attr('href', "https://facebook.com/" + fb);
+        });
+        $(".storemapper-custom-2").each(function(){
+            $(this).html($(this).html().replace(/Instagram: /g, ''));
+            var ig = $(this).text();
+            $(this).parent(".tier").find('.get-ig-link').attr('href', "https://instagram.com/" + ig);
+        });
+        $(".storemapper-custom-3").each(function(){
+            $(this).html($(this).html().replace(/YouTube: /g, ''));
+            var y = $(this).text();
+            $(this).parent(".tier").find('.get-y-link').attr('href', "https://youtube.com/" + y);
+        });
+    };
+
+
+    function getIcon() {
+        $('p.storemapper-address').each(function() {
+            $(this).find('svg').replaceWith('<span class="bg-address"></span>');
+        });
+        $('p.storemapper-popup-address').each(function() {
+            $(this).find('svg').replaceWith('<span class="bg-address"></span>');
+        });
+
+        $('p.storemapper-phone').each(function() {
+            $(this).find('svg').replaceWith('<span class="bg-contact_number"></span>');
+        });
+        $('p.storemapper-popup-phone').each(function() {
+            $(this).find('svg').replaceWith('<span class="bg-contact_number"></span>');
+        });
+
+        $('p.storemapper-email').each(function() {
+            $(this).find('svg').replaceWith('<span class="bg-email"></span>');
+        });
+    }
+
+
+    function storemapper_after_search() {
+        getURL();
+        getIcon();
+    }
+
+    $("#storemapper").click(function(){
+        setInterval(function(){
+            getURL();
+            getIcon();
+        }, 1000);
+    });
+</script>

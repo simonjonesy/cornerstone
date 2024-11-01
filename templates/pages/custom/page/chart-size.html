@@ -1,0 +1,326 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "page"}}
+<section class="section-measure">
+            <div class="vector-effects">
+                <svg class="icon"> <use xlink:href="images/sprite.svg#effect-vector-2"></use> </svg>
+                <svg class="icon"> <use xlink:href="images/sprite.svg#effect-vector-1"></use> </svg>
+                <svg class="icon"> <use xlink:href="images/sprite.svg#effect-vector-2"></use> </svg>
+                <svg class="icon"> <use xlink:href="images/sprite.svg#effect-vector-2"></use> </svg>
+                <svg class="icon"> <use xlink:href="images/sprite.svg#effect-vector-2"></use> </svg>
+            </div>
+            <div class="container">
+               {{region name="chartSize_title"}}
+                <div class="row section-measure__images">
+                    <div class="section-sizechart_table">
+                  
+                        <div class="js-sizechart">
+                            <div>{{region name="bebe"}}
+                               
+                            </div>
+                            <div>{{region name="mini"}}
+                              
+                            </div>
+                            <div>{{region name="junior"}}
+                               
+                            </div>
+                            <div>{{region name="tween"}}
+                               
+                            </div>
+                            <div>{{region name="adult"}}
+                               
+                            </div>
+                        </div>
+                  
+                    
+                </div>
+                </div>
+                  <div class="btn btn--primary btn--lg btn--expand">{{region name="sizebutton"}}</div>
+            </div>
+        </section>
+        <section class="section-sizechart">
+            <div class="container">
+                {{region name="after_banner"}}
+                <div class="section-sizechart_table">
+                    <div class="js-sizechart-alt">
+                       
+                            <div class="js-sizechart-alt_col">
+                                {{region name="bebe_size"}}
+                                <div class="js-sizechart-alt_col--body">
+                                     {{region name="bebe_size_description"}}
+                                </div>
+                            </div>
+                            <div class="js-sizechart-alt_col">
+                                  {{region name="mini_size"}}
+                                <div class="js-sizechart-alt_col--body">
+                                     {{region name="mini_size_description"}}
+                                </div>
+                            </div>
+                            <div class="js-sizechart-alt_col">
+                                  {{region name="junior_size"}}
+                                <div class="js-sizechart-alt_col--body">
+                                    {{region name="junior_size_description"}}
+                                </div>
+                            </div>
+                            <div class="js-sizechart-alt_col">
+                                 {{region name="tween_size"}}
+                                <div class="js-sizechart-alt_col--body">
+                                       {{region name="tween_size_description"}}
+                                </div>
+                            </div>
+                            <div class="js-sizechart-alt_col">
+                                  {{region name="adult_size"}}
+                                <div class="js-sizechart-alt_col--body">
+                                     {{region name="adult_size_description"}}
+                                </div>
+                            </div>
+                      
+                    </div>
+                 <table>
+                   <thead>
+                        <tr>
+                            <td><div>{{region name="bebe_size_table1"}}</div></td>
+                            <td><div>{{region name="mini_size_table1"}}</div></td>
+                            <td><div>{{region name="junior_size_table1"}}</div></td>
+                            <td><div>{{region name="twee_size_table1"}}</div></td>
+                            <td><div>{{region name="adult_size_table1"}}</div></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                 {{region name="bebe_size_description_table"}}
+                            </td>
+                            <td>
+                                {{region name="mini_size_description_table"}}
+
+                            </td>
+                            <td>
+                                {{region name="junior_size_description_table"}}
+                            </td>
+                            <td>
+                                {{region name="tween_size_description_table"}}
+
+                            
+                            </td>
+                             <td>
+                                {{region name="adult_size_description_table"}}
+
+                            
+                            </td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                {{region name="device_inter_canine_width_measurements"}}
+                            </td>
+                        </tr>
+                    </tfoot>
+                    </table>
+                </div>
+               <!-- <div class="btn btn--primary btn--lg btn--expand">Myo Munchee Bebe is currently only available through a Practitioner.
+                    <a href="#">Click here</a> to find one of our Munchee Certified Practitioners near you.</div>-->
+            </div>
+        </section>
+        <section class="section-munchee">
+            <div class="container">
+                {{region name="c_munchee_heading"}}
+                     {{region name="c_munchee_cont"}}
+                 
+           
+            </div>
+        </section>
+          <section class="section-chew v2">
+                <div class="container">
+                    <div class="section-chew__inner" style="background: url(https://store-o6ldfcbwf8.mybigcommerce.com/content/images/specialNeeds.jpg);">
+                        <div class="vector-effects">
+                            <svg class="icon">
+                                <use xlink:href="#effect-vector-1"></use>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#effect-vector-2"></use>
+                            </svg>
+                        </div>
+                        <div class="section-chew__txt">
+                            {{region name="chew"}}
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <section class="section-relevant">
+            <div class="container">
+                <div class="relevant-box">
+                   {{region name="image_1"}}
+                   {{region name="image_2"}}
+                </div>
+            </div>
+        </section>
+        <section class="section-products">
+            <div class="container">
+                <div class="section-products__head">
+                    <h2>Shop all products</h2>
+                </div>
+                {{#skip}}
+             
+              <section class="section-model">
+            <div class="container">
+                <div class="section-model__head">
+                    {{region name="model_head"}}
+                </div>
+            </div>
+           
+      
+         
+         
+            
+             <div class="section-products__list row">
+                    <div class="section-products__col">
+                        <div class="product-box">
+                         {{region name="product_1"}}
+                        </div>
+                    </div>
+                    <div class="section-products__col">
+                        <div class="product-box">
+                         {{region name="product_2"}}
+                        </div>
+                    </div>
+                    <div class="section-products__col">
+                        <div class="product-box">
+                         {{region name="product_3"}}
+                        </div>
+                    </div>
+                    <div class="section-products__col">
+                        <div class="product-box">
+                         {{region name="product_4"}}
+                        </div>
+                    </div>
+                    <div class="section-products__col">
+                        <div class="product-box">
+                         {{region name="product_5"}}
+                        </div>
+                    </div>
+            </div>
+            
+             {{/skip}}
+             
+                  {{#or (if customer.customer_group_name '==' 'Practitioner - Certified') (if customer.customer_group_name '==' 'Practitioner - Enrolled') (if customer.customer_group_name '==' 'Practitioner - Regular') (if customer.customer_group_name '==' 'Practitioner 1')}}
+          <div class="container container-fluid">
+                    {{#each categories}}
+                {{#if name "==" 'Shop' }}
+        
+         {{#if children}}
+                        {{#each children}}
+                     {{#if name '==' 'Myo Munchee Practitioner'}}
+                    
+                      <div class="category-product-section">
+                    
+                          <div class="category-products" data-prod="{{url}}">
+                    
+                    
+                              <div class="category-product-list myo-munchee-practiioner">
+                    
+                                <ul class="productGrid">
+                                    <li class="product"></li>
+                                </ul>
+                    
+                              </div>  
+                    
+                    
+                          </div>
+                    
+                        </div>
+                    {{/if}}
+                   {{/each}}
+                {{/if}}
+                  {{/if}}
+                    
+                    {{/each}}
+                </div>
+         {{else}}
+          
+           <div class="container container-fluid">
+            {{#each categories}}
+        {{#if name "==" 'Shop' }}
+        
+         {{#if children}}
+                        {{#each children}}
+                {{#or (if name '==' 'Myo Munchees - Retail')}}
+                
+                  <div class="category-product-section">
+                    
+                          <div class="category-products" data-prod="{{url}}">
+                    
+                    
+                              <div class="category-product-list myo-munchee-retail">
+                    
+                                <ul class="productGrid">
+                                    <li class="product"></li>
+                                </ul>
+                    
+                              </div>  
+                    
+                    
+                          </div>
+                    
+                        </div>
+                {{/or}}
+                {{/each}}
+                {{/if}}
+                  {{/if}}
+            {{/each}}
+            </div>
+        {{/or}}
+               
+        </section>
+               
+            
+        <script>
+             if(document.querySelectorAll('.category-products').length){
+        
+            $('.category-products').each(function(){
+        
+              let url = $(this).data('prod');
+         
+                console.log(url);
+              let $this = $(this);
+        
+              $.ajax({
+        
+                url: url,
+        
+                method: 'GET',
+        
+                success:function(data){
+        
+                  if($(data).find('li.product').length){
+                      $this.find('.category-product-list ul.productGrid').html($(data).find('li.product:lt(10)'));
+                        $('.listItem-content .button').append('<svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg>');
+        
+                  }else{
+        
+                    $this.find('.category-product-list ul.productGrid').html('<li>No any product yet</li>')
+        
+                  }
+        
+                }
+        
+              })
+        
+            });
+        
+          }
+        </script>
+            </div>
+        </section>
+{{/partial}}
+{{> layout/base}}

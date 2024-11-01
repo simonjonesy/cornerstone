@@ -1,0 +1,110 @@
+---
+cart: true
+---
+{{#partial "page"}}
+  <style>
+         .header{
+             z-index:1;
+         }
+         .brochure-modal .modal{
+                  background: #fff;
+                padding: 60px 40px 40px;
+                max-height: 600px;
+                min-width: auto;
+                width: 100%;
+                max-width: 700px;
+                overflow-y: scroll;
+                display:block;
+         }
+           .brochure-modal .modal h3{
+               max-width: 600px;
+           }
+         
+         
+           .brochure-close-modal {
+                width: 32px;
+                height: 32px;
+                float: right;
+                position: absolute;
+               top: 30px;
+                  right: 30px;
+                text-indent: -9999px;
+                text-decoration: none;
+            }
+            .brochure-close-modal:before, .brochure-close-modal:after {
+                position: absolute;
+                left: 15px;
+                content: " ";
+                height: 33px;
+                width: 4px;
+                 background-color: #000;
+            }
+            .brochure-close-modal:after {
+                transform: rotate(-45deg);
+            }
+            .brochure-close-modal:before {
+                    transform: rotate(45deg);
+                }
+           @media screen and (max-width:768px){
+               .brochure-modal .modal{
+                   max-width:95%;
+               }
+           }
+     </style>
+     
+    <main class="page-content" data-cart>
+     <section class="section-cart">
+ <div class="container">
+        {{> components/cart/page-title}}
+    {{#if cart.items.length}}
+  <div class="loadingOverlay"></div>
+ {{/if}}
+ <div class="row">
+        {{#if cart.items.length}}
+           
+
+            <div class="section-cart__body" data-cart-content>
+                {{> components/cart/content}}                
+            </div>
+
+            <div class="section-cart__sidebar" data-cart-totals>
+                {{> components/cart/totals}}
+            </div>
+
+           
+          
+        {{else}}
+            <h3>{{lang 'cart.checkout.empty_cart'}}</h3>
+        {{/if}}
+    </div>
+    </div>
+</section>
+
+
+   <div class="brochure-modal modal-overlay">
+        <div class="modal">
+            <a href="#" class="brochure-close-modal"></a>
+            <div class="modal-inner">
+                <h3>Transition from Printed Brochures to E-Brochures</h3>
+                <p>Thank you for your wonderful ongoing support of the Munchee Movement. We would like to inform you of an exciting update regarding our marketing and communication strategy. As part of our ongoing commitment to environmental sustainability and embracing digital advancements, we are pleased to announce that we will be moving to the integration of e-brochures into our brochure offering. It is important to Myo Munchee that we do all we practically can to minimise our impact on the environment. By adopting e-brochures, we aim to reduce paper waste and contribute to a greener global future. This transition aligns with our company's values of sustainability and responsible business practices.</p>
+                <p>As of 17th July our new e-brochure version of the hard-copy z-card will now be automatically provided via the standard confirmation email for every order. Hard copy versions will no longer be supplied as default within the sales process. This will allow you to access, print and distribute our brochure material at your discretion and with ease of access and use.</p>
+                <p>If you prefer to receive printed brochures due to specific circumstances, please let us know, and we will accommodate your request accordingly. You can do this by emailing the fulfilment team at <a href="mailto:hello@myomunchee.com">hello@myomunchee.com</a></p>
+                <p>We value your continued support and partnership as we make this transition towards a more sustainable future. Thank you for your understanding and for embracing this positive change with us.
+                <p>We look forward to providing you with an enhanced digital experience through our e-brochures.</p>
+                <br><br>
+
+<p>Warm regards,</p>
+
+<p>The Munchee Team</p>
+
+            </div>
+        </div>
+    </div>
+    
+
+    </main>
+
+
+        
+{{/partial}}
+{{> layout/base}}

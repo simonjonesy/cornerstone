@@ -1,0 +1,122 @@
+{{#if currency_selector.currencies.length '>' 1}}
+<div class="currency-swicher__current">
+    <div class="currency">
+        
+                {{#if currency_selector.active_currency_code '==' 'AUD'}}
+                     <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-au.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'GBP'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/gbp-flag.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'USD'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-us.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'EUR'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/eur.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'CAD'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-canada.png" alt="" class="currency__flag">
+                {{/if}}
+      <span class="currency__name">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
+    </div>
+</div>
+<ul class="currency-swicher__curencies" {{#if currency_selector.currencies.length '>' 1}}data-class="{{currency_selector.active_currency_code}}"{{/if}}>
+     {{#each currency_selector.currencies}}
+            <li class="{{code}}">
+                <a  class="currency" href="{{{switch_url}}}"
+                   data-currency-code="{{{code}}}"
+                   {{#if cart_currency_switch_url.length '>' 0 }}
+                   data-cart-currency-switch-url="{{{cart_currency_switch_url}}}"
+                   {{/if}}
+                   data-warning="{{lang 'common.currency_switch_promotion'}}"
+                >
+               
+                {{#if code '==' 'AUD'}}
+                     <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-au.png" alt="" class="currency__flag">
+                {{else if code '==' 'GBP'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/gbp-flag.png" alt="" class="currency__flag">
+                {{else if code '==' 'USD'}}
+                     <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-us.png" alt="" class="currency__flag">
+                {{else  if code '==' 'EUR'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/eur.png" alt="" class="currency__flag">
+                {{else  if code '==' 'CAD'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-canada.png" alt="" class="currency__flag">
+                {{/if}}
+                   <span class="currency__name"> {{code}}</span>
+              
+                 
+              
+                </a>
+            </li>
+            {{/each}}
+       
+    </ul>
+    {{#skip}}
+<ul class="navUser-section">
+    <li class="navUser-item currency">
+        <a class="navUser-action navUser-action--currencySelector has-dropdown" href="#" data-dropdown="currencySelection" aria-controls="currencySelection" aria-expanded="false">
+           
+         
+                {{#if currency_selector.active_currency_code '==' 'AUD'}}
+                     <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/flag-au.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'GBP'}}
+                    <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/flag-gbp.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'USD'}}
+                    <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/flag-us.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'CAD'}}
+                    <img src="https://store-ib0clqurx6.mybigcommerce.com/content/images/flag-canada.png" alt="" class="currency__flag">
+                {{/if}}
+               
+           
+            <span class="currency__name">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
+            <i class="icon" aria-hidden="true">
+                <!-- <svg><use xlink:href="#icon-chevron-down" /></svg> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15">
+                    <defs>
+                        <filter id="mrop0d615a" width="101.7%" height="122.2%" x="-.8%" y="-11.1%" filterUnits="objectBoundingBox">
+                            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+                            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+                            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
+                            <feMerge>
+                                <feMergeNode in="shadowMatrixOuter1"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <g fill="none" fill-rule="evenodd">
+                        <g fill="#FFF" fill-rule="nonzero">
+                            <g filter="url(#mrop0d615a)" transform="translate(-1059 -17)">
+                                <g>
+                                    <path d="M6 7c-.215 0-.43-.084-.594-.252l-5.16-5.28c-.328-.336-.328-.88 0-1.216.328-.336.86-.336 1.189 0L6 4.924 10.565.252c.329-.336.86-.336 1.189 0 .328.336.328.88 0 1.216l-5.16 5.28C6.43 6.916 6.215 7 6 7z" transform="translate(1063 19)"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </i>
+        </a>
+        <ul class="dropdown-menu" id="currencySelection" data-dropdown-content aria-hidden="true" tabindex="-1">
+            {{#each currency_selector.currencies}}
+            <li class="dropdown-menu-item">
+                <a href="{{{switch_url}}}"
+                   data-currency-code="{{{code}}}"
+                   {{#if cart_currency_switch_url.length '>' 0 }}
+                   data-cart-currency-switch-url="{{{cart_currency_switch_url}}}"
+                   {{/if}}
+                   data-warning="{{lang 'common.currency_switch_promotion'}}"
+                >
+                       {{#if currency_selector.active_currency_code '==' 'AUD'}}
+                     <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/flag-au.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'GBP'}}
+                    <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/flag-gbp.png" alt="" class="currency__flag">
+                {{else if currency_selector.active_currency_code '==' 'USD'}}
+                    <img src="https://cdn11.bigcommerce.com/s-o6ldfcbwf8/images/stencil/original/image-manager/flag-us.png" alt="" class="currency__flag">
+                {{/if}}
+                   <span class="currency__name"> {{code}}</span>
+              
+                 
+              
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </li>
+</ul>
+{{/skip}}
+{{/if}}

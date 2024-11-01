@@ -1,0 +1,68 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{#skip}}
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#if carousel}}
+        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
+    {{/if}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+{{/skip}}
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+   {{#skip}}
+<div class="main full parents">
+ 
+        <!-- {{#if products.featured}}
+            {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_featured_products"}}}
+
+        {{#if products.top_sellers}}
+            {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_top_products"}}}
+
+        {{#if products.new}}
+            {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_new_products"}}} -->
+    
+    <section class="section-1">
+    {{> components/custom/parents/section-intro }}
+
+    <img src="https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/dividers.png" alt="" class="divider">
+   <br><br>
+    {{> components/custom/parents/section-range }}  
+    {{> components/custom/parents/section-easyfun }}
+    {{> components/custom/parents/section-tinyimage }}
+    </section>
+    <section class="section-2">
+       
+    </section>
+    
+</div>
+{{/skip}}
+
+
+ {{ region name="flexible_content" }}  
+
+{{region name="flex"}}
+
+{{/partial}}
+{{> layout/base}}

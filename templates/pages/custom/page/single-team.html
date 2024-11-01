@@ -1,0 +1,37 @@
+{{#partial "page"}}
+ <section class="section-member section--bg" itemscope itemtype="https://schema.org/Product">
+      <span style="display:none" itemprop="name">{{page.title}}</span>
+      <div itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating" itemscope>
+                <meta itemprop="reviewCount" content="89" />
+                <meta itemprop="ratingValue" content="4.4" />
+              </div>
+            <div class="container">
+                <div class="section-member__inner">
+                    <div class="row">
+                        <div class="section-member__media">
+                           {{region name="image"}}
+                        </div>
+                        <div class="section-member__txt">
+                            <h1>{{page.title}}</h1>
+                            <h5><svg class="icon"> <use xlink:href="#effect-vector-1"></use> </svg>  {{region name="position"}}</h5>
+                            {{region name="profile"}}
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-meet">
+            <div class="container">
+                <div class="section-meet__head">
+                    <h2>Meet the <br>Munchee Team</h2>
+                </div>
+               
+
+                {{region name="more_team"}}
+           
+            </div>
+        </section>
+       {{region name="reviews"}}
+{{/partial}}
+{{> layout/base}}

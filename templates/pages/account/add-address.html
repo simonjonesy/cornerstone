@@ -1,0 +1,44 @@
+{{#partial "page"}}
+ {{> components/account/navigation account_page='addresses'}}
+<div class="my--account">
+    <div class="container">
+     
+       
+    
+        <div class="account account--fixed">
+    
+            {{#if forms.address.error}}
+                {{> components/common/alert-error forms.address.error}}
+            {{/if}}
+    
+            <div class="account-body">
+    
+                <form action="{{forms.address.action}}" data-address-form class="form test" method="post">
+                    {{#if forms.address.address_id }}
+                        <input type="hidden" name="shipid" value="{{forms.address.address_id}}">
+                    {{/if}}
+                    <fieldset class="form-fieldset">
+                        <div class="form-row form-row--half">
+                            {{#each forms.address.shipping_fields }}
+                             
+                                {{{dynamicComponent 'components/common/forms'}}}
+                             
+                            {{/each}}
+                        </div>
+                    </fieldset>
+                    <div class="form-actions">
+                        <input type="submit" class="btn btn--secondary btn--sm" value="{{lang 'forms.address.submit_value'}}" style="border:0;">
+                        <a href="{{urls.account.addresses}}" class="btn btn--sm btn--primary" style="height: 4rem;
+                        width: 15rem;
+                        line-height: 2rem;">{{lang 'common.cancel'}}</a>
+                        {{inject 'required' (lang 'common.required')}}
+                        {{inject 'state_error' (lang 'errors.state_error')}}
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

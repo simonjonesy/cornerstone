@@ -1,0 +1,92 @@
+---
+blog:
+    recent_posts:
+        limit: 3
+---
+{{#partial "page"}}
+<section class="section-breadcrumb">
+     <div class="container">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+  </section>
+   <section class="section-faqs">
+            <div class="container">
+                <div class="internal-block">
+                    <h1>{{region name="title"}}</h1>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                    <form id="search-faq" action method="post">
+                        <input id="filter" type="search" placeholder="Search FAQs" value="">
+                    </form>
+                    <ul class="accordion accordion--faqs">
+                   
+                         {{region name="faq_content"}}
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="section-rel-posts">
+            <div class="container">
+                <div class="section-rel-posts__head">
+                   {{region name="blog_heading"}}
+                </div>
+                 {{#each blog.posts}}
+                           <div class="articles-list__item">
+                                    <article class="card card--post">
+  <div class="card__media">
+        {{#if post.thumbnail}}
+          
+              
+                    {{> components/common/responsive-img
+                        image=post.thumbnail
+                        fallback_size=theme_settings.blog_size
+                        lazyload=theme_settings.lazyload_mode
+                    }}
+            
+        {{/if}}
+    </div>
+
+   <div class="card__body">
+       
+        <h4><a href="{{post.url}}">{{post.title}}</a> </h4>
+        <p class="date">
+            <span>{{post.date_published}}</span>
+            <span>{{#if post.author}} by {{post.author}}{{/if}}</span>
+        </p>
+       <a href="{{url}}" class="btn btn--secondary strached-link">Learn more <svg class="icon"> <use xlink:href="#arrow-topright"></use> </svg></a>
+    </div>
+                            </div>
+                          {{/each}}
+            {{region name="blogs"}}
+            </div>
+        </section>
+        
+        
+        <script type="text/javascript">
+        $(document).ready(function(){
+    $("#filter").keyup(function(){
+
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(), count = 0;
+       
+        // Loop through the comment list
+        $(".accordion--faqs li").each(function(){
+ 
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $(this).fadeOut();
+ 
+            // Show the list item if the phrase matches and increase the count by 1
+            } else {
+                $(this).show();
+                count++;
+            }
+        });
+ 
+       
+        
+    });
+});
+    </script>
+{{/partial}}
+{{> layout/base}}

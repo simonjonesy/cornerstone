@@ -1,0 +1,64 @@
+.navPages {
+    @include breakpoint(tab-land-up) {
+        //max-width: 1215px;
+        max-width: 100%;
+    }
+    @include breakpoint(tab-land) {
+        //background: $color-white;
+        background: #3eb4e4;
+    }
+    &-container {
+        @include breakpoint(tab-land) {
+            position: fixed;
+            width: 80%;
+        }
+        &.is-open {
+            @include breakpoint(tab-land) {
+                padding-top: 12.5rem;
+                z-index: 99;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include breakpoint(tab-land) {
+    .header {
+        .mobileMenu {
+            &-toggle {
+                position: relative;
+                &Icon {
+                    background-color: $color-white;
+                    width: 27px;
+                    height: 2px;
+                    &:before,
+                    &:after {
+                        background-color: $color-white;
+                        width: 20px;
+                        height: 2px;
+                    }
+                    &:before {
+                        top: -7px;
+                    }
+                    &:after {
+                        bottom: -7px;
+                    }
+                }
+            }
+
+        }
+    }
+    #sb-close {
+        position: absolute;
+        top: 1.1rem;
+        left: 1rem;
+    }
+}
+
+.mobileMenu-toggle.is-open .mobileMenu-toggleIcon::before, .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
+    background-color: #fff;
+}
+
+.header__top {
+    z-index: 9999999;
+}

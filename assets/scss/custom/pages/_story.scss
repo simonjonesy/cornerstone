@@ -1,0 +1,219 @@
+.read-more{
+    color: #3eb4e4;
+}
+.story{
+    .section-movement, .section-easyfun:after {
+        background-color: transparent;
+    }
+    .tinyimg .card2{
+        border: 0;
+    }
+    .tinyimg .card2 .card-body{
+        background-color: transparent !important;
+    }
+    .section-1{
+        background-color: #fff;
+    }
+    .section-2 .range p.text-center {
+        max-width: 805px;
+        margin: 0 auto;
+    }
+    .section-2 .btn-wrap a {
+        margin: 0 auto;
+    }
+   .section-2 .range .last-container div {
+        max-width: 410px;
+        max-height: 324px;
+        margin: 0 auto;
+        
+    }
+    .section-2 .bottom-image {
+        max-width: 372px;
+        display: inline-block;
+        padding: 0 20px;
+    }
+    .section-intro .btn--brand2 {
+        min-width: 50%;
+    }
+    .section-intro .btn {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .section-2 .card2 .card-body {
+        padding-bottom: 10rem;
+    }
+    .column-1{
+        padding-right: 5rem;
+        padding-top: 3rem;
+    }
+    .intro-head {
+        font-size: 54px;
+        line-height: 60px;
+        letter-spacing: 10.8px;
+    }
+
+    /*section.section.section-intro {
+        background: url(https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/munchee-story-header.png) no-repeat center;
+        height: 80vh;
+        background-size: cover;
+    }*/
+    section.section.section-boss {
+        background: url(https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/founder.jpg) no-repeat center;
+        height: 550px;
+        background-size: cover;
+    }
+    section.section.section-ceo {
+        background: url(https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/ceo.jpg) no-repeat center;
+        height: 550px;
+        background-size: cover;
+    }
+    .founder .head-primary {
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: 2px;
+    }
+    .read-more{
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .section-boss .column-1 {
+        position: absolute;
+        right: 0;
+        top: 10rem;
+    }
+    .section-ceo .column-1 {
+        position: absolute;
+        left: 0;
+        top: 10rem;
+    }
+    .section-3 .bottom-image {
+        max-width: 360px;
+        display: inline-block;
+        padding: 0 16px;
+    }
+    .section-3 .card2{
+        height: 680px;
+    }
+    .bottom-image .card-figure{
+        background-size: cover !important;
+    }
+
+    .section.section-join .desc {
+        line-height: 32px;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    .text-center{
+        max-width: 805px;
+        margin: 0 auto;
+    }
+    .boss-story-description, .ceo-story-description{
+        padding: 3rem 0;
+        font-size: 15px;
+        line-height: 32px;
+        letter-spacing: 0.75px;
+        display:none;
+       
+    }
+    .section-description{
+        padding: 0;
+    }
+    #team .text-center {
+        max-width: 90%;
+    }
+    #overlay{
+        top: 11rem;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        position: absolute; 
+        height: 16%;
+        cursor: pointer;
+    }
+    @media (max-width: 56.25em){
+        .intro-head {
+            font-size: 25px;
+            line-height: 28px;
+            letter-spacing: 5px;
+        }
+        .section-intro .intro-head{
+            padding-top: 5rem;
+        }
+        .section-intro p {
+            font-size: 13px;
+            line-height: 22px;
+            letter-spacing: 0.65px;
+        }
+        .column-1 {
+            padding-top: 0;
+            padding-right: 0rem;
+        }
+        .section-join .head-primary {
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: 2px;
+        }
+        .section.section-join .desc {
+            line-height: 22px;
+            font-size: 13px;
+            letter-spacing: 0.65px;
+        }
+        .founder .head-primary {
+            font-size: 18px;
+            line-height: 40px;
+            letter-spacing: 0.9px;
+        }
+        .section-boss .column-1, .section-ceo .column-1  {
+            padding-left: 1.5rem;
+            top: 0;
+            width: 60% !important;
+        }
+        section.section.section-boss, section.section.section-ceo {
+            height: 50vh;
+        }
+        .section-ceo .column-1 {
+            top: 5rem;
+            left: 3rem;
+        }
+        section.section.section-boss {
+            background: url(https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/founder.jpg) no-repeat -190px 0;
+            //height: 550px;
+            background-size: cover;
+        }
+        section.section.section-ceo {
+            background: url(https://cdn11.bigcommerce.com/s-ib0clqurx6/product_images/uploaded_images/ceo.jpg) no-repeat -260px 0;
+           // height: 550px;
+            background-size: cover;
+        }
+        .section {
+            padding-top: 0;
+        }
+        .section-3 .card2{
+            height: auto;
+        }
+        .card-body .head-mid {
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.75px;
+        }
+        .card-body p {
+            font-size: 13px;
+            line-height: 22px;
+            letter-spacing: 0.87px;
+        }
+        /*.founder p {
+            max-width: 80%;
+        }*/
+
+        #overlay{
+            height: 25rem;
+        }
+        
+    }
+    .slick-dots li button {
+        display: none;
+        border: 0;
+    }
+   
+}
+
